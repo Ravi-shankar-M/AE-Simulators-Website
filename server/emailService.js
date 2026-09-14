@@ -1,4 +1,5 @@
 import nodemailer from 'nodemailer';
+import { Resend } from 'resend';
 import fs from 'fs';
 import dns from 'dns';
 
@@ -59,10 +60,21 @@ export function createTransporter() {
   return null;
 }
 
+export function isResendConfigured() {
+  const apiKey = (process.env.RESEND_API_KEY || '').trim();
+  const fromAddress = (process.env.RESEND_FROM || '').trim();
+  return Boolean(apiKey && fromAddress);
+}
+
 export async function verifySmtpConfiguration() {
+  if (isResendConfigured()) {
+    console.log('[AE-SIMULATORS EMAIL SERVICE] Resend HTTPS API configured for production email delivery.');
+    return true;
+  }
+
   const transporter = createTransporter();
   if (!transporter) {
-    console.log('[AE-SIMULATORS EMAIL SERVICE] SMTP configuration missing. Set SMTP_HOST, SMTP_USER, SMTP_PASS in .env to enable live email delivery to ravishankarm.ae@gmail.com');
+    console.log('[AE-SIMULATORS EMAIL SERVICE] Email configuration missing. Set RESEND_API_KEY & RESEND_FROM for Resend, or SMTP_HOST, SMTP_USER, SMTP_PASS in .env to enable email delivery.');
     return false;
   }
   try {
@@ -252,7 +264,6 @@ Submitted at: ${new Date().toUTCString()}`,
 
 export async function sendContactEmail({ name, company, email, phone, requirement, message }) {
   const recipient = process.env.ENQUIRY_RECIPIENT_EMAIL || 'ravishankarm.ae@gmail.com';
-  const transporter = createTransporter();
 
   // Sanitize header inputs to prevent CRLF email header injection
   const safeName = String(name || '').replace(/[\r\n]/g, '').trim();
@@ -262,14 +273,7 @@ export async function sendContactEmail({ name, company, email, phone, requiremen
   const safeRequirement = String(requirement || 'General Enquiry').replace(/[\r\n]/g, '').trim();
   const safeMessage = String(message || '').trim();
 
-  const senderAddress = process.env.SMTP_FROM || process.env.SMTP_USER || `"AE Simulators Website" <${recipient}>`;
-
-  const mailOptions = {
-    from: senderAddress,
-    to: recipient,
-    replyTo: safeEmail,
-    subject: `New Website Enquiry — AE-SIMULATORS`,
-    text: `New enquiry received from the AE-SIMULATORS website.
+  const textContent = `New enquiry received from the AE-SIMULATORS website.
 
 Name:
 ${safeName}
@@ -289,8 +293,9 @@ ${safeRequirement}
 Message:
 ${safeMessage}
 
-Submitted at: ${new Date().toUTCString()}`,
-    html: `
+Submitted at: ${new Date().toUTCString()}`;
+
+  const htmlContent = `
       <div style="font-family: Arial, sans-serif; max-width: 650px; margin: 0 auto; background-color: #111115; color: #ffffff; padding: 30px; border-radius: 8px; border: 1px solid #22222a;">
         <div style="text-align: center; padding-bottom: 20px; border-bottom: 2px solid #E31B23;">
           <h2 style="color: #E31B23; margin: 0; font-size: 24px; letter-spacing: 1px;">AE SIMULATORS</h2>
@@ -333,15 +338,66 @@ Submitted at: ${new Date().toUTCString()}`,
           AE Simulators &bull; Official Enquiry System &bull; Destination: ${recipient}
         </div>
       </div>
-    `,
+    `;
+
+  // 1. Resend HTTPS API Transport (Requires BOTH RESEND_API_KEY and RESEND_FROM)
+  if (isResendConfigured()) {
+    const apiKey = process.env.RESEND_API_KEY.trim();
+    const fromAddress = process.env.RESEND_FROM.trim();
+    try {
+      const resend = new Resend(apiKey);
+      const { data, error } = await resend.emails.send({
+        from: fromAddress,
+        to: recipient,
+        replyTo: safeEmail,
+        subject: `New Website Enquiry — AE-SIMULATORS`,
+        text: textContent,
+        html: htmlContent,
+      });
+
+      if (error) {
+        console.error(`[CONTACT EMAIL ERROR] Resend API error: ${error.message || JSON.stringify(error)}`);
+        return {
+          success: false,
+          error: 'EMAIL_SEND_FAILED',
+          message: "Sorry, we couldn't send your enquiry right now. Please check server email credentials or try again in a few moments.",
+        };
+      }
+
+      console.log(`[CONTACT EMAIL SUCCESS] Enquiry email delivered via Resend HTTPS API to ${recipient} (ID: ${data?.id})`);
+      return {
+        success: true,
+        message: 'Thank you for your enquiry. Your message has been sent successfully. Our team will get back to you shortly.',
+      };
+    } catch (err) {
+      console.error(`[CONTACT EMAIL ERROR] Resend transmission failed: ${err.message}`);
+      return {
+        success: false,
+        error: 'EMAIL_SEND_FAILED',
+        message: "Sorry, we couldn't send your enquiry right now. Please check server email credentials or try again in a few moments.",
+      };
+    }
+  }
+
+  // 2. Nodemailer Gmail SMTP Transport Fallback
+  const transporter = createTransporter();
+  const senderAddress = process.env.SMTP_FROM || process.env.SMTP_USER || `"AE Simulators Website" <${recipient}>`;
+
+  const mailOptions = {
+    from: senderAddress,
+    to: recipient,
+    replyTo: safeEmail,
+    subject: `New Website Enquiry — AE-SIMULATORS`,
+    text: textContent,
+    html: htmlContent,
   };
 
   if (!transporter) {
-    console.error('[CONTACT EMAIL ERROR] SMTP configuration missing on server (SMTP_HOST, SMTP_USER, SMTP_PASS required in .env).');
+    console.error('[CONTACT EMAIL ERROR] Neither Resend (RESEND_API_KEY + RESEND_FROM) nor SMTP configuration is present in .env.');
     return {
       success: false,
       error: 'SMTP_NOT_CONFIGURED',
-      message: 'Server email credentials are not configured. Please set SMTP_HOST, SMTP_USER, and SMTP_PASS in .env.',
+      message: 'Server email credentials are not configured. Please set RESEND_API_KEY and RESEND_FROM (or SMTP credentials) in .env.',
     };
   }
 
