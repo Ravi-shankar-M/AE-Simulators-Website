@@ -1,0 +1,95 @@
+/* ============================================================
+   TECHNOLOGY PAGE STYLES — AE-SIMULATORS
+   ============================================================ */
+
+.technology-page-container {
+  width: 100%;
+  padding-top: 76px;
+  background: linear-gradient(180deg, #ffffff 0%, #f4fbf7 30%, #f0fdf4 70%, #ffffff 100%) !important;
+  position: relative;
+}
+
+.technology-page-container::before {
+  content: '';
+  position: absolute;
+  top: 140px;
+  left: 0;
+  right: 0;
+  height: 500px;
+  background-image: 
+    radial-gradient(rgba(227, 27, 35, 0.08) 1.5px, transparent 1.5px),
+    linear-gradient(to bottom, rgba(0, 0, 0, 0.02) 1px, transparent 1px);
+  background-size: 32px 32px, 64px 64px;
+  pointer-events: none;
+  opacity: 0.85;
+}
+
+.pipeline-flow-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+  max-width: 940px;
+  margin: 0 auto;
+  position: relative;
+  z-index: 2;
+}
+
+.pipeline-step-card {
+  width: 100%;
+  padding: 28px 36px;
+  border-left: 4px solid var(--ae-red);
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  background: #ffffff;
+  border-radius: 0 6px 6px 0;
+  border-top: 1px solid var(--border-subtle);
+  border-right: 1px solid var(--border-subtle);
+  border-bottom: 1px solid var(--border-subtle);
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.pipeline-step-card:hover {
+  transform: translateX(6px);
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.07);
+  border-left-width: 6px;
+}
+
+.step-header {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.step-num {
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  color: #E31B23;
+}
+
+.step-header h3 {
+  font-size: 1.35rem;
+  font-weight: 800;
+}
+
+.step-sub {
+  font-size: 0.75rem;
+  color: var(--text-dim);
+  letter-spacing: 0.04em;
+}
+
+.step-desc {
+  font-size: 0.95rem;
+  color: var(--text-muted);
+  line-height: 1.65;
+}
+
+.pipeline-connector {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 28px;
+  color: #E31B23;
+}

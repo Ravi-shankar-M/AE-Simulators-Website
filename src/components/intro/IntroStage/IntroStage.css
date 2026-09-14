@@ -1,0 +1,476 @@
+/* THE ARRIVAL — Storyboard Matched Cinematic Intro Stage Styling */
+
+:root {
+  --ae-bg-dark: #ffffff;
+  --ae-stage-bg: #f8f9fa;
+  --ae-red-led: #ff1e27;
+  --ae-red-glow: rgba(255, 30, 39, 0.4);
+  --ae-silver: #0f172a;
+}
+
+/* Fullscreen Opaque Intro Container */
+.intro-stage-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: var(--ae-bg-dark);
+  overflow: hidden;
+  z-index: 999999;
+  user-select: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  color: #000000;
+}
+
+/* Outer Garage Atmosphere & Corner Light Strips */
+.intro-stage-atmosphere {
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(circle at 50% 50%, rgba(255, 30, 39, 0.15) 0%, transparent 65%),
+    radial-gradient(circle at 50% 20%, #0c0d12 0%, var(--ae-bg-dark) 85%);
+  pointer-events: none;
+}
+
+/* Visual Debug Timer Overlay */
+.intro-stage-debug {
+  position: absolute;
+  top: 1.5rem;
+  left: 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+  background: rgba(15, 18, 24, 0.92);
+  border: 1px solid rgba(255, 30, 39, 0.6);
+  padding: 0.5rem 1.2rem;
+  border-radius: 6px;
+  z-index: 1000000;
+  backdrop-filter: blur(8px);
+}
+
+.debug-time-text {
+  font-size: 0.85rem;
+  font-weight: 900;
+  color: #ff1e27;
+  font-family: monospace;
+}
+
+.debug-state-text {
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: #cbd5e1;
+  text-transform: uppercase;
+}
+
+/* BOUNDED CINEMATIC STAGE RECTANGLE (Matches Reference Image) */
+.cinematic-stage-box {
+  position: relative;
+  width: 82vw;
+  max-width: 1140px;
+  min-width: 320px;
+  height: 420px;
+  background: var(--ae-stage-bg);
+  border-radius: 18px;
+  border: 2px solid #1e2430;
+  box-shadow:
+    0 35px 80px rgba(0, 0, 0, 0.98),
+    inset 0 0 0 2px rgba(255, 30, 39, 0.5),
+    0 0 50px var(--ae-red-glow);
+  overflow: hidden;
+  /* Clips all elements inside stage */
+  transform-style: preserve-3d;
+}
+
+/* Red LED Corner Light Strips (Matches Reference Image Top Corners) */
+.stage-corner-led {
+  position: absolute;
+  width: 24px;
+  height: 24px;
+  border: 3px solid #ff1e27;
+  box-shadow: 0 0 15px #ff1e27;
+  z-index: 250;
+  pointer-events: none;
+}
+
+.corner-tl {
+  top: 12px;
+  left: 12px;
+  border-right: none;
+  border-bottom: none;
+}
+
+.corner-tr {
+  top: 12px;
+  right: 12px;
+  border-left: none;
+  border-bottom: none;
+}
+
+.corner-bl {
+  bottom: 12px;
+  left: 12px;
+  border-right: none;
+  border-top: none;
+}
+
+.corner-br {
+  bottom: 12px;
+  right: 12px;
+  border-left: none;
+  border-top: none;
+}
+
+/* Wet Reflective Floor Ground Surface */
+.stage-wet-floor {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 45%;
+  background: linear-gradient(to bottom, transparent 0%, rgba(255, 30, 39, 0.08) 50%, rgba(10, 12, 16, 0.95) 100%);
+  border-top: 1px solid rgba(255, 30, 39, 0.4);
+  box-shadow: inset 0 20px 30px rgba(255, 30, 39, 0.15);
+  pointer-events: none;
+  z-index: 10;
+}
+
+/* TOP-LEFT ILLUMINATED BILLBOARD BOX (Matches Reference Image Top-Left Sign) */
+.stage-billboard-box {
+  position: absolute;
+  top: 20px;
+  left: 25px;
+  width: 440px;
+  height: 165px;
+  background: linear-gradient(135deg, #141822 0%, #090b10 100%);
+  border-radius: 12px;
+  border: 2px solid rgba(255, 30, 39, 0.7);
+  box-shadow:
+    0 15px 35px rgba(0, 0, 0, 0.9),
+    inset 0 0 0 1px rgba(255, 30, 39, 0.4),
+    0 0 30px rgba(255, 30, 39, 0.35);
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  padding: 1.2rem 1.8rem;
+  z-index: 40;
+  transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+.billboard-logo-img {
+  max-width: 95%;
+  height: auto;
+  max-height: 90px;
+  object-fit: contain;
+  filter: drop-shadow(0 0 12px rgba(255, 30, 39, 0.4));
+}
+
+.billboard-tagline {
+  font-size: 0.75rem;
+  font-weight: 800;
+  letter-spacing: 0.22em;
+  color: #94a3b8;
+  margin-top: 0.6rem;
+  text-transform: uppercase;
+}
+
+/* MATTE BLACK FORMULA RACE CAR COMPONENT */
+.animated-car-wrapper {
+  position: absolute;
+  top: 55%;
+  left: 0;
+  width: 100%;
+  height: 180px;
+  transform: translateY(-50%);
+  pointer-events: none;
+  z-index: 70;
+  will-change: transform;
+}
+
+.animated-car-body {
+  position: absolute;
+  right: 10%;
+  width: 480px;
+  height: auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  filter: drop-shadow(0 25px 35px rgba(0, 0, 0, 0.95));
+  will-change: transform;
+}
+
+/* Rear Taillight Glow */
+.car-taillight-glow {
+  position: absolute;
+  left: 55px;
+  top: 72px;
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: #ff1e27;
+  box-shadow: 0 0 15px #ff1e27, 0 0 30px #ff1e27;
+  animation: taillightPulse 0.4s infinite alternate;
+}
+
+@keyframes taillightPulse {
+  from {
+    opacity: 0.7;
+  }
+
+  to {
+    opacity: 1;
+    transform: scale(1.2);
+  }
+}
+
+/* Rear Wheel Spinning Engine */
+.rear-wheel-hub {
+  transform-origin: center;
+}
+
+.rear-wheel-hub.spinning-slow {
+  animation: wheelSpinVariable 0.3s linear infinite;
+}
+
+.rear-wheel-hub.spinning-fast {
+  animation: wheelSpinVariable 0.12s linear infinite;
+}
+
+.rear-wheel-hub.spinning-max {
+  animation: wheelSpinVariable 0.06s linear infinite;
+}
+
+@keyframes wheelSpinVariable {
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* REAR TYRE FRICTION SMOKE GENERATOR */
+.tyre-smoke-emitter {
+  position: absolute;
+  right: 74%;
+  bottom: 25px;
+  pointer-events: none;
+  z-index: 80;
+}
+
+.tyre-smoke-puff {
+  position: absolute;
+  width: 65px;
+  height: 65px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(255, 255, 255, 0.85) 0%, rgba(226, 232, 240, 0.4) 40%, transparent 75%);
+  filter: blur(10px);
+  animation: rearTyreSmokeBillow 0.5s ease-out infinite;
+}
+
+.tyre-smoke-puff.heavy {
+  width: 95px;
+  height: 95px;
+  filter: blur(14px);
+  background: radial-gradient(circle, rgba(255, 255, 255, 0.9) 0%, rgba(255, 30, 39, 0.45) 40%, transparent 75%);
+}
+
+@keyframes rearTyreSmokeBillow {
+  0% {
+    transform: scale(0.5) translate(0, 0);
+    opacity: 0.9;
+  }
+
+  50% {
+    transform: scale(1.6) translate(35px, -15px);
+    opacity: 0.6;
+  }
+
+  100% {
+    transform: scale(2.5) translate(70px, -30px);
+    opacity: 0;
+  }
+}
+
+/* ANIMATED HEAVY CHAIN COMPONENT */
+.animated-chain-wrapper {
+  position: absolute;
+  top: 54%;
+  right: -55vw;
+  transform: translateY(-50%);
+  display: flex;
+  align-items: center;
+  gap: 1.2rem;
+  z-index: 85;
+  opacity: 0;
+  transition: opacity 0.5s ease, transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.animated-chain-wrapper.visible {
+  opacity: 1;
+}
+
+.animated-chain-wrapper.pulled-mid {
+  transform: translate(-88vw, -50%);
+}
+
+.heavy-chain-svg {
+  height: 42px;
+  width: 340px;
+  filter: drop-shadow(0 6px 14px rgba(0, 0, 0, 0.95));
+}
+
+/* DRAGGED 3D METALLIC TITLE COMPONENT (Matches Reference Image Bottom-Right) */
+.dragged-title-wrapper {
+  position: relative;
+  z-index: 100;
+  /* In front of car */
+}
+
+.dragged-title-3d {
+  font-size: 3.6rem;
+  font-weight: 900;
+  letter-spacing: 0.08em;
+  background: linear-gradient(180deg, #ffffff 0%, #e2e8f0 45%, #64748b 100%);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-shadow:
+    0 1px 0 #94a3b8,
+    0 2px 0 #64748b,
+    0 3px 0 #334155,
+    0 4px 18px rgba(0, 0, 0, 0.95),
+    0 0 35px var(--ae-red-glow);
+  white-space: nowrap;
+}
+
+/* BRIGHT ORANGE/RED GROUND FRICTION SPARKS & DUST (Matches Reference Image Right Ground) */
+.ground-friction-emitter {
+  position: absolute;
+  left: 5%;
+  bottom: -5px;
+  pointer-events: none;
+  z-index: 110;
+}
+
+.friction-spark-bright {
+  position: absolute;
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: #ff5500;
+  box-shadow: 0 0 12px #ff5500, 0 0 25px #ff1e27, 0 0 5px #ffffff;
+  animation: brightSparkBurst 0.35s ease-out infinite;
+}
+
+@keyframes brightSparkBurst {
+  0% {
+    transform: translate(0, 0) scale(1.2);
+    opacity: 1;
+  }
+
+  100% {
+    transform: translate(-45px, -30px) scale(0.2);
+    opacity: 0;
+  }
+}
+
+.friction-dust-cloud {
+  position: absolute;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(255, 85, 0, 0.5) 0%, rgba(255, 30, 39, 0.3) 40%, transparent 75%);
+  filter: blur(10px);
+  animation: brightDustExpand 0.5s ease-out infinite;
+}
+
+@keyframes brightDustExpand {
+  0% {
+    transform: translate(0, 0) scale(0.6);
+    opacity: 0.8;
+  }
+
+  100% {
+    transform: translate(40px, -20px) scale(2);
+    opacity: 0;
+  }
+}
+
+/* TRANSITION LASER WIPE */
+.arrival-transition-wipe {
+  position: absolute;
+  inset: 0;
+  background: #050505;
+  transform: translateX(-100%);
+  z-index: 1000000;
+  pointer-events: none;
+}
+
+.arrival-transition-wipe.active {
+  animation: laserWipe 0.7s cubic-bezier(0.7, 0, 0.3, 1) forwards;
+}
+
+@keyframes laserWipe {
+  0% {
+    transform: translateX(-100%);
+    box-shadow: 20px 0 40px var(--ae-red-led);
+  }
+
+  50% {
+    box-shadow: 40px 0 80px var(--ae-red-led);
+  }
+
+  100% {
+    transform: translateX(0%);
+    box-shadow: 0 0 0 transparent;
+  }
+}
+
+/* RESPONSIVE SCALING */
+@media (max-width: 1024px) {
+  .cinematic-stage-box {
+    height: 350px;
+  }
+
+  .stage-billboard-box {
+    width: 360px;
+    height: 140px;
+  }
+
+  .dragged-title-3d {
+    font-size: 2.8rem;
+  }
+
+  .animated-car-body {
+    width: 400px;
+  }
+}
+
+@media (max-width: 768px) {
+  .cinematic-stage-box {
+    height: 290px;
+  }
+
+  .stage-billboard-box {
+    width: 280px;
+    height: 120px;
+  }
+
+  .billboard-tagline {
+    font-size: 0.6rem;
+  }
+
+  .dragged-title-3d {
+    font-size: 2.1rem;
+  }
+
+  .animated-car-body {
+    width: 320px;
+  }
+}

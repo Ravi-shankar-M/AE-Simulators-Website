@@ -1,0 +1,12 @@
+User-agent: *
+Allow: /
+
+Disallow: /server/
+Disallow: /src/
+Disallow: /node_modules/
+Disallow: /dist/
+Disallow: /.git/
+Disallow: /.env
+Disallow: /private-masters/
+
+Sitemap: https://ae-simulators.com/sitemap.xml

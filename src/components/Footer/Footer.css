@@ -1,0 +1,210 @@
+/* ============================================================
+   FOOTER STYLES — AE-SIMULATORS
+   ============================================================ */
+
+.ae-footer {
+  width: 100%;
+  background-color: #17191C;
+  color: #ffffff;
+  border-top: 1px solid #27272a;
+  padding-top: 80px;
+}
+
+.footer-container {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 32px 60px 32px;
+  display: grid;
+  grid-template-columns: 1.4fr 1fr 1fr 1.4fr 1fr;
+  gap: 36px;
+  align-items: start;
+}
+
+.footer-brand-block {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  align-items: flex-start;
+}
+
+.footer-make-in-india-col {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  justify-content: flex-start;
+}
+
+.footer-logo-link {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  text-decoration: none;
+  background: transparent;
+  transition: opacity 0.2s ease, transform 0.2s ease;
+}
+
+.footer-logo-link:hover {
+  opacity: 0.92;
+  transform: translateY(-2px);
+}
+
+.aesim-logo-link {
+  width: 100%;
+  max-width: 320px;
+  height: 115px;
+}
+
+.make-in-india-link {
+  width: 100%;
+  max-width: 180px;
+  height: auto;
+}
+
+.footer-brand-logo {
+  max-height: 100%;
+  max-width: 100%;
+  width: auto;
+  height: auto;
+  object-fit: contain;
+  display: block;
+}
+
+.footer-links-column {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.column-title {
+  font-family: var(--font-heading);
+  font-size: 0.95rem;
+  color: #E31B23;
+  letter-spacing: 0.08em;
+  margin-bottom: 8px;
+  font-weight: 800;
+  text-transform: uppercase;
+}
+
+.footer-links-column a {
+  font-family: var(--font-body);
+  font-size: 0.88rem;
+  color: #d4d4d8;
+  text-decoration: none;
+  padding: 3px 6px;
+  border-radius: 3px;
+  display: inline-block;
+  transition: all 0.2s ease;
+}
+
+.footer-links-column a:hover {
+  background-color: #E31B23 !important;
+  color: #ffffff !important;
+  font-weight: 700;
+  transform: translateX(4px);
+}
+
+.footer-email-link {
+  font-size: 0.85rem;
+  color: #E31B23 !important;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  transition: color 0.2s ease;
+  text-transform: none !important;
+}
+
+.footer-email-link:hover {
+  color: #FFFFFF !important;
+  background: transparent !important;
+  transform: none;
+}
+
+.footer-contact-email {
+  font-size: 0.85rem;
+  color: #d4d4d8 !important;
+  text-decoration: none !important;
+  padding: 0 !important;
+  background: transparent !important;
+  text-transform: lowercase !important;
+  transition: color 0.2s ease !important;
+}
+
+.footer-contact-email:hover {
+  color: #E31B23 !important;
+  background: transparent !important;
+  transform: none !important;
+}
+
+.footer-bottom-bar {
+  border-top: 1px solid #27272a;
+  padding: 20px 32px;
+  background-color: #0e1013;
+}
+
+.bottom-container {
+  max-width: 1400px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  align-items: center;
+  font-size: 0.75rem;
+  color: #d4d4d8 !important;
+}
+
+.footer-copyright-text {
+  text-align: center;
+}
+
+.bottom-right-action {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.scroll-top-btn {
+  background: #17191C;
+  border: 1px solid #3f3f46;
+  color: #e4e4e7;
+  padding: 6px 14px;
+  font-size: 0.7rem;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  cursor: pointer;
+  border-radius: 3px;
+  transition: all 0.2s ease;
+}
+
+.scroll-top-btn:hover {
+  border-color: #E31B23;
+  color: #ffffff !important;
+  background: #E31B23 !important;
+}
+
+@media (max-width: 1024px) {
+  .footer-container {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .footer-make-in-india-col {
+    align-items: flex-start;
+  }
+}
+
+@media (max-width: 640px) {
+  .footer-container {
+    grid-template-columns: 1fr;
+  }
+
+  .footer-make-in-india-col {
+    align-items: flex-start;
+    margin-top: 8px;
+  }
+
+  .bottom-container {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    align-items: center;
+    text-align: center;
+  }
+}

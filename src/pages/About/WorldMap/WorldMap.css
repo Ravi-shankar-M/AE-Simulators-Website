@@ -1,0 +1,53 @@
+.about-worldmap-section {
+  position: relative;
+  width: 100%;
+  padding: 2.5rem 1.5rem 3.5rem;
+  background: linear-gradient(180deg, rgba(244, 251, 247, 0.6) 0%, rgba(240, 253, 244, 0.8) 60%, rgba(255, 255, 255, 1) 100%);
+  border-top: 1px solid rgba(227, 27, 35, 0.1);
+  box-sizing: border-box;
+  overflow: hidden;
+}
+
+.about-worldmap-wrapper {
+  max-width: 1600px;
+  width: 100%;
+  margin: 0 auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  border-radius: 12px;
+  overflow: hidden;
+  padding: 1rem;
+  background: rgba(255, 255, 255, 0.7);
+  backdrop-filter: blur(8px);
+  border: 1px solid rgba(0, 0, 0, 0.05);
+  box-shadow: 0 12px 36px rgba(0, 0, 0, 0.04);
+}
+
+.about-worldmap-image {
+  width: 100%;
+  max-width: 100%;
+  max-height: 600px;
+  object-fit: contain;
+  object-position: center;
+  display: block;
+  border-radius: 8px;
+  pointer-events: none;
+  user-select: none;
+}
+
+@media (max-width: 768px) {
+  .about-worldmap-section {
+    padding: 2rem 1rem 3rem;
+  }
+
+  .about-worldmap-wrapper {
+    padding: 0.5rem;
+    border-radius: 8px;
+  }
+
+  .about-worldmap-image {
+    max-height: 260px;
+  }
+}

@@ -1,0 +1,81 @@
+/* ============================================================
+   PRODUCT IMAGE COMPONENT STYLES — AE-SIMULATORS
+   ============================================================ */
+
+.product-image-wrapper {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+  border-radius: 4px;
+  background-color: var(--bg-surface);
+}
+
+.product-img-element {
+  width: 100%;
+  height: 100%;
+  display: block;
+  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.3s ease;
+}
+
+.product-image-wrapper:hover .product-img-element {
+  transform: scale(1.02);
+}
+
+.product-img-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.1) 0%, rgba(255, 255, 255, 0.6) 100%);
+  pointer-events: none;
+}
+
+/* PRODUCT FALLBACK CONTAINER */
+.product-image-fallback-container {
+  width: 100%;
+  min-height: 220px;
+  background-color: #f8f9fa;
+  border: 1px dashed var(--border-subtle);
+  border-radius: 4px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 24px;
+  text-align: center;
+}
+
+.fallback-text {
+  font-size: 0.8rem;
+  color: var(--ae-red);
+  font-weight: 700;
+  letter-spacing: 0.08em;
+}
+
+.fallback-sub {
+  font-size: 0.65rem;
+  color: var(--text-dim);
+  letter-spacing: 0.1em;
+}
+
+/* HERO FALLBACK */
+.product-image-hero-fallback {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(circle at 60% 40%, #ffffff 0%, #f1f5f9 80%);
+  pointer-events: none;
+}
+
+.hero-fallback-grid {
+  width: 100%;
+  height: 100%;
+  background-size: 40px 40px;
+  background-image: 
+    linear-gradient(to right, rgba(226, 232, 240, 0.6) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(226, 232, 240, 0.6) 1px, transparent 1px);
+}

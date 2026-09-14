@@ -1,0 +1,25 @@
+/* ============================================================
+   ABOUT PAGE STYLES — AE-SIMULATORS
+   ============================================================ */
+
+.about-page-container {
+  width: 100%;
+  padding-top: 80px;
+  background: linear-gradient(180deg, #ffffff 0%, #f4fbf7 30%, #f0fdf4 70%, #ffffff 100%) !important;
+  position: relative;
+}
+
+.about-page-container::before {
+  content: '';
+  position: absolute;
+  top: 140px;
+  left: 0;
+  right: 0;
+  height: 450px;
+  background-image: 
+    radial-gradient(rgba(227, 27, 35, 0.08) 1.5px, transparent 1.5px),
+    linear-gradient(to right, rgba(0, 0, 0, 0.02) 1px, transparent 1px);
+  background-size: 32px 32px, 64px 64px;
+  pointer-events: none;
+  opacity: 0.85;
+}

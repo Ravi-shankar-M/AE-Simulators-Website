@@ -1,0 +1,151 @@
+/* ============================================================
+   AE-SIMULATORS — PRECISION TECHNICAL MOTION CURSOR
+   Inspired by Automotive Telemetry & Motion Platform Control
+   ============================================================ */
+
+.ae-technical-cursor-wrapper {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  pointer-events: none;
+  z-index: 99999;
+  overflow: hidden;
+}
+
+/* Precision Tracker Container */
+.ae-tracker-marker {
+  position: fixed;
+  top: -12px;
+  left: -12px;
+  width: 24px;
+  height: 24px;
+  pointer-events: none;
+  will-change: transform;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: opacity 0.2s ease;
+}
+
+/* Central Crosshair & Reticle */
+.tracker-crosshair {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  pointer-events: none;
+}
+
+.crosshair-h {
+  position: absolute;
+  width: 8px;
+  height: 1px;
+  background-color: rgba(227, 27, 35, 0.7);
+  transition: width 0.2s ease, background-color 0.2s ease;
+}
+
+.crosshair-v {
+  position: absolute;
+  width: 1px;
+  height: 8px;
+  background-color: rgba(227, 27, 35, 0.7);
+  transition: height 0.2s ease, background-color 0.2s ease;
+}
+
+.crosshair-dot {
+  width: 3px;
+  height: 3px;
+  background-color: #E31B23;
+  border-radius: 50%;
+  z-index: 2;
+  box-shadow: 0 0 4px #E31B23;
+}
+
+/* Four Corner Brackets (┌ ┐ └ ┘) */
+.bracket {
+  position: absolute;
+  width: 5px;
+  height: 5px;
+  border-color: #3f3f46;
+  border-style: solid;
+  border-width: 0;
+  transition: transform 0.22s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.2s ease;
+  pointer-events: none;
+}
+
+/* Top-Left: ┌ */
+.bracket-tl {
+  top: 2px;
+  left: 2px;
+  border-top-width: 1.5px;
+  border-left-width: 1.5px;
+}
+
+/* Top-Right: ┐ */
+.bracket-tr {
+  top: 2px;
+  right: 2px;
+  border-top-width: 1.5px;
+  border-right-width: 1.5px;
+}
+
+/* Bottom-Left: └ */
+.bracket-bl {
+  bottom: 2px;
+  left: 2px;
+  border-bottom-width: 1.5px;
+  border-left-width: 1.5px;
+}
+
+/* Bottom-Right: ┘ */
+.bracket-br {
+  bottom: 2px;
+  right: 2px;
+  border-bottom-width: 1.5px;
+  border-right-width: 1.5px;
+}
+
+/* HOVER STATE: Buttons, Links, Clickables */
+.state-hover .bracket {
+  border-color: #E31B23;
+}
+
+.state-hover .bracket-tl { transform: translate(-3px, -3px); }
+.state-hover .bracket-tr { transform: translate(3px, -3px); }
+.state-hover .bracket-bl { transform: translate(-3px, 3px); }
+.state-hover .bracket-br { transform: translate(3px, 3px); }
+
+.state-hover .crosshair-h { width: 12px; background-color: #E31B23; }
+.state-hover .crosshair-v { height: 12px; background-color: #E31B23; }
+
+/* CARD / CANVAS HOVER STATE */
+.state-card .bracket {
+  border-color: #E31B23;
+}
+
+.state-card .bracket-tl { transform: translate(-4px, -4px); }
+.state-card .bracket-tr { transform: translate(4px, -4px); }
+.state-card .bracket-bl { transform: translate(-4px, 4px); }
+.state-card .bracket-br { transform: translate(4px, 4px); }
+
+/* CLICK SQUASH STATE */
+.is-active .bracket-tl { transform: translate(1px, 1px) !important; }
+.is-active .bracket-tr { transform: translate(-1px, 1px) !important; }
+.is-active .bracket-bl { transform: translate(1px, -1px) !important; }
+.is-active .bracket-br { transform: translate(-1px, -1px) !important; }
+
+/* HIDDEN STATE */
+.state-hidden .ae-tracker-marker {
+  opacity: 0;
+}
+
+/* Touch & Mobile Safety */
+@media (hover: none), (pointer: coarse), (max-width: 1024px) {
+  .ae-technical-cursor-wrapper {
+    display: none !important;
+  }
+}

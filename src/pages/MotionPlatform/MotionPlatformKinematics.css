@@ -1,0 +1,290 @@
+/* ============================================================
+   REAL PRODUCT PHOTOGRAPH KINEMATICS STYLES — AE-SIMULATORS
+   Real Product Visual Compositing + Button Kinematics Controls
+   ============================================================ */
+
+.kinematics-master-container {
+  width: 100%;
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+/* ── TWO-COLUMN REAL DEMOS ROW ── */
+.kinematics-demos-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 28px;
+  align-items: stretch;
+}
+
+/* ── SINGLE KINEMATICS DEMO PANEL ── */
+.kin-panel {
+  display: flex;
+  flex-direction: column;
+  background: #ffffff;
+  border: 1px solid #e4e4e7;
+  border-radius: 14px;
+  overflow: hidden;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+  transition: box-shadow 0.3s ease, border-color 0.3s ease;
+  height: 100%;
+}
+
+.kin-panel:hover {
+  border-color: rgba(227, 27, 35, 0.3);
+  box-shadow: 0 8px 32px rgba(227, 27, 35, 0.08);
+}
+
+/* Panel Header */
+.kin-panel-header {
+  padding: 1.1rem 1.4rem 0.7rem;
+  background: #ffffff;
+  border-bottom: 1px solid #f0f0f0;
+}
+
+.kin-panel-badge {
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  display: block;
+  margin-bottom: 0.3rem;
+}
+
+.kin-panel-title {
+  font-size: 1.1rem;
+  font-weight: 800;
+  color: #09090b;
+  margin: 0;
+  line-height: 1.2;
+  text-transform: uppercase;
+}
+
+/* ── STAGE VIEWPORT FOR REAL PRODUCT VISUAL ── */
+.kin-stage {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  min-height: 280px;
+  background: #ffffff;
+  overflow: hidden;
+  user-select: none;
+}
+
+/* State indicator badge (top-left) */
+.kin-state-overlay {
+  position: absolute;
+  top: 11px;
+  left: 12px;
+  z-index: 5;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  background: rgba(244, 244, 245, 0.95);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  padding: 4px 11px;
+  border-radius: 4px;
+  border: 1px solid #e4e4e7;
+  pointer-events: none;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+}
+
+.kin-state-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: #4ade80;
+  box-shadow: 0 0 5px rgba(74, 222, 128, 0.6);
+  flex-shrink: 0;
+  transition: background 0.3s, box-shadow 0.3s;
+}
+
+.kin-state-dot.active {
+  background: #E31B23;
+  box-shadow: 0 0 8px rgba(227, 27, 35, 0.8);
+  animation: kinPulse 1.6s ease-in-out infinite;
+}
+
+@keyframes kinPulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.45; }
+}
+
+.kin-state-id {
+  font-size: 0.65rem;
+  font-weight: 700;
+  color: #09090b;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+/* ── REAL PRODUCT IMAGE VIEWPORT & SEAMLESS COMPOSITING LAYERS ── */
+.kin-img-stage-viewport {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 3;
+  padding: 1.25rem;
+  pointer-events: none;
+}
+
+.kin-img-base-layer {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 3;
+  pointer-events: none;
+}
+
+.kin-img-moving-layer {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 4;
+  will-change: transform;
+  pointer-events: none;
+}
+
+.kin-real-product-img {
+  object-fit: contain;
+  filter: drop-shadow(0 14px 28px rgba(0, 0, 0, 0.65));
+  user-select: none;
+  pointer-events: none;
+}
+
+.kin-3dof-img {
+  max-width: 76%;
+  max-height: 76%;
+  transform: scale(0.90);
+}
+
+.kin-6dof-img {
+  max-width: 96%;
+  max-height: 96%;
+  transform: scale(1.08);
+}
+
+.kin-base-img {
+  mask-image: linear-gradient(to top, rgba(0, 0, 0, 1) 0%, rgba(0, 0, 0, 1) 35%, rgba(0, 0, 0, 0) 75%);
+  -webkit-mask-image: linear-gradient(to top, rgba(0, 0, 0, 1) 0%, rgba(0, 0, 0, 1) 35%, rgba(0, 0, 0, 0) 75%);
+}
+
+.kin-moving-img {
+  mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 1) 0%, rgba(0, 0, 0, 1) 60%, rgba(0, 0, 0, 0) 95%);
+  -webkit-mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 1) 0%, rgba(0, 0, 0, 1) 60%, rgba(0, 0, 0, 0) 95%);
+}
+
+/* ── MOTION CONTROL BUTTONS ── */
+.kin-controls {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  padding: 0.85rem 1.1rem 0.95rem;
+  background: #ffffff;
+  border-top: 1px solid #f0f0f0;
+  flex-shrink: 0;
+}
+
+.kin-control-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  padding: 6px 12px;
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  border-radius: 5px;
+  border: 1px solid #e4e4e7;
+  background: #f8f8f9;
+  color: #3f3f46;
+  cursor: pointer;
+  transition: background 0.18s ease, border-color 0.18s ease, color 0.18s ease;
+  user-select: none;
+}
+
+.kin-control-btn:hover {
+  background: #ededee;
+  border-color: #d0d0d2;
+  color: #09090b;
+}
+
+.kin-control-btn.selected {
+  background: #E31B23 !important;
+  border-color: #E31B23 !important;
+  color: #ffffff !important;
+  box-shadow: 0 2px 10px rgba(227, 27, 35, 0.35);
+}
+
+.kin-btn-icon {
+  flex-shrink: 0;
+}
+
+/* ── GLB SECTION ── */
+.kinematics-glb-section {
+  width: 100%;
+  min-height: 440px;
+}
+
+/* ── RESPONSIVE STYLING ── */
+@media (max-width: 1024px) {
+  .kinematics-demos-row {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+
+  .kin-stage {
+    min-height: 260px;
+  }
+}
+
+@media (max-width: 768px) {
+  .kinematics-master-container {
+    padding: 0 0.75rem;
+  }
+
+  .kin-panel-header {
+    padding: 0.9rem 1rem 0.6rem;
+  }
+
+  .kin-controls {
+    padding: 0.65rem 0.85rem 0.8rem;
+  }
+
+  .kin-control-btn {
+    font-size: 0.62rem;
+    padding: 4px 9px;
+  }
+
+  .kin-stage {
+    min-height: 230px;
+    aspect-ratio: 16 / 11;
+  }
+
+  .kinematics-glb-section {
+    min-height: 350px;
+  }
+}
+
+@media (max-width: 480px) {
+  .kin-control-btn {
+    font-size: 0.58rem;
+    padding: 4px 7px;
+    gap: 3px;
+  }
+
+  .kin-stage {
+    min-height: 200px;
+  }
+}

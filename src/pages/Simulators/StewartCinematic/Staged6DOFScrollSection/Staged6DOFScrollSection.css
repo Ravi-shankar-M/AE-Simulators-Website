@@ -1,0 +1,9 @@
+/* ============================================================
+   6-DOF HEXAPOD 3D SCROLL ASSEMBLY STYLES
+   ============================================================ */
+
+.staged-6dof-wrapper {
+  width: 100%;
+  position: relative;
+  background: #ffffff;
+}

@@ -1,0 +1,234 @@
+/* THE BRAND AS HERO — 7.5-SECOND MINIMALIST INTRO STYLING */
+
+.brandmotion-stage-wrapper {
+  position: fixed;
+  inset: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: #040405;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 99999;
+  overflow: hidden;
+}
+
+/* BOUNDED CINEMATIC STAGE RECTANGLE */
+.brandmotion-stage-box {
+  width: 84vw;
+  max-width: 1140px;
+  height: 440px;
+  background: #06070a;
+  border: 1px solid rgba(255, 30, 39, 0.35);
+  border-radius: 12px;
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 30px 70px rgba(0, 0, 0, 0.95), 0 0 40px rgba(255, 30, 39, 0.2);
+  transition: all 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.brandmotion-stage-box.expanded {
+  width: 100vw;
+  height: 100vh;
+  border-radius: 0;
+  border-color: transparent;
+  box-shadow: none;
+}
+
+/* CLEAN STABLE AE LOGO LAYER (SIZE AND POSITION UNCHANGED) */
+.brandmotion-logo-layer {
+  position: absolute;
+  top: 36%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 10;
+  transition: opacity 0.6s ease, transform 0.6s ease;
+  text-align: center;
+}
+
+.brandmotion-brand-img {
+  height: 68px;
+  width: auto;
+  object-fit: contain;
+}
+
+/* OXANIUM METALLIC AE-SIMULATORS WORDMARK */
+.brandmotion-wordmark-layer {
+  position: absolute;
+  top: 55%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  z-index: 20;
+  opacity: 0;
+  transition: opacity 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.brandmotion-wordmark-layer.active {
+  opacity: 1;
+}
+
+.wordmark-badge-container {
+  position: relative;
+  display: inline-block;
+  overflow: hidden;
+  padding-bottom: 6px;
+}
+
+.wordmark-specular-sweep-line {
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 45%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.95), rgba(255, 30, 39, 0.8), transparent);
+  transform: skewX(-22deg);
+  opacity: 0;
+  pointer-events: none;
+}
+
+.wordmark-badge-container.swept .wordmark-specular-sweep-line {
+  opacity: 1;
+  animation: wordmarkSpecularSweep 0.85s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+@keyframes wordmarkSpecularSweep {
+  0% { left: -100%; }
+  100% { left: 150%; }
+}
+
+.brandmotion-wordmark-text {
+  font-family: var(--font-display);
+  font-size: 3.8rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  color: #e2e8f0;
+  text-transform: uppercase;
+}
+
+.metallic-letter-construct {
+  display: inline-block;
+  opacity: 0;
+  transform: translateY(8px);
+  animation: letterConstruct 0.4s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  background: linear-gradient(180deg, #ffffff 0%, #cbd5e1 45%, #64748b 75%, #1e293b 100%);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-shadow: 0 4px 12px rgba(0, 0, 0, 0.9);
+  filter: drop-shadow(0 0 8px rgba(255, 30, 39, 0.35));
+}
+
+@keyframes letterConstruct {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* THIN HORIZONTAL TRAJECTORY MOTION LINE */
+.motion-trajectory-line {
+  position: absolute;
+  bottom: 110px;
+  left: 5%;
+  width: 90%;
+  height: 2px;
+  background: rgba(255, 255, 255, 0.12);
+  z-index: 12;
+  opacity: 0;
+  transition: opacity 0.6s ease;
+}
+
+.motion-trajectory-line.active {
+  opacity: 1;
+}
+
+.trajectory-bright-center {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent 0%, #ff1e27 50%, transparent 100%);
+  opacity: 0.3;
+  transition: opacity 0.5s ease;
+}
+
+.motion-trajectory-line.brightened .trajectory-bright-center {
+  opacity: 0.9;
+  box-shadow: 0 0 15px #ff1e27;
+}
+
+/* SMALL SLEEK FORMULA VEHICLE (18% STAGE WIDTH / MAX 180PX) */
+.small-car-container {
+  position: absolute;
+  bottom: 96px;
+  width: 18vw;
+  max-width: 180px;
+  height: 48px;
+  z-index: 15;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.small-car-container.active {
+  opacity: 1;
+  animation: smallCarDriveRightToLeft 2.5s cubic-bezier(0.25, 0.8, 0.25, 1) forwards;
+}
+
+@keyframes smallCarDriveRightToLeft {
+  0% { left: 105%; }
+  100% { left: -35%; }
+}
+
+.small-wheel-spin {
+  transform-origin: center;
+  animation: smallWheelSpin 0.3s linear infinite;
+}
+
+@keyframes smallWheelSpin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+.small-car-light-trail {
+  position: absolute;
+  top: 50%;
+  right: -60px;
+  width: 60px;
+  height: 2px;
+  background: linear-gradient(90deg, #ff1e27, transparent);
+  box-shadow: 0 0 10px #ff1e27;
+}
+
+/* SPACE GROTESK WHITE TAGLINE */
+.brandmotion-tagline-layer {
+  position: absolute;
+  bottom: 50px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 22;
+  opacity: 0;
+  transition: all 0.5s ease;
+}
+
+.brandmotion-tagline-layer.active {
+  opacity: 1;
+  transform: translateX(-50%) translateY(-6px);
+}
+
+.brandmotion-tagline-text {
+  font-family: var(--font-heading);
+  font-size: 1.25rem;
+  font-weight: 700;
+  letter-spacing: 0.25em;
+  color: #111111;
+  text-transform: uppercase;
+}
+
+@media (max-width: 768px) {
+  .brandmotion-wordmark-text { font-size: 2.4rem; letter-spacing: 0.04em; }
+  .brandmotion-tagline-text { font-size: 0.95rem; letter-spacing: 0.15em; }
+  .brandmotion-brand-img { height: 50px; }
+  .small-car-container { width: 32vw; }
+}

@@ -1,0 +1,11 @@
+/* ============================================================
+   DASHBOARD PAGE — LAYOUT & CONTAINER STYLING ONLY
+   ============================================================ */
+
+.dashboard-page-container {
+  width: 100%;
+  background-color: #ffffff;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}

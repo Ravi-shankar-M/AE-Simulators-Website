@@ -1,0 +1,143 @@
+/* ============================================================
+   SOFTWARE PLATFORM PAGE STYLES — AE-SIMULATORS
+   ============================================================ */
+
+.software-page-container {
+  width: 100%;
+  padding-top: 80px;
+  background: linear-gradient(180deg, #ffffff 0%, #f4fbf7 30%, #f0fdf4 70%, #ffffff 100%) !important;
+}
+
+.scenario-grid-container {
+  display: grid;
+  grid-template-columns: 320px 1fr;
+  gap: 32px;
+}
+
+.scenario-nav-menu {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.scenario-nav-btn {
+  padding: 14px 18px;
+  background: #ffffff;
+  border: 1.5px solid #cbd5e1;
+  color: #17191c !important;
+  font-size: 0.82rem;
+  font-weight: 700;
+  text-align: left;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  border-radius: 4px;
+  transition: all 0.2s ease;
+}
+
+.scenario-nav-btn:hover {
+  border-color: #E31B23;
+  color: #E31B23 !important;
+}
+
+.scenario-nav-btn.active {
+  border-color: #E31B23 !important;
+  color: #E31B23 !important;
+  background: #ffffff !important;
+  font-weight: 800 !important;
+  box-shadow: 0 4px 12px rgba(229, 25, 55, 0.15);
+}
+
+.btn-indicator {
+  width: 6px;
+  height: 6px;
+  background-color: var(--border-subtle);
+  border-radius: 50%;
+}
+
+.scenario-nav-btn.active .btn-indicator {
+  background-color: var(--ae-red);
+  box-shadow: 0 0 8px var(--ae-red-glow);
+}
+
+.scenario-display-card {
+  border-left: 4px solid var(--ae-red);
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.scenario-card-sub {
+  font-size: 0.85rem;
+  color: var(--ae-red);
+  margin-top: 4px;
+}
+
+.scenario-card-body {
+  font-size: 1.1rem;
+  color: var(--text-main);
+  line-height: 1.6;
+}
+
+.feature-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 10px;
+}
+
+.feat-tag {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 14px;
+  background: var(--bg-surface);
+  border: 1px solid var(--border-subtle);
+  font-size: 0.75rem;
+  color: var(--text-main);
+}
+
+.safety-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 32px;
+}
+
+.reports-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 48px;
+  align-items: center;
+}
+
+.report-features-list {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  margin-top: 24px;
+}
+
+.report-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-size: 0.9rem;
+  color: var(--text-main);
+}
+
+.reports-img {
+  width: 100%;
+  height: auto;
+  border-radius: 4px;
+}
+
+@media (max-width: 1024px) {
+  .scenario-grid-container {
+    grid-template-columns: 1fr;
+  }
+
+  .reports-container {
+    grid-template-columns: 1fr;
+  }
+}

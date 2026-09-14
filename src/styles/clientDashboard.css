@@ -1,0 +1,167 @@
+/* ============================================================
+   Client Dashboard Styles — AE-SIMULATORS
+   White + AE Red engineering visual identity
+   ============================================================ */
+
+.client-dashboard-container {
+  min-height: 100vh;
+  background: #f8f9fa;
+  padding-top: 140px;
+  padding-bottom: 4rem;
+}
+
+.client-dashboard-inner {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+
+/* ── Header ── */
+.client-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 2rem;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.client-header-left {
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+}
+
+.client-header-tag {
+  font-family: 'Space Mono', 'Courier New', monospace;
+  font-size: 0.65rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: #E31B23;
+}
+
+.client-header-title {
+  font-family: 'Barlow Condensed', 'Arial Narrow', sans-serif;
+  font-size: 1.8rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: #1a1a1a !important;
+  margin: 0;
+}
+
+.client-logout-btn {
+  padding: 0.6rem 1.2rem;
+  background: transparent;
+  color: #888888;
+  border: 1.5px solid #d0d0d0;
+  border-radius: 4px;
+  font-family: 'Space Mono', 'Courier New', monospace;
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+.client-logout-btn:hover {
+  border-color: #e53935;
+  color: #e53935;
+}
+
+/* ── Card ── */
+.client-profile-card {
+  background: #ffffff;
+  border: 1px solid #e8e8e8;
+  border-radius: 8px;
+  padding: 2.5rem;
+  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.05);
+  margin-bottom: 2rem;
+}
+
+.client-card-title {
+  font-family: 'Barlow Condensed', 'Arial Narrow', sans-serif;
+  font-size: 1.4rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: #1a1a1a !important;
+  margin-top: 0;
+  margin-bottom: 1.5rem;
+  padding-bottom: 0.8rem;
+  border-bottom: 1px solid #f0f0f0;
+}
+
+.client-info-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 1.5rem;
+}
+
+.client-info-item {
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+}
+
+.client-info-label {
+  font-family: 'Space Mono', 'Courier New', monospace;
+  font-size: 0.65rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #888888;
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+.client-info-value {
+  font-family: 'Inter', 'Helvetica Neue', sans-serif;
+  font-size: 1.05rem;
+  font-weight: 600;
+  color: #1a1a1a;
+}
+
+.client-notes-box {
+  margin-top: 2rem;
+  padding: 1.2rem;
+  background: #f8f9fa;
+  border: 1px solid #e8e8e8;
+  border-radius: 6px;
+}
+
+.client-notes-title {
+  font-family: 'Space Mono', 'Courier New', monospace;
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #E31B23;
+  margin-bottom: 0.5rem;
+}
+
+.client-notes-content {
+  font-family: 'Inter', 'Helvetica Neue', sans-serif;
+  font-size: 0.92rem;
+  color: #444444;
+  line-height: 1.6;
+  white-space: pre-line;
+}
+
+/* Responsive */
+@media (max-width: 640px) {
+  .client-profile-card {
+    padding: 1.5rem;
+  }
+
+  .client-header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}

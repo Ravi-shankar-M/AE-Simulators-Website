@@ -1,0 +1,299 @@
+/* ============================================================
+   TRAINING SIMULATORS PAGE — INDUSTRIAL AUTOMOTIVE STYLING
+   ============================================================ */
+
+.training-page-wrapper {
+  background-color: #FAFAFA;
+  color: #17191C;
+  min-height: 100vh;
+  padding-top: 80px;
+  padding-bottom: 80px;
+  font-family: var(--font-body, sans-serif);
+}
+
+#training-hero-section .hero-parallax-section {
+  margin-top: 0 !important;
+}
+
+/* CLEAN ELEVATED CARD STYLE — EXACT ORIGINAL HEADINGS ONLY (NO STARTING BORDER) */
+.training-hero-cards-grid-clean {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 14px;
+  margin-top: 24px;
+  max-width: 580px;
+  width: 100%;
+}
+
+.training-hero-card-clean {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  background: #ffffff;
+  border: 1.5px solid #E31B23;
+  border-radius: 10px;
+  padding: 12px 18px;
+  box-shadow: 0 4px 14px rgba(227, 27, 35, 0.08);
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+  box-sizing: border-box;
+}
+
+.training-hero-card-clean:hover {
+  transform: translateY(-3px);
+  border-color: #E31B23;
+  box-shadow: 0 10px 24px rgba(227, 27, 35, 0.22);
+}
+
+.card-clean-icon {
+  width: 36px;
+  height: 36px;
+  border-radius: 8px;
+  background: rgba(227, 27, 35, 0.08);
+  border: 1px solid rgba(227, 27, 35, 0.15);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  transition: transform 0.25s ease, background 0.25s ease;
+}
+
+.training-hero-card-clean:hover .card-clean-icon {
+  transform: scale(1.06);
+  background: rgba(227, 27, 35, 0.14);
+}
+
+.card-clean-title {
+  font-family: var(--font-heading);
+  font-size: 0.84rem;
+  font-weight: 800;
+  color: #17191C;
+  letter-spacing: 0.03em;
+  line-height: 1.2;
+}
+
+@media (max-width: 640px) {
+  .training-hero-cards-grid-clean {
+    grid-template-columns: 1fr;
+  }
+}
+
+.training-container {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 32px;
+}
+
+/* TOP HERO SLIDE IMAGE */
+.training-top-hero-visual-container {
+  width: 100%;
+  max-width: 1100px;
+  margin: 0 auto 40px auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  background: radial-gradient(circle at 50% 50%, rgba(227, 27, 35, 0.05) 0%, rgba(248, 249, 250, 0.6) 60%, transparent 100%);
+  padding: 16px;
+  border-radius: 16px;
+}
+
+.training-top-hero-image {
+  width: 100%;
+  max-height: 520px;
+  object-fit: contain;
+  filter: drop-shadow(0 16px 32px rgba(0, 0, 0, 0.12));
+}
+
+.training-hero-header {
+  text-align: center;
+  max-width: 900px;
+  margin: 0 auto 52px auto;
+}
+
+.training-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 16px;
+  background: rgba(227, 27, 35, 0.08);
+  border: 1px solid rgba(227, 27, 35, 0.2);
+  border-radius: 20px;
+  color: #E31B23;
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  margin-bottom: 16px;
+}
+
+.training-hero-title {
+  font-family: var(--font-heading);
+  font-size: 3rem;
+  font-weight: 900;
+  color: #17191C;
+  letter-spacing: -0.02em;
+  line-height: 1.1;
+  margin-bottom: 18px;
+}
+
+.training-hero-title span {
+  color: #E31B23;
+}
+
+.training-hero-desc {
+  font-size: 1.1rem;
+  color: #555B63;
+  line-height: 1.6;
+}
+
+/* TABS */
+.training-tabs-row {
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+  margin-bottom: 40px;
+  flex-wrap: wrap;
+}
+
+.training-tab-btn {
+  background: #FFFFFF;
+  border: 1px solid #E2E2E2;
+  color: #555B63;
+  padding: 12px 24px;
+  border-radius: 6px;
+  font-family: var(--font-mono, monospace);
+  font-size: 0.85rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.training-tab-btn:hover {
+  border-color: #E31B23;
+  color: #E31B23;
+}
+
+.training-tab-btn.active {
+  background: #E31B23;
+  color: #FFFFFF;
+  border-color: #E31B23;
+  box-shadow: 0 4px 14px rgba(227, 27, 35, 0.25);
+}
+
+/* MODEL VIEWERS GRID IN TRAINING SIMULATOR */
+.training-model-viewers-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 30px;
+  margin-bottom: 30px;
+  align-items: stretch;
+}
+
+.training-model-viewers-grid > .sr-reveal-box {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+@media (max-width: 992px) {
+  .training-model-viewers-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.training-viewer-card {
+  background: #FFFFFF;
+  border: 1px solid #E2E2E2;
+  border-radius: 12px;
+  padding: 24px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+  height: 100%;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  box-sizing: border-box;
+}
+
+.training-viewer-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 16px;
+}
+
+.training-viewer-title {
+  font-family: var(--font-heading);
+  font-size: 1.3rem;
+  font-weight: 800;
+  color: #17191C;
+}
+
+.training-viewer-badge {
+  font-family: var(--font-mono, monospace);
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: #E31B23;
+  background: rgba(227, 27, 35, 0.08);
+  padding: 4px 10px;
+  border-radius: 4px;
+}
+
+.motion-controls-strip {
+  display: flex;
+  gap: 8px;
+  margin-top: 14px;
+  flex-wrap: wrap;
+}
+
+.motion-btn {
+  background: #F4F5F7;
+  border: 1px solid #E2E2E2;
+  color: #555B63;
+  padding: 6px 12px;
+  border-radius: 4px;
+  font-family: var(--font-mono, monospace);
+  font-size: 0.72rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.motion-btn:hover,
+.motion-btn.active {
+  background: #E31B23;
+  color: #FFFFFF;
+  border-color: #E31B23;
+}
+
+/* TRAINING CARDS GRID */
+.training-cards-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 30px;
+  align-items: stretch;
+}
+
+.training-cards-grid > .sr-reveal-box {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.training-card {
+  background: #FFFFFF;
+  border: 1px solid #E2E2E2;
+  border-radius: 10px;
+  padding: 30px;
+  transition: all 0.3s ease;
+  height: 100%;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  box-sizing: border-box;
+}
+
+.training-card:hover {
+  transform: translateY(-5px);
+  border-top-color: #E31B23;
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.08);
+}

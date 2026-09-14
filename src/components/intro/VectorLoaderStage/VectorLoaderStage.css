@@ -1,0 +1,249 @@
+/* CLASSIC PREMIUM MINIMAL INTRO STYLING SYSTEM (AE RED & DARK GRAPHITE) */
+
+.vector-loader-wrapper.classic-minimal-loader {
+  position: fixed;
+  inset: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: #ffffff;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  z-index: 99999;
+  overflow: hidden;
+  cursor: pointer;
+  transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.vector-loader-wrapper.classic-minimal-loader.expanded {
+  opacity: 0;
+  transform: scale(1.15);
+  pointer-events: none;
+  filter: blur(12px);
+}
+
+/* MINIMAL LIGHT BACKDROP & AMBIENT LASER SPOTLIGHT */
+.minimal-dark-backdrop {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  overflow: hidden;
+  z-index: 1;
+}
+
+.ambient-laser-glow {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 650px;
+  height: 650px;
+  background: radial-gradient(circle, rgba(229, 25, 55, 0.15) 0%, rgba(241, 245, 249, 0.6) 45%, transparent 70%);
+  border-radius: 50%;
+  filter: blur(45px);
+  animation: ambientGlowPulse 3s ease-in-out infinite alternate;
+}
+
+@keyframes ambientGlowPulse {
+  0% { transform: translate(-50%, -50%) scale(0.85); opacity: 0.6; }
+  100% { transform: translate(-50%, -50%) scale(1.15); opacity: 0.95; }
+}
+
+/* TOP CONTROL ACTION BAR */
+.top-action-bar {
+  position: absolute;
+  top: 24px;
+  right: 28px;
+  z-index: 100000;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.vector-skip-button {
+  background: rgba(255, 255, 255, 0.9);
+  border: 1px solid rgba(229, 25, 55, 0.6);
+  color: #000000;
+  font-family: 'Oxanium', var(--font-mono, monospace);
+  font-size: 0.75rem;
+  font-weight: 800;
+  letter-spacing: 0.15em;
+  padding: 8px 20px;
+  border-radius: 4px;
+  cursor: pointer;
+  backdrop-filter: blur(8px);
+  transition: all 0.3s ease;
+}
+
+.vector-skip-button:hover {
+  background: #ff1e27;
+  border-color: #ff1e27;
+  color: #111111;
+  box-shadow: 0 0 20px rgba(255, 30, 39, 0.7);
+}
+
+/* WARP FLASH SHOCKWAVE ON 100% */
+.warp-flash-shockwave {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle, rgba(255, 255, 255, 1) 0%, rgba(255, 30, 39, 0.7) 50%, transparent 100%);
+  z-index: 99999;
+  pointer-events: none;
+  animation: flashBlast 0.75s ease-out forwards;
+}
+
+@keyframes flashBlast {
+  0% { opacity: 0; transform: scale(0.2); }
+  40% { opacity: 1; transform: scale(1.5); }
+  100% { opacity: 0; transform: scale(3); }
+}
+
+/* CLASSIC PREMIUM MINIMAL CONTAINER */
+.classic-minimal-container {
+  position: relative;
+  z-index: 10;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  max-width: 780px;
+  padding: 2rem;
+}
+
+.minimal-logo-wrapper {
+  margin-bottom: 1.5rem;
+}
+
+.minimal-brand-logo {
+  height: 195px;
+  max-width: 720px;
+  width: auto;
+  object-fit: contain;
+  filter: drop-shadow(0 0 25px #ffffff) drop-shadow(0 0 50px #ff1e27) brightness(1.35) contrast(1.18);
+  animation: logoPulse 3.2s ease-in-out infinite alternate;
+}
+
+@keyframes logoPulse {
+  0% { transform: scale(0.98); filter: drop-shadow(0 0 20px #ffffff) drop-shadow(0 0 40px #ff1e27); }
+  100% { transform: scale(1.02); filter: drop-shadow(0 0 30px #ffffff) drop-shadow(0 0 60px #ff1e27); }
+}
+
+.minimal-brand-title {
+  font-family: 'Oxanium', sans-serif;
+  font-size: 2.2rem;
+  font-weight: 800;
+  letter-spacing: 0.45em;
+  color: #111111;
+  margin: 0;
+  text-shadow: 0 0 20px rgba(255, 255, 255, 1), 0 0 35px rgba(255, 30, 39, 0.85);
+}
+
+.minimal-brand-sub {
+  font-family: 'Oxanium', sans-serif;
+  font-size: 0.85rem;
+  font-weight: 700;
+  letter-spacing: 0.35em;
+  color: #94a3b8;
+  margin: 0.6rem 0 0 0;
+}
+
+/* M-SPORT TRICOLOR ACCENT LINE */
+.minimal-tricolor-line {
+  display: flex;
+  gap: 5px;
+  margin: 1.4rem auto;
+  height: 4px;
+  width: 180px;
+  border-radius: 2px;
+  overflow: hidden;
+  box-shadow: 0 0 14px rgba(255, 30, 39, 0.6);
+}
+
+.stripe-blue { flex: 1; background-color: #cbd5e1; }
+.stripe-navy { flex: 1; background-color: #1e293b; }
+.stripe-red { flex: 1; background-color: #ff1e27; }
+
+/* MINIMAL PROGRESS TRACK & SPEEDOMETER NEEDLE PIN */
+.minimal-progress-box {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.6rem;
+  margin-top: 1.2rem;
+}
+
+.line-speedo-header {
+  display: flex;
+  justify-content: space-between;
+  width: 340px;
+  font-family: 'Oxanium', sans-serif;
+  font-size: 0.75rem;
+  font-weight: 800;
+  color: #94a3b8;
+}
+
+.speedo-tick.redline {
+  color: #ff1e27;
+  text-shadow: 0 0 10px #ff1e27;
+}
+
+.minimal-track-bar {
+  position: relative;
+  width: 340px;
+  height: 6px;
+  background: rgba(255, 255, 255, 0.08);
+  border-radius: 4px;
+  overflow: visible;
+  border: 1px solid rgba(255, 30, 39, 0.35);
+  box-shadow: 0 0 12px rgba(255, 30, 39, 0.2);
+}
+
+.minimal-fill-bar {
+  height: 100%;
+  background: linear-gradient(90deg, #ffffff 0%, #ff1e27 100%);
+  border-radius: 4px;
+  box-shadow: 0 0 16px #ff1e27;
+  transition: width 0.05s linear;
+}
+
+/* SMALL SPEEDOMETER NEEDLE PIN GLIDING ALONG THE LINE */
+.linear-needle-pin {
+  position: absolute;
+  top: -16px;
+  transform: translateX(-50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  z-index: 20;
+  pointer-events: none;
+  transition: left 0.05s linear;
+}
+
+.needle-head-glow {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #ffffff;
+  box-shadow: 0 0 12px #ffffff, 0 0 20px #ff1e27;
+  margin-bottom: -1px;
+}
+
+.needle-pin-body {
+  width: 0;
+  height: 0;
+  border-left: 6px solid transparent;
+  border-right: 6px solid transparent;
+  border-top: 15px solid #ff1e27;
+  filter: drop-shadow(0 0 10px #ff1e27) drop-shadow(0 0 4px #ffffff);
+}
+
+/* RESPONSIVE MEDIA QUERIES */
+@media (max-width: 768px) {
+  .minimal-brand-logo { height: 130px; }
+  .minimal-brand-title { font-size: 1.45rem; letter-spacing: 0.3em; }
+  .minimal-brand-sub { font-size: 0.68rem; letter-spacing: 0.22em; }
+  .minimal-track-bar { width: 240px; }
+  .line-speedo-header { width: 240px; }
+}

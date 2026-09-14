@@ -1,0 +1,512 @@
+/* ============================================================
+   AE-SIMULATORS — ACTUATOR SCROLLEYTELLING EXPERIENCE STYLES
+   Isolated CSS class names prefixed with `ae-actuator-`
+   Clean white (#FFFFFF) background matching AE engineering theme
+   ============================================================ */
+
+.ae-actuator-experience-wrapper {
+  position: relative;
+  width: 100vw;
+  left: 50%;
+  right: 50%;
+  margin-left: -50vw;
+  margin-right: -50vw;
+  background: #ffffff;
+  box-sizing: border-box;
+}
+
+/* Visible descriptive text below actuator header — BLACK per spec */
+.ae-actuator-visible-desc {
+  font-family: var(--font-body, 'Inter', sans-serif);
+  font-size: 0.92rem;
+  color: #000000 !important;
+  text-align: center;
+  max-width: 900px;
+  margin: 0 auto 0;
+  padding: 0.75rem 2rem 0;
+  line-height: 1.6;
+}
+
+/* 600vh scroll container for smooth multi-stage scroll distance */
+.ae-actuator-scroll-section {
+  position: relative;
+  width: 100vw;
+  height: 600vh;
+  margin: 0;
+  padding: 0;
+  background: #ffffff;
+}
+
+/* Sticky 100vh viewport locking canvas in frame */
+.ae-actuator-sticky-viewport {
+  position: sticky;
+  top: 0;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  overflow: hidden;
+  background-color: #ffffff;
+  user-select: none;
+}
+
+.ae-actuator-sticky-viewport::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image: 
+    radial-gradient(rgba(227, 27, 35, 0.08) 1.5px, transparent 1.5px),
+    linear-gradient(to right, rgba(0, 0, 0, 0.02) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(0, 0, 0, 0.02) 1px, transparent 1px);
+  background-size: 32px 32px, 64px 64px, 64px 64px;
+  opacity: 0.85;
+  pointer-events: none;
+}
+
+.ae-actuator-sticky-viewport::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to bottom, #ffffff 0%, transparent 12%, transparent 88%, #ffffff 100%);
+  pointer-events: none;
+  z-index: 5;
+}
+
+/* Technical Environment Overlays & Reference Points */
+.ae-actuator-tech-overlay {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 8;
+}
+
+.tech-mark {
+  position: absolute;
+  font-size: 0.65rem;
+  color: #a1a1aa;
+  letter-spacing: 0.1em;
+  font-weight: 700;
+}
+
+.tech-mark span {
+  color: #E31B23;
+  font-weight: 800;
+}
+
+.tech-mark-tl {
+  top: 96px;
+  left: max(5%, 3rem);
+}
+
+.tech-mark-tr {
+  top: 96px;
+  right: max(5%, 3rem);
+}
+
+.tech-axis-line-h {
+  position: absolute;
+  top: 50%;
+  left: 3vw;
+  right: 3vw;
+  height: 1px;
+  background: linear-gradient(to right, transparent 0%, rgba(0, 0, 0, 0.04) 20%, rgba(227, 27, 35, 0.15) 50%, rgba(0, 0, 0, 0.04) 80%, transparent 100%);
+  pointer-events: none;
+}
+
+/* Loading Interface */
+.ae-actuator-loader-overlay {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color: #ffffff;
+  padding: 2rem;
+  box-sizing: border-box;
+}
+
+.ae-actuator-loader-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  max-width: 440px;
+  width: 100%;
+}
+
+.ae-actuator-loader-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.35rem 0.85rem;
+  background: rgba(229, 25, 55, 0.06);
+  border: 1px solid rgba(229, 25, 55, 0.2);
+  border-radius: 999px;
+  font-family: var(--font-mono, 'IBM Plex Mono', monospace);
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: #E31B23;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  margin-bottom: 1.5rem;
+}
+
+.ae-actuator-loader-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background-color: #E31B23;
+  box-shadow: 0 0 8px rgba(229, 25, 55, 0.6);
+  animation: aeActuatorPulse 1.5s ease-in-out infinite;
+}
+
+@keyframes aeActuatorPulse {
+  0%, 100% { opacity: 0.4; transform: scale(0.9); }
+  50% { opacity: 1; transform: scale(1.2); }
+}
+
+.ae-actuator-loader-title {
+  font-family: var(--font-heading, 'Space Grotesk', sans-serif);
+  font-size: 1.25rem;
+  font-weight: 800;
+  letter-spacing: 0.06em;
+  color: #111111;
+  text-transform: uppercase;
+  margin-bottom: 1.5rem;
+}
+
+.ae-actuator-loader-track {
+  width: 100%;
+  height: 4px;
+  background-color: #f1f5f9;
+  border-radius: 999px;
+  overflow: hidden;
+  margin-bottom: 1rem;
+  position: relative;
+}
+
+.ae-actuator-loader-bar {
+  height: 100%;
+  background-color: #E31B23;
+  border-radius: 999px;
+  transition: width 0.15s ease-out;
+}
+
+.ae-actuator-loader-percentage {
+  font-family: var(--font-mono, 'IBM Plex Mono', monospace);
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: #52525b;
+}
+
+/* Header & Top Bar */
+.ae-actuator-top-bar {
+  position: absolute;
+  top: 2rem;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 20;
+  width: 90%;
+  max-width: 1200px;
+  display: flex;
+  align-items: center;
+  justify-content: center; /* Center since frame counter is hidden */
+  pointer-events: none;
+}
+
+.ae-actuator-brand-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.35rem 0.85rem;
+  background: rgba(255, 255, 255, 0.95);
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  border-radius: 999px;
+  font-family: var(--font-mono, 'IBM Plex Mono', monospace);
+  font-size: 0.725rem;
+  font-weight: 700;
+  color: #3f3f46;
+  letter-spacing: 0.1em;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.04);
+}
+
+.ae-actuator-brand-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background-color: #E31B23;
+}
+
+.ae-actuator-frame-counter {
+  display: none; /* Frame counter hidden — clean product experience */
+}
+
+/* Full Screen Canvas Overlay Container */
+.ae-actuator-canvas-container {
+  position: absolute;
+  inset: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: 10;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 80px 40px;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+.ae-actuator-canvas {
+  width: 100vw;
+  height: 100vh;
+  max-width: 100vw;
+  max-height: 100vh;
+  display: block;
+  object-fit: contain;
+  background-color: transparent;
+  /* Hardware accelerated canvas for sharper rendering */
+  image-rendering: high-quality;
+  image-rendering: -webkit-optimize-contrast;
+}
+
+/* Desktop Left Information Box */
+.ae-actuator-info-panel {
+  position: absolute;
+  top: 50%;
+  left: max(5%, 2.5rem);
+  transform: translateY(-50%);
+  z-index: 25;
+  max-width: 340px;
+  width: 100%;
+  pointer-events: none;
+  transition: opacity 0.35s ease, transform 0.35s ease;
+}
+
+.ae-actuator-info-card {
+  background: rgba(255, 255, 255, 0.97);
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  border-left: 4px solid #E31B23;
+  border-radius: 6px;
+  padding: 1.5rem 1.75rem;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+  box-shadow: 0 12px 32px -8px rgba(0, 0, 0, 0.06);
+  backdrop-filter: blur(12px);
+  pointer-events: auto;
+}
+
+.ae-actuator-stage-number {
+  font-family: var(--font-mono, 'IBM Plex Mono', monospace);
+  font-size: 0.85rem;
+  font-weight: 800;
+  letter-spacing: 0.15em;
+  color: #E31B23;
+  margin-bottom: 0.5rem;
+  display: block;
+}
+
+.ae-actuator-stage-title {
+  font-family: var(--font-heading, 'Space Grotesk', sans-serif);
+  font-size: 1.4rem;
+  font-weight: 800;
+  color: #111111;
+  letter-spacing: -0.01em;
+  line-height: 1.25;
+  margin: 0 0 0.65rem 0;
+  text-transform: uppercase;
+}
+
+.ae-actuator-stage-desc {
+  font-family: var(--font-body, 'Inter', sans-serif);
+  font-size: 0.875rem;
+  color: #666666;
+  line-height: 1.6;
+  margin: 0;
+}
+
+/* Desktop Right Vertical Label */
+.ae-actuator-right-label {
+  position: absolute;
+  top: 50%;
+  right: max(5%, 2.5rem);
+  transform: translateY(-50%);
+  z-index: 20;
+  writing-mode: vertical-rl;
+  font-family: var(--font-mono, 'IBM Plex Mono', monospace);
+  font-size: 0.725rem;
+  font-weight: 700;
+  letter-spacing: 0.25em;
+  color: #a1a1aa;
+  text-transform: uppercase;
+  pointer-events: none;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.ae-actuator-right-label::before {
+  content: '';
+  width: 1px;
+  height: 40px;
+  background-color: #e4e4e7;
+}
+
+/* Bottom Controls & Progress Indicator */
+.ae-actuator-bottom-bar {
+  position: absolute;
+  bottom: 2.25rem;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 25;
+  width: 90%;
+  max-width: 900px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1.5rem;
+  pointer-events: none;
+}
+
+/* 6-stage Progress Indicator: 01 ── 02 ── 03 ── 04 ── 05 ── 06 */
+.ae-actuator-stage-indicator {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  background: rgba(255, 255, 255, 0.94);
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  border-radius: 999px;
+  padding: 0.55rem 1.25rem;
+  box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.05);
+  backdrop-filter: blur(12px);
+  pointer-events: auto;
+}
+
+.ae-actuator-indicator-item {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+.ae-actuator-indicator-chip {
+  font-family: var(--font-mono, 'IBM Plex Mono', monospace);
+  font-size: 0.725rem;
+  font-weight: 700;
+  color: #9ca3af;
+  transition: all 0.3s ease;
+  letter-spacing: 0.05em;
+}
+
+.ae-actuator-indicator-chip.active {
+  color: #E31B23;
+  font-weight: 800;
+  transform: scale(1.1);
+}
+
+.ae-actuator-indicator-line {
+  width: 16px;
+  height: 2px;
+  background-color: #e2e8f0;
+  transition: background-color 0.3s ease;
+}
+
+.ae-actuator-indicator-line.active {
+  background-color: #E31B23;
+}
+
+/* Stage 06 Final CTA Button */
+.ae-actuator-cta-button {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.65rem;
+  padding: 0.8rem 1.6rem;
+  background-color: #E31B23;
+  color: #ffffff;
+  font-family: var(--font-heading, 'Space Grotesk', sans-serif);
+  font-size: 0.825rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  border-radius: 999px;
+  text-decoration: none;
+  cursor: pointer;
+  box-shadow: 0 8px 24px rgba(229, 25, 55, 0.3);
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  pointer-events: auto;
+  opacity: 0;
+  transform: translateY(10px);
+}
+
+.ae-actuator-cta-button.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.ae-actuator-cta-button:hover {
+  background-color: #c8102e;
+  transform: translateY(-2px);
+  box-shadow: 0 12px 30px rgba(229, 25, 55, 0.45);
+}
+
+/* Static Fallback for prefers-reduced-motion */
+.ae-actuator-reduced-motion-fallback {
+  width: 100%;
+  padding: 4rem 2rem;
+  background-color: #ffffff;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.ae-actuator-fallback-img {
+  max-width: 600px;
+  width: 100%;
+  height: auto;
+  margin-bottom: 2rem;
+  object-fit: contain;
+}
+
+/* Responsive Breakpoints */
+@media (max-width: 1024px) {
+  .ae-actuator-info-panel {
+    left: 2rem;
+    max-width: 280px;
+  }
+  .ae-actuator-right-label {
+    display: none;
+  }
+}
+
+@media (max-width: 768px) {
+  .ae-actuator-top-bar {
+    top: 1.25rem;
+  }
+  
+  .ae-actuator-info-panel {
+    top: auto;
+    bottom: 5.5rem;
+    left: 50%;
+    transform: translateX(-50%);
+    max-width: 90%;
+  }
+
+  .ae-actuator-info-card {
+    padding: 1rem 1.25rem;
+  }
+
+  .ae-actuator-stage-title {
+    font-size: 1.15rem;
+  }
+
+  .ae-actuator-bottom-bar {
+    bottom: 1.25rem;
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+
+  .ae-actuator-indicator-line {
+    width: 8px;
+  }
+}
