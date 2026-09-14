@@ -73,3 +73,34 @@
   font-size: 0.7rem;
 }
 
+/* RESPONSIVE MEDIA QUERIES FOR TABLET & MOBILE INTRO VIDEO */
+@media (max-width: 1024px) {
+  .brand-intro-backdrop {
+    width: 100%;
+  }
+
+  .intro-video-element {
+    object-fit: contain;
+    object-position: center center;
+  }
+
+  .brand-intro-skip-btn {
+    bottom: 2rem;
+    right: 2rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .intro-video-element {
+    object-fit: contain;
+    object-position: center center;
+  }
+
+  .brand-intro-skip-btn {
+    bottom: 1.5rem;
+    right: 1.25rem;
+    padding: 0.5rem 1rem;
+    font-size: 0.75rem;
+  }
+}
+
