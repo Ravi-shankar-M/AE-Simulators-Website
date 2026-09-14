@@ -18,9 +18,18 @@ import CareersPage from './pages/Careers/Careers';
 
 import './index.css';
 
+const getBaseUrl = () => {
+  const base = import.meta.env.BASE_URL || '/';
+  return base.endsWith('/') ? base.slice(0, -1) : base;
+};
+
 const normalizePath = (path) => {
   if (!path) return '/';
   let cleaned = path.split('?')[0].split('#')[0];
+  const baseUrl = getBaseUrl();
+  if (baseUrl && cleaned.toLowerCase().startsWith(baseUrl.toLowerCase())) {
+    cleaned = cleaned.slice(baseUrl.length);
+  }
   if (cleaned.length > 1 && cleaned.endsWith('/')) {
     cleaned = cleaned.slice(0, -1);
   }
@@ -135,7 +144,7 @@ function AppContent() {
   const handleReplayIntro = useCallback(() => {
     setIntroFinished(false);
     if (currentPath !== '/') {
-      window.history.pushState({}, '', '/');
+      window.history.pushState({}, '', getBaseUrl() + '/');
       setCurrentPath('/');
     }
     window.scrollTo({ top: 0, behavior: 'instant' });
@@ -146,9 +155,11 @@ function AppContent() {
       const normalized = normalizePath(path);
       if (normalized === currentPath) return;
 
+      const targetUrl = getBaseUrl() + (normalized === '/' ? '/' : normalized);
+
       setTransitioning(true);
       setTimeout(() => {
-        window.history.pushState({}, '', path);
+        window.history.pushState({}, '', targetUrl);
         setCurrentPath(normalized);
         window.scrollTo({ top: 0, behavior: 'instant' });
 
