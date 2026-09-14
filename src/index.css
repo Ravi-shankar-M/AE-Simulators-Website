@@ -446,7 +446,8 @@ img, canvas {
   position: fixed;
   top: 0;
   left: 0;
-  width: 100vw;
+  width: 100%;
+  max-width: 100%;
   height: 100vh;
   background-color: var(--bg-pitch);
   z-index: 9999;
@@ -686,6 +687,15 @@ img[oncontextmenu],
   .section-content {
     padding: 0 1.25rem;
   }
+
+  .hero-section.text-hero-clean {
+    padding-top: 105px;
+    padding-bottom: 36px;
+  }
+
+  .hero-section.text-hero-clean .hero-content {
+    padding: 0 1.25rem;
+  }
 }
 
 @media (max-width: 480px) {
@@ -696,6 +706,23 @@ img[oncontextmenu],
 
   .section-content {
     padding: 0 1rem;
+  }
+
+  .hero-section.text-hero-clean {
+    padding-top: 92px;
+    padding-bottom: 28px;
+  }
+
+  .hero-section.text-hero-clean .hero-content {
+    padding: 0 1rem;
+  }
+
+  .contact-us-red-btn {
+    padding: 0.9rem 1.4rem !important;
+    font-size: 0.88rem !important;
+    white-space: normal !important;
+    text-align: center;
+    max-width: 100%;
   }
 }
 

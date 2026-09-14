@@ -163,4 +163,33 @@
   }
 }
 
+@media (max-width: 640px) {
+  .about-products-section {
+    padding: 48px 16px;
+  }
+
+  .about-product-card.overlay-card {
+    height: auto;
+    min-height: 380px;
+  }
+
+  .about-product-overlay-content {
+    padding: 20px 16px;
+  }
+
+  .about-product-overlay-content .about-product-title {
+    font-size: 1.4rem;
+  }
+
+  .about-product-overlay-content .about-product-desc {
+    font-size: 0.9rem;
+    margin-bottom: 20px;
+  }
+
+  .about-product-overlay-content .about-product-btn {
+    width: 100%;
+    justify-content: center;
+  }
+}
+
 

@@ -334,6 +334,11 @@
     padding: 55px 0;
   }
 
+  .what-we-build-editorial-section .section-header {
+    width: calc(100% - 24px);
+    margin-bottom: 36px;
+  }
+
   .what-build-container {
     width: calc(100% - 24px);
     gap: 24px;

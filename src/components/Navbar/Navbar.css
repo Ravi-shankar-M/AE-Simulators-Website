@@ -436,6 +436,14 @@
 }
 
 @media (max-width: 1024px) {
+  .ae-main-navbar {
+    height: 80px;
+  }
+
+  .ae-official-logo {
+    height: 72px;
+    max-height: 72px;
+  }
 
   .desktop-nav,
   .header-follow-us {
@@ -513,5 +521,36 @@
     font-size: 0.95rem;
     color: #555B63;
     text-decoration: none;
+  }
+}
+
+@media (max-width: 480px) {
+  .ae-main-navbar {
+    height: 70px;
+  }
+
+  .ae-official-logo {
+    height: 60px;
+    max-height: 60px;
+  }
+
+  .brand-india-tag {
+    display: none;
+  }
+
+  .header-container {
+    padding: 0 14px;
+  }
+
+  .mobile-nav-drawer {
+    top: 70px;
+    height: calc(100vh - 70px);
+    padding: 16px;
+    gap: 16px;
+  }
+
+  .mobile-link,
+  .mobile-group-title {
+    font-size: 1rem;
   }
 }

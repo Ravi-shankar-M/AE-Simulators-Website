@@ -297,3 +297,51 @@
   border-top-color: #E31B23;
   box-shadow: 0 16px 40px rgba(0, 0, 0, 0.08);
 }
+
+/* RESPONSIVE MEDIA QUERIES */
+@media (max-width: 1024px) {
+  .training-cards-grid {
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  }
+}
+
+@media (max-width: 768px) {
+  .training-container {
+    padding: 0 20px;
+  }
+
+  .training-hero-title {
+    font-size: 2.2rem;
+  }
+
+  .training-cards-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 480px) {
+  .training-page-wrapper {
+    padding-top: 85px;
+    padding-bottom: 40px;
+  }
+
+  .training-container {
+    padding: 0 14px;
+  }
+
+  .training-hero-title {
+    font-size: clamp(1.7rem, 6.5vw, 2.2rem);
+  }
+
+  .training-card,
+  .training-viewer-card {
+    padding: 20px 16px;
+  }
+
+  .training-tab-btn {
+    padding: 10px 14px;
+    font-size: 0.8rem;
+    width: 100%;
+    text-align: center;
+  }
+}

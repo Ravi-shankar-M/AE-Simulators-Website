@@ -606,6 +606,11 @@
 
 /* RESPONSIVE MEDIA QUERIES */
 @media (max-width: 1024px) {
+  .sticky-3d-viewport {
+    width: 100%;
+    max-width: 100%;
+  }
+
   .dof-controls-wrapper,
   .component-explorer-layout {
     grid-template-columns: 1fr;
@@ -625,7 +630,7 @@
 
   .hero-content-box,
   .story-card {
-    padding: 1.8rem;
+    padding: 1.5rem 1.25rem;
   }
 
   .hero-title {
@@ -634,5 +639,31 @@
 
   .hero-tagline {
     font-size: 1.2rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .story-section {
+    padding: 2.5rem 1rem;
+  }
+
+  .hero-content-box,
+  .story-card {
+    padding: 1.25rem 1rem;
+  }
+
+  .hero-title {
+    font-size: clamp(1.6rem, 6.5vw, 2rem);
+  }
+
+  .hero-actions {
+    flex-direction: column;
+    width: 100%;
+  }
+
+  .hero-actions .btn-primary,
+  .hero-actions .btn-secondary {
+    width: 100%;
+    justify-content: center;
   }
 }

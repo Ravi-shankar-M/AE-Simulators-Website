@@ -189,3 +189,19 @@
     grid-template-columns: 1fr;
   }
 }
+
+@media (max-width: 640px) {
+  .contact-form-section {
+    padding: 24px 16px 40px;
+  }
+
+  .contact-form-card,
+  .contact-info-card {
+    padding: 20px 16px;
+  }
+
+  .form-card-title,
+  .info-card-title {
+    font-size: 1.4rem;
+  }
+}

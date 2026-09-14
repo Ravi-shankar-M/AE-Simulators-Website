@@ -455,6 +455,22 @@
   }
 }
 
+@media (max-width: 480px) {
+  .stewart-cinematic-mobile-overlay {
+    width: 94%;
+    padding: 0.85rem 1rem;
+    bottom: 12%;
+  }
+
+  .stewart-cinematic-content-box {
+    padding: 0.85rem 1rem;
+  }
+
+  .stewart-cinematic-headline {
+    font-size: 1.1rem;
+  }
+}
+
 @media (prefers-reduced-motion: reduce) {
   .stewart-cinematic-stage-counter,
   .stewart-cinematic-content-box,

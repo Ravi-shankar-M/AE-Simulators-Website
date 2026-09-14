@@ -455,6 +455,7 @@
 @media (max-width: 768px) {
   .cinematic-stage-box {
     height: 290px;
+    min-width: min(100%, 280px);
   }
 
   .stage-billboard-box {
@@ -472,5 +473,22 @@
 
   .animated-car-body {
     width: 320px;
+    max-width: 90%;
+  }
+}
+
+@media (max-width: 480px) {
+  .stage-billboard-box {
+    width: 240px;
+    height: 100px;
+  }
+
+  .dragged-title-3d {
+    font-size: 1.6rem;
+  }
+
+  .animated-car-body {
+    width: 260px;
+    max-width: 88%;
   }
 }

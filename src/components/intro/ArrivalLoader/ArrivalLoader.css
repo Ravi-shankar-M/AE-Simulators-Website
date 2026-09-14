@@ -117,8 +117,9 @@
 @media (max-width: 768px) {
   .intro-logo-box {
     width: 88vw;
+    min-width: min(100%, 280px);
     height: 220px;
-    padding: 1.5rem 1.8rem;
+    padding: 1.2rem 1.4rem;
   }
 
   .intro-logo-img {

@@ -227,8 +227,15 @@
 }
 
 @media (max-width: 768px) {
+  .brandmotion-stage-box { width: 92vw; min-width: min(100%, 280px); }
   .brandmotion-wordmark-text { font-size: 2.4rem; letter-spacing: 0.04em; }
   .brandmotion-tagline-text { font-size: 0.95rem; letter-spacing: 0.15em; }
   .brandmotion-brand-img { height: 50px; }
   .small-car-container { width: 32vw; }
+}
+
+@media (max-width: 480px) {
+  .brandmotion-wordmark-text { font-size: 1.7rem; letter-spacing: 0.02em; }
+  .brandmotion-tagline-text { font-size: 0.75rem; letter-spacing: 0.1em; }
+  .brandmotion-brand-img { height: 42px; }
 }

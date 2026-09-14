@@ -149,3 +149,30 @@
   line-height: 1.6;
   margin: 0;
 }
+
+/* RESPONSIVE MEDIA QUERIES */
+@media (max-width: 1024px) {
+  .technology-section {
+    padding: 60px 24px;
+  }
+}
+
+@media (max-width: 640px) {
+  .technology-section {
+    padding: 40px 16px;
+  }
+
+  .software-telemetry-hud {
+    position: relative;
+    bottom: auto;
+    right: auto;
+    margin: 1rem;
+    width: calc(100% - 2rem);
+    min-width: auto;
+    box-sizing: border-box;
+  }
+
+  .active-scenario-description {
+    padding: 1.2rem 1.25rem;
+  }
+}

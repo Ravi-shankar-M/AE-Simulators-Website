@@ -183,21 +183,44 @@
 @media (max-width: 1024px) {
   .footer-container {
     grid-template-columns: 1fr 1fr;
+    gap: 28px;
+    padding: 0 24px 48px 24px;
   }
 
   .footer-make-in-india-col {
     align-items: flex-start;
   }
+
+  .footer-bottom-bar {
+    padding: 16px 24px;
+  }
+
+  .bottom-container {
+    display: flex;
+    justify-content: space-between;
+    gap: 16px;
+    flex-wrap: wrap;
+  }
 }
 
 @media (max-width: 640px) {
+  .ae-footer {
+    padding-top: 48px;
+  }
+
   .footer-container {
     grid-template-columns: 1fr;
+    padding: 0 16px 36px 16px;
+    gap: 24px;
   }
 
   .footer-make-in-india-col {
     align-items: flex-start;
     margin-top: 8px;
+  }
+
+  .footer-bottom-bar {
+    padding: 16px;
   }
 
   .bottom-container {

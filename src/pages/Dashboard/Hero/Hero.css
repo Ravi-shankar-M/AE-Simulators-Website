@@ -454,6 +454,11 @@
     object-fit: cover;
     object-position: center center;
   }
+
+  .dashboard-video-watermark-logo {
+    height: 140px;
+    max-width: 85vw;
+  }
 }
 
 @media (max-width: 640px) {
@@ -470,7 +475,7 @@
   }
 
   .hero-main-heading {
-    font-size: 2.1rem;
+    font-size: clamp(1.6rem, 7vw, 2.1rem);
   }
 
   .hero-cta-group {
@@ -483,5 +488,10 @@
   .hero-btn-white {
     justify-content: center;
     width: 100%;
+  }
+
+  .dashboard-video-watermark-logo {
+    height: 100px;
+    max-width: 85vw;
   }
 }

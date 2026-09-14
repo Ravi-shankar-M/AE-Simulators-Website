@@ -470,10 +470,31 @@
 
 /* Responsive Breakpoints */
 @media (max-width: 1024px) {
+  .ae-actuator-experience-wrapper {
+    width: 100%;
+    left: 0;
+    right: 0;
+    margin-left: 0;
+    margin-right: 0;
+  }
+
+  .ae-actuator-scroll-section,
+  .ae-actuator-sticky-viewport,
+  .ae-actuator-canvas-container {
+    width: 100%;
+    max-width: 100%;
+  }
+
+  .ae-actuator-canvas {
+    width: 100%;
+    max-width: 100%;
+  }
+
   .ae-actuator-info-panel {
     left: 2rem;
     max-width: 280px;
   }
+
   .ae-actuator-right-label {
     display: none;
   }

@@ -335,7 +335,8 @@
 /* RESPONSIVE MOBILE STYLING */
 @media (max-width: 480px) {
   .wa-chat-window {
-    width: calc(100vw - 32px);
+    width: min(360px, calc(100% - 32px));
+    max-width: calc(100% - 24px);
     right: 0;
     max-height: 80vh;
     min-height: 300px;

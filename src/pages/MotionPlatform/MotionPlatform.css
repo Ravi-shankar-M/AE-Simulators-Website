@@ -168,3 +168,20 @@
   }
 }
 
+@media (max-width: 640px) {
+  .editorial-presentation-block,
+  .editorial-presentation-block.reverse {
+    padding: 20px 16px;
+    gap: 24px;
+  }
+
+  .editorial-img {
+    height: 220px;
+  }
+
+  .specs-row {
+    padding: 12px 14px;
+    font-size: 0.8rem;
+  }
+}
+
