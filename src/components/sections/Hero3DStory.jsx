@@ -128,7 +128,7 @@ export default function Hero3DStory({ navigate }) {
             <span className="section-tag font-mono text-ae-red">SECTION 02 — HARDWARE KINEMATICS</span>
             <h2 className="story-card-title">6-DOF MOTION PLATFORM</h2>
             <p className="story-card-desc">
-              Full 6 Degrees-of-Freedom Stewart hexapod platform featuring six precision electric actuators translating vehicle dynamics directly into chassis motion.
+              Full 6 Degrees-of-Freedom hexapod platform featuring six precision electric actuators translating vehicle dynamics directly into chassis motion.
             </p>
             <button
               type="button"

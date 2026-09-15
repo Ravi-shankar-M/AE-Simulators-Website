@@ -24,7 +24,7 @@ export default function MotionPlatformPage({ navigate, type = '6DOF' }) {
           <div className="section-content hero-content">
             <div className="tech-badge">
               <span className="badge-dot" />
-              {is3Dof ? '3-DOF COMPACT KINEMATICS' : '6-DOF STEWART HEXAPOD'}
+              {is3Dof ? '3-DOF COMPACT KINEMATICS' : '6-DOF HEXAPOD PLATFORM'}
             </div>
 
             <h1 className="hero-title">
@@ -64,8 +64,8 @@ export default function MotionPlatformPage({ navigate, type = '6DOF' }) {
             </h2>
             <p className="section-desc">
               {is3Dof
-                ? 'Explore the motion vector transformations of our electromechanical 3-DOF tripod platform. Toggle AUTO DEMO or select pitch, roll, and heave states.'
-                : 'Explore the physical motion vector transformations of our electromechanical 6-DOF Stewart hexapod architecture. Toggle AUTO DEMO or select individual motion states.'}
+                ? 'Explore the motion vector transformations of our electromechanical 3-DOF platform. Toggle AUTO DEMO or select pitch, roll, and heave states.'
+                : 'Explore the physical motion vector transformations of our electromechanical 6-DOF platform architecture. Toggle AUTO DEMO or select individual motion states.'}
             </p>
           </div>
         </ScrollReveal>
@@ -163,7 +163,7 @@ export default function MotionPlatformPage({ navigate, type = '6DOF' }) {
             </div>
             <div className="specs-row">
               <span>Degrees of Freedom</span>
-              <span>6-DOF Hexapod (Roll, Pitch, Yaw, Surge, Sway, Heave) / 3-DOF Tripod (Roll, Pitch, Heave)</span>
+              <span>6-DOF Platform (Roll, Pitch, Yaw, Surge, Sway, Heave) / 3-DOF Platform (Roll, Pitch, Heave)</span>
             </div>
             <div className="specs-row">
               <span>Drive System Type</span>

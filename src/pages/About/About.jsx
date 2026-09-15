@@ -1,6 +1,6 @@
 import React from 'react';
 import Philosophy from './Philosophy/Philosophy';
-import Products from './Products/Products';
+import WhatWeBuild from '../Dashboard/WhatWeBuild/WhatWeBuild';
 import WorldMap from './WorldMap/WorldMap';
 
 import './About.css';
@@ -8,8 +8,8 @@ import './About.css';
 export default function About({ navigate }) {
   return (
     <div className="about-page-container">
-      <Products navigate={navigate} />
       <Philosophy />
+      <WhatWeBuild navigate={navigate} />
       <WorldMap />
     </div>
   );

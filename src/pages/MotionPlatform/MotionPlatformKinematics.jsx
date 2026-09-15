@@ -30,7 +30,7 @@ export default function MotionPlatformKinematics() {
         {/* COLUMN 1: REAL 3-DOF SIMULATOR KINEMATICS */}
         <div className="kin-panel ae-card">
           <div className="kin-panel-header font-mono">
-            <span className="kin-panel-badge text-ae-red">3-DOF TRIPOD KINEMATICS</span>
+            <span className="kin-panel-badge text-ae-red">3-DOF KINEMATICS</span>
             <h3 className="kin-panel-title font-heading">3-DOF MOTION PLATFORM</h3>
           </div>
 
@@ -40,7 +40,7 @@ export default function MotionPlatformKinematics() {
               <div className="kin-img-base-layer">
                 <ProtectedImage
                   src={THREE_DOF_IMAGE}
-                  alt="3-DOF Tripod Motion Platform Base Anchor"
+                  alt="3-DOF Motion Platform Base Anchor"
                   className="kin-real-product-img kin-3dof-img kin-base-img"
                 />
               </div>
@@ -54,7 +54,7 @@ export default function MotionPlatformKinematics() {
               >
                 <ProtectedImage
                   src={THREE_DOF_IMAGE}
-                  alt="3-DOF Tripod Motion Platform Simulator Visual"
+                  alt="3-DOF Motion Platform Simulator Visual"
                   className="kin-real-product-img kin-3dof-img kin-moving-img"
                 />
               </div>
@@ -86,10 +86,10 @@ export default function MotionPlatformKinematics() {
           </div>
         </div>
 
-        {/* COLUMN 2: REAL 6-DOF STEWART SIMULATOR KINEMATICS */}
+        {/* COLUMN 2: REAL 6-DOF SIMULATOR KINEMATICS */}
         <div className="kin-panel ae-card">
           <div className="kin-panel-header font-mono">
-            <span className="kin-panel-badge text-ae-red">6-DOF STEWART KINEMATICS</span>
+            <span className="kin-panel-badge text-ae-red">6-DOF KINEMATICS</span>
             <h3 className="kin-panel-title font-heading">6-DOF MOTION PLATFORM</h3>
           </div>
 

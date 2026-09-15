@@ -49,7 +49,7 @@ const STAGES = [
   {
     stageNum: '06',
     title: 'UNIVERSAL MOUNTING FLANGE',
-    desc: 'Upper payload connection joint and universal swivel flange for 6-DOF Stewart platform integration.',
+    desc: 'Upper payload connection joint and universal swivel flange for 6-DOF hexapod platform integration.',
     range: '20 — 11',
   },
 ];
@@ -241,13 +241,13 @@ export default function ActuatorScrollExperience({ navigate }) {
   if (isReducedMotion) {
     return (
       <section className="ae-actuator-reduced-motion-fallback" aria-label="Actuator Hardware Disassembly">
-        <h2 className="ae-actuator-stage-title">6-DOF STEWART MOTION ACTUATOR</h2>
+        <h2 className="ae-actuator-stage-title">6-DOF MOTION ACTUATOR</h2>
         <p className="ae-actuator-stage-desc" style={{ maxWidth: '600px', margin: '0 auto 2rem' }}>
-          Fully assembled high-dynamic electromechanical linear actuator for 6-DOF Stewart Hexapod motion platforms.
+          Fully assembled high-dynamic electromechanical linear actuator for 6-DOF Hexapod motion platforms.
         </p>
         <img
           src={getFramePath(0)}
-          alt="Fully assembled 6-DOF Stewart Platform Linear Actuator"
+          alt="Fully assembled 6-DOF Platform Linear Actuator"
           className="ae-actuator-fallback-img"
           onContextMenu={(e) => e.preventDefault()}
           onDragStart={(e) => e.preventDefault()}

@@ -93,7 +93,7 @@ export default function SEOHelper({ currentPath }) {
         '@context': 'https://schema.org',
         '@type': 'Product',
         'name': 'AE 6-DOF Motion Platform',
-        'description': '6 Degrees of Freedom Stewart hexapod motion platform powered by brushless servos and ball screw linear actuators.',
+        'description': '6 Degrees of Freedom hexapod motion platform powered by brushless servos and ball screw linear actuators.',
         'brand': {
           '@type': 'Brand',
           'name': SITE_CONFIG.name,
@@ -104,7 +104,7 @@ export default function SEOHelper({ currentPath }) {
         '@context': 'https://schema.org',
         '@type': 'Product',
         'name': 'AE 3-DOF Motion Platform',
-        'description': '3 Degrees of Freedom tripod motion platform for dynamic driver training and sim racing.',
+        'description': '3 Degrees of Freedom motion platform for dynamic driver training and sim racing.',
         'brand': {
           '@type': 'Brand',
           'name': SITE_CONFIG.name,

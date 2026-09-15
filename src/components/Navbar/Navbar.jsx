@@ -39,24 +39,13 @@ export default function Header({ currentPath = '/', navigate }) {
   const [mobileGamingOpen, setMobileGamingOpen] = useState(false);
   const [mobileTrainingOpen, setMobileTrainingOpen] = useState(false);
 
-  const dropdownTimerRef = React.useRef(null);
-
   const handleDropdownMouseEnter = () => {
-    if (dropdownTimerRef.current) {
-      clearTimeout(dropdownTimerRef.current);
-      dropdownTimerRef.current = null;
-    }
     setProductsDropdownOpen(true);
   };
 
   const handleDropdownMouseLeave = () => {
-    if (dropdownTimerRef.current) {
-      clearTimeout(dropdownTimerRef.current);
-    }
-    dropdownTimerRef.current = setTimeout(() => {
-      setProductsDropdownOpen(false);
-      setActiveSubMenu(null);
-    }, 1000);
+    setProductsDropdownOpen(false);
+    setActiveSubMenu(null);
   };
 
   useEffect(() => {
@@ -83,10 +72,6 @@ export default function Header({ currentPath = '/', navigate }) {
 
   const handleNavClick = (path, e) => {
     if (e) e.preventDefault();
-    if (dropdownTimerRef.current) {
-      clearTimeout(dropdownTimerRef.current);
-      dropdownTimerRef.current = null;
-    }
     setMobileMenuOpen(false);
     setProductsDropdownOpen(false);
     setActiveSubMenu(null);
@@ -148,10 +133,6 @@ export default function Header({ currentPath = '/', navigate }) {
                 className={`nav-link ${isProductsActive ? 'active' : ''}`}
                 onClick={(e) => {
                   e.preventDefault();
-                  if (dropdownTimerRef.current) {
-                    clearTimeout(dropdownTimerRef.current);
-                    dropdownTimerRef.current = null;
-                  }
                   setProductsDropdownOpen((prev) => !prev);
                 }}
                 aria-expanded={productsDropdownOpen}

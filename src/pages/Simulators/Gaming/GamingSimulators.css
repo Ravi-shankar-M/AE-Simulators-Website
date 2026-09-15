@@ -21,7 +21,7 @@
 .gaming-hero-header {
   text-align: center;
   max-width: 900px;
-  margin: 0 auto 40px auto;
+  margin: 0 auto 30px auto;
 }
 
 .gaming-hero-title {
@@ -31,7 +31,7 @@
   color: #17191C;
   letter-spacing: -0.02em;
   line-height: 1.1;
-  margin-bottom: 20px;
+  margin-bottom: 16px;
 }
 
 .gaming-hero-title span {
@@ -44,12 +44,12 @@
   line-height: 1.6;
 }
 
-/* GAMING CATEGORY SUB-NAV TABS */
+/* CATEGORY SUB-NAV TABS */
 .gaming-tabs-row {
   display: flex;
   justify-content: center;
-  gap: 14px;
-  margin-bottom: 45px;
+  gap: 12px;
+  margin-bottom: 50px;
   flex-wrap: wrap;
 }
 
@@ -82,123 +82,192 @@
   box-shadow: 0 4px 16px rgba(227, 27, 35, 0.25);
 }
 
-.gaming-tab-btn.active .gaming-tab-icon {
-  color: #FFFFFF;
-}
-
-/* 360 INTERACTIVE MODEL SECTION — DIRECT PLACEMENT */
-.gaming-360-section {
-  margin-bottom: 60px;
-  width: 100%;
-}
-
-.gaming-section-header {
-  margin-bottom: 20px;
-}
-
-.gaming-section-title {
-  font-family: var(--font-heading);
-  font-size: 1.8rem;
-  font-weight: 800;
-  color: #17191C;
-}
-
-.gaming-section-title span {
-  color: #E31B23;
-}
-
-/* GAMING CARDS GRID */
-.gaming-cards-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
-  gap: 30px;
-  margin-top: 30px;
-  align-items: stretch;
-}
-
-.gaming-cards-grid > .sr-reveal-box {
-  height: 100%;
-  display: flex;
-  flex-direction: column;
-}
-
-.gaming-card {
+/* SIMULATOR SECTION BLOCKS */
+.simulator-section-block {
   background: #FFFFFF;
   border: 1px solid #E2E2E2;
-  border-radius: 10px;
-  padding: 32px;
-  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  border-radius: 16px;
+  padding: 48px;
+  margin-bottom: 60px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.04);
   position: relative;
   overflow: hidden;
-  height: 100%;
-  flex: 1;
-  display: flex;
-  flex-direction: column;
-  box-sizing: border-box;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+  scroll-margin-top: 120px;
 }
 
-.gaming-card::before {
+.simulator-section-block::before {
   content: '';
   position: absolute;
   top: 0;
   left: 0;
-  width: 100%;
-  height: 3px;
+  width: 4px;
+  height: 100%;
   background: #E31B23;
 }
 
-.gaming-card:hover {
-  transform: translateY(-6px);
-  border-color: #E2E2E2;
-  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.08);
+.simulator-section-block:hover {
+  border-color: #E31B23;
+  box-shadow: 0 16px 40px rgba(227, 27, 35, 0.12);
 }
 
-.gaming-card-tag {
+.section-eyebrow {
   font-family: var(--font-mono, monospace);
-  font-size: 0.75rem;
-  font-weight: 700;
+  font-size: 0.8rem;
+  font-weight: 800;
   color: #E31B23;
-  letter-spacing: 0.1em;
+  letter-spacing: 0.12em;
   text-transform: uppercase;
-  margin-bottom: 12px;
+  margin-bottom: 8px;
   display: block;
 }
 
-.gaming-card-title {
+.simulator-section-title {
   font-family: var(--font-heading);
-  font-size: 1.5rem;
-  font-weight: 800;
+  font-size: 2.2rem;
+  font-weight: 900;
   color: #17191C;
-  margin-bottom: 14px;
+  margin-bottom: 10px;
+  letter-spacing: -0.01em;
 }
 
-.gaming-card-desc {
+.simulator-section-subtitle {
+  font-family: var(--font-mono, monospace);
   font-size: 0.95rem;
   color: #555B63;
-  line-height: 1.6;
-  margin-bottom: 20px;
+  font-weight: 600;
+  margin-bottom: 32px;
 }
 
-.gaming-feature-list {
-  list-style: none;
-  padding: 0;
-  margin: 0 0 24px 0;
+.simulator-section-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 48px;
+  align-items: center;
+}
+
+.simulator-section-grid.reverse {
+  grid-template-columns: 1fr 1fr;
+}
+
+.simulator-image-card {
+  position: relative;
+  border-radius: 12px;
+  overflow: hidden;
+  border: 1px solid #E2E2E2;
+  box-shadow: 0 12px 36px rgba(0, 0, 0, 0.08);
+  background: #0F172A;
+  aspect-ratio: 16 / 9;
+}
+
+.simulator-image-card img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.6s ease;
+}
+
+.simulator-image-card:hover img {
+  transform: scale(1.04);
+}
+
+.simulator-image-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(15, 23, 42, 0) 60%, rgba(15, 23, 42, 0.6) 100%);
+  pointer-events: none;
+}
+
+.simulator-badge-tag {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  background: rgba(15, 23, 42, 0.85);
+  backdrop-filter: blur(8px);
+  color: #FFFFFF;
+  border: 1px solid rgba(227, 27, 35, 0.6);
+  padding: 6px 14px;
+  border-radius: 4px;
+  font-family: var(--font-mono, monospace);
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  z-index: 2;
+}
+
+.simulator-info-content {
   display: flex;
   flex-direction: column;
-  gap: 10px;
 }
 
-.gaming-feature-item {
-  font-size: 0.88rem;
-  color: #333940;
+.simulator-info-desc {
+  font-size: 1.05rem;
+  color: #4A515A;
+  line-height: 1.75;
+  margin-bottom: 28px;
+}
+
+.simulator-image-card.kinematics-active {
+  aspect-ratio: auto !important;
+  height: auto !important;
+  min-height: 480px;
+}
+
+.simulator-feature-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 12px 24px;
+  margin-bottom: 32px;
+}
+
+.simulator-feature-item {
   display: flex;
-  align-items: center;
-  gap: 10px;
+  align-items: flex-start;
+  gap: 12px;
+  background: transparent;
+  padding: 4px 0;
+  border-radius: 0;
+  border: none;
 }
 
-.gaming-feature-icon {
+.simulator-feature-icon {
   color: #E31B23;
   flex-shrink: 0;
+  margin-top: 2px;
+}
+
+.simulator-feature-text {
+  font-size: 0.88rem;
+  font-weight: 600;
+  color: #1E293B;
+  line-height: 1.4;
+}
+
+.motion-test-btn {
+  background-color: #1e293b;
+  color: #ffffff;
+  border: 1px solid #334155;
+  padding: 12px 24px;
+  font-size: 0.85rem;
+  font-weight: 700;
+  font-family: var(--font-mono, monospace);
+  letter-spacing: 0.06em;
+  border-radius: 4px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.25s ease;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.motion-test-btn:hover {
+  background-color: #E31B23;
+  border-color: #E31B23;
+  color: #ffffff;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 18px rgba(227, 27, 35, 0.4);
 }
 
 /* RESPONSIVE MEDIA QUERIES */
@@ -208,9 +277,17 @@
     padding-bottom: 60px;
   }
 
-  .gaming-cards-grid {
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 20px;
+  .simulator-section-grid {
+    grid-template-columns: 1fr;
+    gap: 32px;
+  }
+
+  .simulator-section-grid.reverse {
+    grid-template-columns: 1fr;
+  }
+
+  .simulator-section-block {
+    padding: 32px 24px;
   }
 }
 
@@ -223,7 +300,7 @@
     font-size: 2.2rem;
   }
 
-  .gaming-cards-grid {
+  .simulator-feature-grid {
     grid-template-columns: 1fr;
   }
 }
@@ -242,8 +319,8 @@
     font-size: clamp(1.7rem, 6.5vw, 2.2rem);
   }
 
-  .gaming-card {
-    padding: 20px 16px;
+  .simulator-section-block {
+    padding: 24px 16px;
   }
 
   .gaming-tab-btn {

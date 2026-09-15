@@ -10,7 +10,7 @@ function ExternalGLBModel({ url, activeHotspot, motion }) {
   return <primitive object={clonedScene} scale={1.2} position={[0, 0, 0]} />;
 }
 
-// 6-DOF Stewart Platform Kinematics Geometry Helper
+// 6-DOF Hexapod Platform Kinematics Geometry Helper
 // Base geometry parameters (meters)
 const BASE_RADIUS = 1.35;
 const PLATFORM_RADIUS = 1.1;
@@ -242,7 +242,7 @@ function ParametricAESimulatorMesh({
           ============================================================ */}
       <group ref={topPlatformGroupRef} position={[0, 1.05, 0]}>
 
-        {/* Stewart Platform Top Hexagonal Mounting Plate */}
+        {/* Hexapod Platform Top Hexagonal Mounting Plate */}
         <mesh
           position={[0, 0.05, 0]}
           castShadow
@@ -403,7 +403,7 @@ function ParametricAESimulatorMesh({
       </group>
 
       {/* ============================================================
-          03. 6 ARTICULATED HEAVY-DUTY ACTUATORS (STEWART HEXAPOD)
+          03. 6 ARTICULATED HEAVY-DUTY ACTUATORS (HEXAPOD)
           ============================================================ */}
       <group
         name="ActuatorsGroup"

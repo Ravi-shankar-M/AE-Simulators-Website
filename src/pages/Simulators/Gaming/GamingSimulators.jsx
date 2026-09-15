@@ -1,56 +1,57 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import ScrollReveal from '../../../components/common/ScrollReveal';
-import Gaming360Viewer from '../../../components/three/Gaming360Viewer';
+import ProtectedImage from '../../../components/common/ProtectedImage';
 import ThreeDofImageViewer from '../../../components/three/ThreeDofImageViewer';
 import SixDofImageViewer from '../../../components/three/SixDofImageViewer';
 import ActuatorScrollExperience from '../ActuatorSequence/ActuatorSequence';
-import WhatWeBuild from '../../Dashboard/WhatWeBuild/WhatWeBuild';
-import { ShieldCheck, ArrowRight } from 'lucide-react';
+import { ShieldCheck, ArrowRight, Activity } from 'lucide-react';
 import './GamingSimulators.css';
 
-export default function GamingSimulatorsPage({ navigate }) {
+import gamingStaticImg from './images/gaming_static_rig.jpg';
+import gaming3dofImg from './images/gaming_3dof_rig.jpg';
+import gaming6dofImg from './images/gaming_6dof_rig.jpg';
+
+export default function GamingSimulatorsPage({ navigate, activeSubtype = 'all' }) {
+  const [show3DofKinematics, setShow3DofKinematics] = useState(false);
+  const [show6DofKinematics, setShow6DofKinematics] = useState(false);
+
   const handleNavigate = (path, e) => {
     if (e) e.preventDefault();
     if (navigate) navigate(path);
   };
 
-  const gamingProducts = [
-    {
-      id: '3dof',
-      type: '3DOF MOTION GAMING',
-      badge: 'TRIPOD MOTION RIG',
-      title: '3-DOF SIMULATORS',
-      subtitle: 'Rapid Pitch, Roll, & Heave Dynamic Chassis Motion',
-      desc: 'Dynamic 3-DOF motion platform bringing real-road chassis G-forces, suspension bumps, and apex cornering inertia straight into your racing cockpit.',
-      features: [
-        '3 High-speed linear electric actuators',
-        'Low-latency Telemetry SDK integration',
-        'Pitch (+/- 15 deg), Roll (+/- 15 deg), Heave motion cues',
-        'Plug & Play USB motion controller box'
-      ],
-      spec: '3-DOF TRIPOD'
-    },
-    {
-      id: '6dof',
-      type: '6DOF HEXAPOD',
-      badge: 'HEXAPOD RIG',
-      title: '6-DOF SIMULATORS',
-      subtitle: 'Full 6 Degrees of Freedom Extreme Racing Immersion',
-      desc: 'Full 6-DOF Hexapod platform providing complete Roll, Pitch, Yaw, Surge, Sway, and Heave motion cues for maximum immersion.',
-      features: [
-        'Full 6-DOF Hexapod kinematics solver',
-        'Instantaneous Surge & Sway G-force translation',
-        'Industrial servo-actuator power for high payload cockpits',
-        'Pro telemetry software suite with customized motion profiles'
-      ],
-      spec: '6-DOF HEXAPOD'
+  useEffect(() => {
+    if (activeSubtype && activeSubtype !== 'all') {
+      const scrollToSection = () => {
+        const el = document.getElementById(`section-${activeSubtype}`);
+        if (el) {
+          const headerOffset = 110;
+          const elementPosition = el.getBoundingClientRect().top;
+          const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+          window.scrollTo({
+            top: offsetPosition,
+            behavior: 'smooth',
+          });
+        }
+      };
+
+      // Perform initial scroll attempt and multi-stage retries to handle 3D/image layout shifts
+      scrollToSection();
+      const t1 = setTimeout(scrollToSection, 150);
+      const t2 = setTimeout(scrollToSection, 450);
+      const t3 = setTimeout(scrollToSection, 900);
+
+      return () => {
+        clearTimeout(t1);
+        clearTimeout(t2);
+        clearTimeout(t3);
+      };
     }
-  ];
+  }, [activeSubtype]);
 
   return (
     <div className="gaming-page-wrapper">
       <div className="gaming-container">
-
         {/* GAMING HERO HEADER */}
         <ScrollReveal variant="fade-up">
           <div className="gaming-hero-header">
@@ -67,88 +68,202 @@ export default function GamingSimulatorsPage({ navigate }) {
       {/* 3D SEQUENCE SCROLL TRIGGER MODEL */}
       <ActuatorScrollExperience navigate={navigate} />
 
-      <div className="gaming-container" style={{ marginTop: '2rem' }}>
-
-        {/* 1. 360 VIEW INTERACTIVE MODEL */}
+      <div className="gaming-container" style={{ marginTop: '2.5rem' }}>
+        {/* SECTION 1: STATIC SIMULATORS */}
         <ScrollReveal variant="fade-up">
-          <div className="gaming-360-section" style={{ marginBottom: '4rem' }}>
-            <div className="gaming-section-header">
-              <h2 className="gaming-section-title">
-                360° INTERACTIVE <span>COCKPIT MODEL</span>
-              </h2>
-            </div>
-            <Gaming360Viewer height="520px" />
-          </div>
-        </ScrollReveal>
+          <section id="section-static" className="simulator-section-block">
+            <span className="section-eyebrow">STATIC RIGS</span>
+            <h2 className="simulator-section-title">STATIC SIM RACING COCKPITS</h2>
+            <p className="simulator-section-subtitle">
+              Precision Ergonomics, High-Rigidity Aluminum &amp; Direct Drive Wheel Support
+            </p>
 
-        {/* 2. 3-DOF KINEMATICS & 3. 6-DOF KINEMATICS */}
-        <div className="kinematics-section" style={{ marginBottom: '4rem' }}>
-          <ScrollReveal variant="fade-up">
-            <div className="gaming-section-header">
-              <h2 className="gaming-section-title" style={{ color: '#17191C' }}>
-                3-DOF &amp; 6-DOF KINEMATICS
-              </h2>
-            </div>
-          </ScrollReveal>
-
-          <div className="training-model-viewers-grid">
-            {/* 3-DOF KINEMATICS */}
-            <ScrollReveal variant="fade-up">
-              <div className="training-viewer-card">
-                <div className="training-viewer-header">
-                  <h3 className="training-viewer-title">3-DOF KINEMATICS</h3>
-                </div>
-                <ThreeDofImageViewer height="460px" />
+            <div className="simulator-section-grid">
+              <div className="simulator-image-card">
+                <ProtectedImage
+                  src={gamingStaticImg}
+                  alt="Static Sim Racing Cockpit Rig"
+                />
+                <div className="simulator-image-overlay" />
               </div>
-            </ScrollReveal>
 
-            {/* 6-DOF KINEMATICS */}
-            <ScrollReveal variant="fade-up" delay={0.1}>
-              <div className="training-viewer-card">
-                <div className="training-viewer-header">
-                  <h3 className="training-viewer-title">6-DOF KINEMATICS</h3>
+              <div className="simulator-info-content">
+                <p className="simulator-info-desc">
+                  Engineering-grade static sim racing cockpits built for high-end esports competition, home sim racing setups, and commercial entertainment centers. Constructed with heavy-duty aluminum extrusions to eliminate flex under intense steering wheel torque and heavy pedal braking.
+                </p>
+
+                <div className="simulator-feature-grid font-mono">
+                  <div className="simulator-feature-item">
+                    <ShieldCheck size={18} className="simulator-feature-icon" />
+                    <span className="simulator-feature-text">Heavy-duty aluminum frame chassis</span>
+                  </div>
+                  <div className="simulator-feature-item">
+                    <ShieldCheck size={18} className="simulator-feature-icon" />
+                    <span className="simulator-feature-text">Direct Drive wheel &amp; pedal mounting plates</span>
+                  </div>
+                  <div className="simulator-feature-item">
+                    <ShieldCheck size={18} className="simulator-feature-icon" />
+                    <span className="simulator-feature-text">Ergonomic racing bucket seat with sliders</span>
+                  </div>
+                  <div className="simulator-feature-item">
+                    <ShieldCheck size={18} className="simulator-feature-icon" />
+                    <span className="simulator-feature-text">Integrated single &amp; triple monitor mounts</span>
+                  </div>
                 </div>
-                <SixDofImageViewer height="460px" />
-              </div>
-            </ScrollReveal>
-          </div>
-        </div>
-
-        {/* PRODUCTS CARDS GRID */}
-        <div className="gaming-cards-grid">
-          {gamingProducts.map((prod) => (
-            <ScrollReveal key={prod.id} variant="scale-up">
-              <div className="gaming-card ae-card">
-                <span className="gaming-card-tag">{prod.badge}</span>
-                <h3 className="gaming-card-title">{prod.title}</h3>
-                <p className="gaming-card-desc">{prod.desc}</p>
-
-                <ul className="gaming-feature-list">
-                  {prod.features.map((feat, fIdx) => (
-                    <li key={fIdx} className="gaming-feature-item">
-                      <ShieldCheck size={16} className="gaming-feature-icon" />
-                      <span>{feat}</span>
-                    </li>
-                  ))}
-                </ul>
 
                 <button
                   type="button"
-                  className="contact-us-red-btn full-width"
-                  style={{ width: '100%', justifyContent: 'center', marginTop: '12px' }}
+                  className="contact-us-red-btn"
+                  style={{ alignSelf: 'flex-start' }}
                   onClick={(e) => handleNavigate('/contact', e)}
                 >
-                  INQUIRE FOR GAMING RIG <ArrowRight size={16} style={{ marginLeft: '8px' }} />
+                  ENQUIRE FOR STATIC RIG <ArrowRight size={16} style={{ marginLeft: '8px' }} />
                 </button>
               </div>
-            </ScrollReveal>
-          ))}
-        </div>
+            </div>
+          </section>
+        </ScrollReveal>
 
+        {/* SECTION 2: 3-DOF MOTION SIMULATORS */}
+        <ScrollReveal variant="fade-up">
+          <section id="section-3dof" className="simulator-section-block">
+            <span className="section-eyebrow">3-DOF DYNAMIC MOTION</span>
+            <h2 className="simulator-section-title">3-DOF DYNAMIC MOTION SIMULATORS</h2>
+            <p className="simulator-section-subtitle">
+              Dynamic Tilt, Roll &amp; Elevation Motion
+            </p>
+
+            <div className="simulator-section-grid reverse">
+              <div className="simulator-info-content">
+                <p className="simulator-info-desc">
+                  Dynamic 3-DOF motion platform bringing real-road chassis G-forces, suspension bumps, and apex cornering inertia straight into your racing cockpit. Powered by 3 high-speed smooth electric motors with instant response time.
+                </p>
+
+                <div className="simulator-feature-grid font-mono">
+                  <div className="simulator-feature-item">
+                    <ShieldCheck size={18} className="simulator-feature-icon" />
+                    <span className="simulator-feature-text">3 High-speed smooth electric motors</span>
+                  </div>
+                  <div className="simulator-feature-item">
+                    <ShieldCheck size={18} className="simulator-feature-icon" />
+                    <span className="simulator-feature-text">Smooth tilt, lean, and vertical motion response</span>
+                  </div>
+                  <div className="simulator-feature-item">
+                    <ShieldCheck size={18} className="simulator-feature-icon" />
+                    <span className="simulator-feature-text">Low-latency motion software integration</span>
+                  </div>
+                  <div className="simulator-feature-item">
+                    <ShieldCheck size={18} className="simulator-feature-icon" />
+                    <span className="simulator-feature-text">Plug &amp; Play USB motion controller box</span>
+                  </div>
+                </div>
+
+                <div style={{ display: 'flex', gap: '12px', flexWrap: 'wrap', marginTop: '1rem' }}>
+                  <button
+                    type="button"
+                    className="contact-us-red-btn"
+                    onClick={(e) => handleNavigate('/contact', e)}
+                  >
+                    ENQUIRE FOR 3-DOF RIG <ArrowRight size={16} style={{ marginLeft: '8px' }} />
+                  </button>
+                  <button
+                    type="button"
+                    className="motion-test-btn"
+                    onClick={() => setShow3DofKinematics((prev) => !prev)}
+                  >
+                    <Activity size={16} style={{ marginRight: '8px' }} />
+                    {show3DofKinematics ? 'SHOW PRODUCT IMAGE' : 'MOTION TEST'}
+                  </button>
+                </div>
+              </div>
+
+              <div className={`simulator-image-card ${show3DofKinematics ? 'kinematics-active' : ''}`}>
+                {show3DofKinematics ? (
+                  <ThreeDofImageViewer height="auto" />
+                ) : (
+                  <>
+                    <ProtectedImage
+                      src={gaming3dofImg}
+                      alt="3-DOF Motion Gaming Simulator Rig"
+                    />
+                    <div className="simulator-image-overlay" />
+                  </>
+                )}
+              </div>
+            </div>
+          </section>
+        </ScrollReveal>
+
+        {/* SECTION 3: 6-DOF SIMULATORS */}
+        <ScrollReveal variant="fade-up">
+          <section id="section-6dof" className="simulator-section-block">
+            <span className="section-eyebrow">6-DOF MOTION RIGS</span>
+            <h2 className="simulator-section-title">6-DOF DYNAMIC MOTION SIMULATORS</h2>
+            <p className="simulator-section-subtitle">
+              Full Motion Immersion For Extreme Driving Experience
+            </p>
+
+            <div className="simulator-section-grid">
+              <div className={`simulator-image-card ${show6DofKinematics ? 'kinematics-active' : ''}`}>
+                {show6DofKinematics ? (
+                  <SixDofImageViewer height="auto" />
+                ) : (
+                  <>
+                    <ProtectedImage
+                      src={gaming6dofImg}
+                      alt="6-DOF Motion Simulator"
+                    />
+                    <div className="simulator-image-overlay" />
+                  </>
+                )}
+              </div>
+
+              <div className="simulator-info-content">
+                <p className="simulator-info-desc">
+                  Full 6-DOF platform providing complete tilt, lean, turn, slide, and vertical motion feedback for maximum immersion in pro sim racing, esports centers, and high-payload cockpits.
+                </p>
+
+                <div className="simulator-feature-grid font-mono">
+                  <div className="simulator-feature-item">
+                    <ShieldCheck size={18} className="simulator-feature-icon" />
+                    <span className="simulator-feature-text">Full 6-axis motion movement engine</span>
+                  </div>
+                  <div className="simulator-feature-item">
+                    <ShieldCheck size={18} className="simulator-feature-icon" />
+                    <span className="simulator-feature-text">Real-time acceleration, braking, and cornering feel</span>
+                  </div>
+                  <div className="simulator-feature-item">
+                    <ShieldCheck size={18} className="simulator-feature-icon" />
+                    <span className="simulator-feature-text">High-power motors for heavy cockpit support</span>
+                  </div>
+                  <div className="simulator-feature-item">
+                    <ShieldCheck size={18} className="simulator-feature-icon" />
+                    <span className="simulator-feature-text">Pro telemetry suite &amp; custom motion profiles</span>
+                  </div>
+                </div>
+
+                <div style={{ display: 'flex', gap: '12px', flexWrap: 'wrap', marginTop: '1rem' }}>
+                  <button
+                    type="button"
+                    className="contact-us-red-btn"
+                    onClick={(e) => handleNavigate('/contact', e)}
+                  >
+                    ENQUIRE FOR 6-DOF RIG <ArrowRight size={16} style={{ marginLeft: '8px' }} />
+                  </button>
+                  <button
+                    type="button"
+                    className="motion-test-btn"
+                    onClick={() => setShow6DofKinematics((prev) => !prev)}
+                  >
+                    <Activity size={16} style={{ marginRight: '8px' }} />
+                    {show6DofKinematics ? 'SHOW PRODUCT IMAGE' : 'MOTION TEST'}
+                  </button>
+                </div>
+              </div>
+            </div>
+          </section>
+        </ScrollReveal>
       </div>
-
-      {/* WHAT WE BUILD SECTION */}
-      <WhatWeBuild navigate={navigate} />
     </div>
   );
 }

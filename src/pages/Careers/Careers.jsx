@@ -372,7 +372,7 @@ export default function CareersPage({ navigate }) {
               </div>
               <h3 className="careers-card-title font-heading">REAL HARDWARE &amp; SOFTWARE</h3>
               <p className="careers-card-desc font-body">
-                Work directly on 6-DOF Stewart platforms, CAN bus actuators, physical cockpit rigs, and physics engines.
+                Work directly on 6-DOF hexapod platforms, CAN bus actuators, physical cockpit rigs, and physics engines.
               </p>
             </div>
           </ScrollReveal>

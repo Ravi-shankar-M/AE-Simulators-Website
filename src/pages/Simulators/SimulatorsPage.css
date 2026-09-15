@@ -1,0 +1,64 @@
+/* ============================================================
+   NEW SIMULATORS LANDING PAGE STYLES
+   ============================================================ */
+
+.simulators-landing-wrapper {
+  background-color: #FAFAFA !important;
+  color: #17191C;
+  min-height: 100vh;
+  padding-top: 130px;
+  padding-bottom: 80px;
+}
+
+.simulators-landing-container {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 32px;
+}
+
+.simulators-landing-header {
+  text-align: center;
+  max-width: 850px;
+  margin: 0 auto 40px auto;
+}
+
+.simulators-landing-title {
+  font-size: 3.2rem;
+  font-weight: 900;
+  color: #17191C;
+  letter-spacing: -0.02em;
+  line-height: 1.1;
+  margin-bottom: 16px;
+}
+
+.simulators-landing-desc {
+  font-size: 1.15rem;
+  color: #555B63;
+  line-height: 1.6;
+}
+
+.simulators-360-block {
+  background: #FFFFFF;
+  border: 1px solid #E2E2E2;
+  border-radius: 16px;
+  padding: 36px 36px 48px 36px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.04);
+}
+
+@media (max-width: 768px) {
+  .simulators-landing-wrapper {
+    padding-top: 95px;
+  }
+
+  .simulators-landing-container {
+    padding: 0 16px;
+  }
+
+  .simulators-landing-title {
+    font-size: 2.2rem;
+  }
+
+  .simulators-360-block {
+    padding: 20px 14px 28px 14px;
+  }
+}

@@ -58,9 +58,9 @@ export default function Products({ navigate }) {
                 <div className="about-product-gradient-overlay" />
               </div>
               <div className="about-product-overlay-content">
-                <span className="about-product-subtitle font-mono">{product.subtitle}</span>
-                <h3 className="about-product-title">{product.title}</h3>
-                <p className="about-product-desc">{product.desc}</p>
+                <span className="about-product-subtitle font-mono" style={{ color: '#E31B23' }}>{product.subtitle}</span>
+                <h3 className="about-product-title" style={{ color: '#E31B23' }}>{product.title}</h3>
+                <p className="about-product-desc" style={{ color: '#ffffff' }}>{product.desc}</p>
                 <button
                   onClick={() => handleExploreClick(product.link)}
                   className="about-product-btn"

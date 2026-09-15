@@ -16,9 +16,9 @@ const SIMULATOR_COMPONENTS = [
   },
   {
     id: 'MOTION PLATFORM',
-    name: '6-DOF Stewart Hexapod Platform',
+    name: '6-DOF Hexapod Platform',
     icon: Cpu,
-    summary: 'Stewart hexapod geometry engineered for high-fidelity 6-DOF vehicle dynamics reproduction.',
+    summary: '6-DOF hexapod geometry engineered for high-fidelity vehicle dynamics reproduction.',
     details: [
       { label: 'CONFIGURATION', value: '6 Degrees of Freedom' },
       { label: 'KINEMATICS', value: 'Inverse kinematics solver' },

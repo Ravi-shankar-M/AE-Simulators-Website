@@ -78,7 +78,7 @@ export function getComponentOffsets(assemblyProgress) {
 
 export const STAGE_CONTENT = {
   intro: {
-    headline: '6-DOF STEWART HEXAPOD PLATFORM',
+    headline: '6-DOF HEXAPOD MOTION PLATFORM',
     subtext: 'Industrial-grade electromechanical motion system — engineered for precision simulation, not entertainment.',
     counter: '01 / 06',
   },
@@ -94,7 +94,7 @@ export const STAGE_CONTENT = {
   },
   reassembly: {
     headline: 'SYSTEM INTEGRATION',
-    subtext: 'Components lock into Stewart hexapod geometry — delivering full spatial motion capability for immersive simulation.',
+    subtext: 'Components lock into 6-DOF hexapod geometry — delivering full spatial motion capability for immersive simulation.',
     counter: '04 / 06',
   },
   motion: {

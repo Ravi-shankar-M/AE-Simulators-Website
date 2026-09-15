@@ -28,7 +28,7 @@ const WHAT_WE_BUILD_ROWS = [
     num: '02',
     heading: '6-DOF Motion Platform',
     description: [
-      'Advanced Stewart hexapod platform.',
+      'Advanced 6-DOF hexapod platform.',
       'Delivers precise six-axis motion control.',
       'Simulates pitch, roll, yaw, heave, surge & sway.',
       'Built for high-fidelity vehicle simulation.',
@@ -39,7 +39,7 @@ const WHAT_WE_BUILD_ROWS = [
   },
   {
     num: '03',
-    heading: 'Simulation Software Platform',
+    heading: 'Simulation Software',
     description: [
       'Real-time software for immersive simulation.',
       'Features realistic roads, traffic, and obstacles.',
@@ -65,19 +65,6 @@ const WHAT_WE_BUILD_ROWS = [
   },
   {
     num: '05',
-    heading: 'Telemetry & Data',
-    description: [
-      'High-frequency data acquisition system.',
-      'Captures real-time vehicle telemetry.',
-      'Delivers detailed driver performance insights.',
-      'Enables accurate analysis and evaluation.',
-    ],
-    image: imgData,
-    alt: 'Data Acquisition & Telemetry Dashboard',
-    link: '/products',
-  },
-  {
-    num: '06',
     heading: 'Custom Products',
     description: [
       'Tailored simulator solutions for unique needs.',

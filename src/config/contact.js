@@ -27,16 +27,17 @@ export const CONTACT_CONFIG = {
    */
   LOCATION: 'India',
 
-  /**
-   * Official Registered Office Address.
-   */
-  ADDRESS_LINES: [
-    'No 11/3 ,Irugur road ,',
-    'Ondipudur ,',
-    'Coimbatore,',
-    'Tamilnadu - 641016.'
+  REGISTERED_ADDRESSES: [
+    'Silk Board, Bangalore.',
+    'Navi Mumbai, Maharashtra.',
+    'Coimbatore, Tamilnadu.'
   ],
-  FULL_ADDRESS: 'No 11/3 ,Irugur road , Ondipudur , Coimbatore, Tamilnadu - 641016.',
+  ADDRESS_LINES: [
+    'Silk Board, Bangalore.',
+    'Navi Mumbai, Maharashtra.',
+    'Coimbatore, Tamilnadu.'
+  ],
+  FULL_ADDRESS: 'Silk Board, Bangalore. Navi Mumbai, Maharashtra. Coimbatore, Tamilnadu.',
 
   /**
    * Maximum allowed resume upload size in bytes.

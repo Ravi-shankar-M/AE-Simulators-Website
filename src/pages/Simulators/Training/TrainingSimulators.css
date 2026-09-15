@@ -298,7 +298,28 @@
   box-shadow: 0 16px 40px rgba(0, 0, 0, 0.08);
 }
 
-/* RESPONSIVE MEDIA QUERIES */
+.simulator-image-card.kinematics-active {
+  aspect-ratio: auto !important;
+  height: auto !important;
+  min-height: 480px;
+}
+
+.simulator-feature-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 12px 24px;
+  margin-bottom: 32px;
+}
+
+.simulator-feature-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  background: transparent;
+  padding: 4px 0;
+  border-radius: 0;
+  border: none;
+}
 @media (max-width: 1024px) {
   .training-cards-grid {
     grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));

@@ -8,6 +8,7 @@ import SEOHelper from './components/common/SEOHelper';
 
 import Dashboard from './pages/Dashboard/Dashboard';
 import Simulators from './pages/Simulators/Simulators';
+import SimulatorsPage from './pages/Simulators/SimulatorsPage';
 import About from './pages/About/About';
 import Contact from './pages/Contact/Contact';
 
@@ -39,7 +40,9 @@ const normalizePath = (path) => {
 function AppContent() {
   const [currentPath, setCurrentPath] = useState(() => normalizePath(window.location.pathname));
   
-  const [introFinished, setIntroFinished] = useState(false);
+  const [introFinished, setIntroFinished] = useState(() => {
+    return normalizePath(window.location.pathname) !== '/';
+  });
   const [transitioning, setTransitioning] = useState(false);
 
   useEffect(() => {
@@ -201,6 +204,10 @@ function AppContent() {
     }
     if (currentPath === '/products/training/customized-dof') {
       return <Simulators navigate={navigate} defaultCategory="training" defaultSubtype="all" />;
+    }
+
+    if (currentPath === '/simulators') {
+      return <SimulatorsPage navigate={navigate} />;
     }
 
     switch (currentPath) {

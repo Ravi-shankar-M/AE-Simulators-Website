@@ -6,7 +6,7 @@ export const SITE_CONFIG = {
   name: 'AE-SIMULATORS',
   legalName: 'AE Simulators',
   tagline: 'Professional Driving Simulator Solutions & Motion Platforms',
-  description: 'AE-SIMULATORS delivers professional driving simulator hardware, 6-DOF & 3-DOF Stewart motion platforms, and real-road simulation software for driver training, evaluation, and automotive R&D.',
+  description: 'AE-SIMULATORS delivers professional driving simulator hardware, 6-DOF & 3-DOF motion platforms, and real-road simulation software for driver training, evaluation, and automotive R&D.',
   
   // Production Domain (Can be overridden via VITE_SITE_URL if configured)
   productionDomain: 'https://ae-simulators.com',
@@ -34,18 +34,18 @@ export const SEO_REGISTRY = {
   '/': {
     title: 'AE-SIMULATORS | Professional Driving Simulators & Motion Platforms',
     description: 'Engineering high-fidelity 6-DOF & 3-DOF driving simulators, telemetry analytics, and realistic driving simulation software for driver evaluation and vehicle testing.',
-    keywords: 'driving simulator, 6-DOF motion platform, 3-DOF motion platform, Stewart hexapod, telemetry analytics, vehicle testing, driver training simulator',
+    keywords: 'driving simulator, 6-DOF motion platform, 3-DOF motion platform, 6-DOF hexapod, telemetry analytics, vehicle testing, driver training simulator',
     h1: 'DRIVE REAL. TRAIN BETTER.',
   },
   '/about': {
     title: 'About Us | AE-SIMULATORS Professional Motion Platform Manufacturer',
-    description: 'Learn about AE-SIMULATORS worldwide simulator footprint, engineering philosophy, and custom 6-DOF & 3-DOF Stewart hexapod platform solutions.',
-    keywords: 'AE-SIMULATORS about, simulator manufacturer, 6-DOF Stewart hexapod, motion platform engineering, driving simulator manufacturer India',
+    description: 'Learn about AE-SIMULATORS worldwide simulator footprint, engineering philosophy, and custom 6-DOF & 3-DOF hexapod platform solutions.',
+    keywords: 'AE-SIMULATORS about, simulator manufacturer, 6-DOF hexapod, motion platform engineering, driving simulator manufacturer India',
     h1: 'ENGINEERED FOR REAL-WORLD TRAINING & SIMULATION',
   },
   '/products': {
     title: 'Simulator Products & Motion Platforms | AE-SIMULATORS',
-    description: 'Explore AE-SIMULATORS product catalog including 6-DOF motion platforms, 3-DOF tripod platforms, professional sim racing rigs, and driver training platforms.',
+    description: 'Explore AE-SIMULATORS product catalog including 6-DOF motion platforms, 3-DOF motion platforms, professional sim racing rigs, and driver training platforms.',
     keywords: 'simulator products, 6-DOF motion platform, 3-DOF motion platform, sim racing rigs, driver training platforms, force-feedback controls',
     h1: 'PROFESSIONAL SIMULATOR PRODUCTS & MOTION RIGS',
   },
@@ -63,8 +63,8 @@ export const SEO_REGISTRY = {
   },
   '/motion-platform': {
     title: '6-DOF & 3-DOF Motion Platforms | AE-SIMULATORS Kinematics',
-    description: 'Precision 6-DOF Stewart hexapods and 3-DOF tripod motion platforms powered by high-torque brushless servos and ball screw linear actuators.',
-    keywords: '6-DOF motion platform, 3-DOF motion platform, Stewart hexapod, brushless servos, ball screws, kinematics',
+    description: 'Precision 6-DOF motion platforms and 3-DOF motion platforms powered by high-torque brushless servos and ball screw linear actuators.',
+    keywords: '6-DOF motion platform, 3-DOF motion platform, 6-DOF motion platform, brushless servos, ball screws, kinematics',
     h1: 'PRECISION 6-DOF & 3-DOF MOTION PLATFORMS',
   },
   '/software-platform': {

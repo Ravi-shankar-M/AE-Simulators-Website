@@ -1,6 +1,7 @@
 import React, { useRef, useEffect, useState } from 'react';
 import ProtectedImage from '../../../components/common/ProtectedImage';
 import { ASSETS } from '../../../data/assets';
+import { ArrowRight } from 'lucide-react';
 
 import './Hero.css';
 import dashboardLoopVideo from './videos/loop-dashboard-final_delivery.mp4';
@@ -78,11 +79,22 @@ export default function Hero({ navigate, onReplayIntro, introFinished = true }) 
             Your browser does not support HTML5 video.
           </video>
           <div className="dashboard-video-watermark">
+            <span className="dashboard-welcome-tag font-mono">WELCOME TO</span>
             <ProtectedImage
               src={ASSETS.logo.official}
-              alt="AE Simulators Watermark Logo"
+              alt="AE Simulators Official Logo"
               className="dashboard-video-watermark-logo"
             />
+            <button
+              type="button"
+              className="dashboard-explore-products-btn font-mono"
+              onClick={(e) => {
+                if (e) e.preventDefault();
+                if (navigate) navigate('/simulators');
+              }}
+            >
+              EXPLORE OUR PRODUCTS <ArrowRight size={18} style={{ marginLeft: '8px' }} />
+            </button>
           </div>
         </div>
       </section>

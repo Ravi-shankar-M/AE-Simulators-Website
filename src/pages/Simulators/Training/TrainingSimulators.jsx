@@ -1,24 +1,33 @@
-import React, { useRef, useEffect } from 'react';
+import React, { useRef, useEffect, useState } from 'react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import ScrollReveal from '../../../components/common/ScrollReveal';
 import ProtectedImage from '../../../components/common/ProtectedImage';
 import DriverEvaluationWorkflow from './DriverEvaluationWorkflow';
-import { ShieldCheck, ArrowRight, Cpu, Gauge, Layers } from 'lucide-react';
+import ThreeDofImageViewer from '../../../components/three/ThreeDofImageViewer';
+import SixDofImageViewer from '../../../components/three/SixDofImageViewer';
+import { ShieldCheck, ArrowRight, Cpu, Gauge, Layers, Activity } from 'lucide-react';
 import aeSimHeroImage from '../../Dashboard/Hero/images/ae-sim-hero-image.webp';
 import '../../Dashboard/Hero/Hero.css';
 import './TrainingSimulators.css';
+
+import trainingStaticImg from './images/training_static_rig.jpg';
+import training3dofImg from './images/training_3dof_rig.jpg';
+import training6dofImg from './images/training_6dof_rig.jpg';
 
 if (typeof window !== 'undefined') {
   gsap.registerPlugin(ScrollTrigger);
 }
 
-export default function TrainingSimulators({ navigate }) {
+export default function TrainingSimulators({ navigate, activeSubtype = 'all' }) {
   const heroRef = useRef(null);
   const bgLayerRef = useRef(null);
   const midLayerRef = useRef(null);
   const fgLayerRef = useRef(null);
   const textLayerRef = useRef(null);
+
+  const [show3DofKinematics, setShow3DofKinematics] = useState(false);
+  const [show6DofKinematics, setShow6DofKinematics] = useState(false);
 
   useEffect(() => {
     const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
@@ -78,36 +87,34 @@ export default function TrainingSimulators({ navigate }) {
     if (navigate) navigate(path);
   };
 
-  const trainingProducts = [
-    {
-      id: '3dof',
-      type: '3-DOF MOTION PLATFORM',
-      title: '3-DOF SIMULATORS',
-      subtitle: 'Dynamic Pitch, Roll & Heave Motion Feedback',
-      desc: 'Compact 3-DOF motion platform providing precise pitch, roll, and heave forces ideal for driver training and qualification.',
-      features: [
-        '3 High-precision industrial linear actuators',
-        'Sub-millisecond motion control loop',
-        'Pitch (+/- 15 deg), Roll (+/- 15 deg), Heave motion cues',
-        'Integrated telemetry scoring & feedback'
-      ],
-      spec: '3-DOF PLATFORM'
-    },
-    {
-      id: '6dof',
-      type: '6-DOF HEXAPOD PLATFORM',
-      title: '6-DOF SIMULATORS',
-      subtitle: 'Complete 6 Degrees of Freedom Vehicle Dynamics',
-      desc: 'Full 6-DOF Hexapod motion platform providing Roll, Pitch, Yaw, Surge, Sway, and Heave for extreme realism.',
-      features: [
-        'Full 6-DOF inverse kinematics solver',
-        'Grounded bottom frame with synchronized actuator leg motion',
-        'Driver-in-the-Loop (DIL) research and ADAS tuning',
-        'Multi-axis vibration and bump feedback system'
-      ],
-      spec: '6-DOF HEXAPOD'
+  useEffect(() => {
+    if (activeSubtype && activeSubtype !== 'all') {
+      const scrollToSection = () => {
+        const el = document.getElementById(`section-${activeSubtype}`);
+        if (el) {
+          const headerOffset = 110;
+          const elementPosition = el.getBoundingClientRect().top;
+          const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+          window.scrollTo({
+            top: offsetPosition,
+            behavior: 'smooth',
+          });
+        }
+      };
+
+      // Perform initial scroll attempt and multi-stage retries to handle 3D/image layout shifts
+      scrollToSection();
+      const t1 = setTimeout(scrollToSection, 150);
+      const t2 = setTimeout(scrollToSection, 450);
+      const t3 = setTimeout(scrollToSection, 900);
+
+      return () => {
+        clearTimeout(t1);
+        clearTimeout(t2);
+        clearTimeout(t3);
+      };
     }
-  ];
+  }, [activeSubtype]);
 
   return (
     <div className="training-page-wrapper">
@@ -182,7 +189,7 @@ export default function TrainingSimulators({ navigate }) {
         </section>
       </div>
 
-      <div className="training-container" style={{ paddingTop: '60px' }}>
+      <div className="training-container" style={{ paddingTop: '50px' }}>
         {/* HERO HEADER */}
         <ScrollReveal variant="fade-up">
           <div className="training-hero-header">
@@ -198,36 +205,200 @@ export default function TrainingSimulators({ navigate }) {
         {/* DRIVER EVALUATION WORKFLOW SECTION */}
         <DriverEvaluationWorkflow navigate={navigate} />
 
-        {/* TRAINING CARDS GRID */}
-        <div className="training-cards-grid">
-          {trainingProducts.map((prod) => (
-            <ScrollReveal key={prod.id} variant="scale-up">
-              <div className="training-card ae-card">
-                {prod.badge && <span className="training-viewer-badge font-mono">{prod.badge}</span>}
-                <h3 className="training-viewer-title" style={{ marginTop: '12px' }}>{prod.title}</h3>
-                <p className="training-hero-desc" style={{ fontSize: '0.95rem', margin: '12px 0 20px' }}>{prod.desc}</p>
+        {/* SECTION 1: STATIC TRAINING SIMULATORS */}
+        <ScrollReveal variant="fade-up">
+          <section id="section-static" className="simulator-section-block">
+            <span className="section-eyebrow">STATIC CABINS</span>
+            <h2 className="simulator-section-title">STATIC DRIVER TRAINING SIMULATORS</h2>
+            <p className="simulator-section-subtitle">
+              Institutional Cabin Cockpits for Fleet Safety, Academies &amp; Commercial Driving
+            </p>
 
-                <ul style={{ listStyle: 'none', padding: 0, margin: '0 0 24px 0' }}>
-                  {prod.features.map((feat, fIdx) => (
-                    <li key={fIdx} style={{ display: 'flex', alignItems: 'center', gap: '8px', marginBottom: '10px', fontSize: '0.9rem', color: '#4A515A' }}>
-                      <ShieldCheck size={16} color="#E31B23" />
-                      <span>{feat}</span>
-                    </li>
-                  ))}
-                </ul>
+            <div className="simulator-section-grid">
+              <div className="simulator-image-card">
+                <ProtectedImage
+                  src={trainingStaticImg}
+                  alt="Static Driver Training Simulator Platform"
+                />
+                <div className="simulator-image-overlay" />
+              </div>
+
+              <div className="simulator-info-content">
+                <p className="simulator-info-desc">
+                  Institutional-grade static driving simulator cabins equipped with authentic vehicle controls, force-feedback steering, transmission shifters, multi-screen visual display systems, and real-road simulation software for fleet safety training, driving academies, and R&amp;D evaluation.
+                </p>
+
+                <div className="simulator-feature-grid font-mono">
+                  <div className="simulator-feature-item">
+                    <ShieldCheck size={18} className="simulator-feature-icon" />
+                    <span className="simulator-feature-text">Authentic vehicle dashboard &amp; steering force-feedback</span>
+                  </div>
+                  <div className="simulator-feature-item">
+                    <ShieldCheck size={18} className="simulator-feature-icon" />
+                    <span className="simulator-feature-text">Multi-screen panoramic curved display setup</span>
+                  </div>
+                  <div className="simulator-feature-item">
+                    <ShieldCheck size={18} className="simulator-feature-icon" />
+                    <span className="simulator-feature-text">Multi-agent AI traffic &amp; hazard scenario software</span>
+                  </div>
+                  <div className="simulator-feature-item">
+                    <ShieldCheck size={18} className="simulator-feature-icon" />
+                    <span className="simulator-feature-text">Real-time telemetry monitoring &amp; automated scorecards</span>
+                  </div>
+                </div>
 
                 <button
                   type="button"
-                  className="contact-us-red-btn full-width"
-                  style={{ width: '100%', justifyContent: 'center', marginTop: 'auto' }}
+                  className="contact-us-red-btn"
+                  style={{ alignSelf: 'flex-start' }}
                   onClick={(e) => handleNavigate('/contact', e)}
                 >
-                  INQUIRE FOR TRAINING PLATFORM <ArrowRight size={16} style={{ marginLeft: '8px' }} />
+                  ENQUIRE FOR STATIC TRAINING <ArrowRight size={16} style={{ marginLeft: '8px' }} />
                 </button>
               </div>
-            </ScrollReveal>
-          ))}
-        </div>
+            </div>
+          </section>
+        </ScrollReveal>
+
+        {/* SECTION 2: 3-DOF MOTION TRAINING SIMULATORS */}
+        <ScrollReveal variant="fade-up">
+          <section id="section-3dof" className="simulator-section-block">
+            <span className="section-eyebrow">3-DOF MOTION PLATFORMS</span>
+            <h2 className="simulator-section-title">3-DOF DYNAMIC MOTION TRAINING SIMULATORS</h2>
+            <p className="simulator-section-subtitle">
+              Dynamic Tilt, Lean &amp; Elevation Motion Feedback
+            </p>
+
+            <div className="simulator-section-grid reverse">
+              <div className="simulator-info-content">
+                <p className="simulator-info-desc">
+                  Compact 3-DOF motion platform providing precise pitch, roll, and heave forces ideal for driver training, qualification, hazard response, and tactical maneuver simulation under dynamic road conditions.
+                </p>
+
+                <div className="simulator-feature-grid font-mono">
+                  <div className="simulator-feature-item">
+                    <ShieldCheck size={18} className="simulator-feature-icon" />
+                    <span className="simulator-feature-text">3 High-precision smooth motion motors</span>
+                  </div>
+                  <div className="simulator-feature-item">
+                    <ShieldCheck size={18} className="simulator-feature-icon" />
+                    <span className="simulator-feature-text">Ultra-fast motion response system</span>
+                  </div>
+                  <div className="simulator-feature-item">
+                    <ShieldCheck size={18} className="simulator-feature-icon" />
+                    <span className="simulator-feature-text">Smooth tilt, roll, and elevation movements</span>
+                  </div>
+                  <div className="simulator-feature-item">
+                    <ShieldCheck size={18} className="simulator-feature-icon" />
+                    <span className="simulator-feature-text">Integrated driver scoring &amp; feedback engine</span>
+                  </div>
+                </div>
+
+                <div style={{ display: 'flex', gap: '12px', flexWrap: 'wrap', marginTop: '1rem' }}>
+                  <button
+                    type="button"
+                    className="contact-us-red-btn"
+                    onClick={(e) => handleNavigate('/contact', e)}
+                  >
+                    ENQUIRE FOR 3-DOF TRAINING <ArrowRight size={16} style={{ marginLeft: '8px' }} />
+                  </button>
+                  <button
+                    type="button"
+                    className="motion-test-btn"
+                    onClick={() => setShow3DofKinematics((prev) => !prev)}
+                  >
+                    <Activity size={16} style={{ marginRight: '8px' }} />
+                    {show3DofKinematics ? 'SHOW PRODUCT IMAGE' : 'MOTION TEST'}
+                  </button>
+                </div>
+              </div>
+
+              <div className={`simulator-image-card ${show3DofKinematics ? 'kinematics-active' : ''}`}>
+                {show3DofKinematics ? (
+                  <ThreeDofImageViewer height="auto" />
+                ) : (
+                  <>
+                    <ProtectedImage
+                      src={training3dofImg}
+                      alt="3-DOF Motion Training Driving Simulator"
+                    />
+                    <div className="simulator-image-overlay" />
+                  </>
+                )}
+              </div>
+            </div>
+          </section>
+        </ScrollReveal>
+
+        {/* SECTION 3: 6-DOF TRAINING SIMULATORS */}
+        <ScrollReveal variant="fade-up">
+          <section id="section-6dof" className="simulator-section-block">
+            <span className="section-eyebrow">6-DOF MOTION PLATFORMS</span>
+            <h2 className="simulator-section-title">6-DOF RESEARCH &amp; DEFENSE SIMULATORS</h2>
+            <p className="simulator-section-subtitle">
+              Complete Multi-Axis Motion Dynamics &amp; Vehicle Research
+            </p>
+
+            <div className="simulator-section-grid">
+              <div className={`simulator-image-card ${show6DofKinematics ? 'kinematics-active' : ''}`}>
+                {show6DofKinematics ? (
+                  <SixDofImageViewer height="auto" />
+                ) : (
+                  <>
+                    <ProtectedImage
+                      src={training6dofImg}
+                      alt="6-DOF Driver Training Simulator Platform"
+                    />
+                    <div className="simulator-image-overlay" />
+                  </>
+                )}
+              </div>
+
+              <div className="simulator-info-content">
+                <p className="simulator-info-desc">
+                  Full 6-DOF motion platform providing complete multi-directional tilt, turn, acceleration, and elevation motion for extreme realism in defense driver training, automotive OEM research, and driver evaluation.
+                </p>
+
+                <div className="simulator-feature-grid font-mono">
+                  <div className="simulator-feature-item">
+                    <ShieldCheck size={18} className="simulator-feature-icon" />
+                    <span className="simulator-feature-text">Full 6-axis real-world movement engine</span>
+                  </div>
+                  <div className="simulator-feature-item">
+                    <ShieldCheck size={18} className="simulator-feature-icon" />
+                    <span className="simulator-feature-text">Synchronized base frame &amp; multi-axis motion</span>
+                  </div>
+                  <div className="simulator-feature-item">
+                    <ShieldCheck size={18} className="simulator-feature-icon" />
+                    <span className="simulator-feature-text">Driver research &amp; vehicle dynamics evaluation</span>
+                  </div>
+                  <div className="simulator-feature-item">
+                    <ShieldCheck size={18} className="simulator-feature-icon" />
+                    <span className="simulator-feature-text">Multi-axis vibration and bump feedback system</span>
+                  </div>
+                </div>
+
+                <div style={{ display: 'flex', gap: '12px', flexWrap: 'wrap', marginTop: '1rem' }}>
+                  <button
+                    type="button"
+                    className="contact-us-red-btn"
+                    onClick={(e) => handleNavigate('/contact', e)}
+                  >
+                    ENQUIRE FOR 6-DOF TRAINING <ArrowRight size={16} style={{ marginLeft: '8px' }} />
+                  </button>
+                  <button
+                    type="button"
+                    className="motion-test-btn"
+                    onClick={() => setShow6DofKinematics((prev) => !prev)}
+                  >
+                    <Activity size={16} style={{ marginRight: '8px' }} />
+                    {show6DofKinematics ? 'SHOW PRODUCT IMAGE' : 'MOTION TEST'}
+                  </button>
+                </div>
+              </div>
+            </div>
+          </section>
+        </ScrollReveal>
       </div>
     </div>
   );

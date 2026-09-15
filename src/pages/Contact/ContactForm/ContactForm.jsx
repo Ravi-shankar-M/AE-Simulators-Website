@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
-import { CONTACT_CONFIG } from '../../../config/contact';
-import { Mail, MapPin, Send, CheckCircle2, AlertCircle, Loader2 } from 'lucide-react';
+import { Send, CheckCircle2, AlertCircle, Loader2 } from 'lucide-react';
 import ScrollReveal from '../../../components/common/ScrollReveal';
 import { sendContactEnquiry } from '../../../services/api';
 
@@ -87,12 +86,9 @@ export default function ContactForm() {
 
   return (
     <section className="contact-form-section">
-      <div className="contact-grid">
-        {/* LEFT: FORM */}
+      <div className="contact-single-wrapper">
         <ScrollReveal variant="scale-up" delay={0.1}>
           <div className="contact-form-card">
-            <h1 className="form-card-title" style={{ color: '#E31B23', marginBottom: '28px' }}>CONTACT US</h1>
-
             {submitted ? (
               <div className="form-success-box font-mono">
                 <CheckCircle2 size={40} style={{ color: '#E31B23', margin: '0 auto 12px' }} />
@@ -250,39 +246,6 @@ export default function ContactForm() {
                 </button>
               </form>
             )}
-          </div>
-        </ScrollReveal>
-
-        {/* RIGHT: REACH US INFO */}
-        <ScrollReveal variant="scale-up" delay={0.2}>
-          <div className="contact-info-card">
-            <h3 className="info-card-title" style={{ color: '#E31B23', marginBottom: '24px' }}>REACH US</h3>
-
-            <div className="info-items-list font-mono" style={{ marginTop: '20px' }}>
-              <div className="info-item">
-                <div className="info-icon-box">
-                  <Mail size={20} style={{ color: '#E31B23' }} />
-                </div>
-                <div className="info-content">
-                  <a href={`mailto:${CONTACT_CONFIG.OFFICIAL_EMAIL}`} className="info-val info-link" style={{ textTransform: 'lowercase' }}>
-                    {CONTACT_CONFIG.OFFICIAL_EMAIL}
-                  </a>
-                </div>
-              </div>
-
-              <div className="info-item" style={{ alignItems: 'flex-start' }}>
-                <div className="info-icon-box" style={{ marginTop: '2px' }}>
-                  <MapPin size={20} style={{ color: '#E31B23' }} />
-                </div>
-                <div className="info-content">
-                  {CONTACT_CONFIG.ADDRESS_LINES.map((line, idx) => (
-                    <span key={idx} className="info-val" style={{ display: 'block', lineHeight: '1.4' }}>
-                      {line}
-                    </span>
-                  ))}
-                </div>
-              </div>
-            </div>
           </div>
         </ScrollReveal>
       </div>

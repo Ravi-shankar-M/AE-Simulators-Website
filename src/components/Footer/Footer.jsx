@@ -4,7 +4,7 @@ import { MapPin, Mail } from 'lucide-react';
 
 import './Footer.css';
 import aesimLogoTransparent from './images/aesim-logo-transparent.png';
-import makeInIndiaDark from './images/make-in-india-darkmode.png';
+import makeInIndiaFinal from './images/make-in-india-final.png';
 
 export default function Footer({ navigate }) {
   const handleNavClick = (path, e) => {
@@ -51,14 +51,12 @@ export default function Footer({ navigate }) {
         <div className="footer-links-column">
           <span className="column-title font-mono">REGISTERED ADDRESS</span>
           <div style={{ fontSize: '0.85rem', margin: '0.4rem 0', display: 'flex', flexDirection: 'column', gap: '0.75rem' }} className="font-mono">
-            <div style={{ display: 'flex', gap: '0.6rem', alignItems: 'flex-start' }}>
-              <MapPin size={18} style={{ color: '#E31B23', flexShrink: 0, marginTop: '2px' }} />
-              <div style={{ color: '#d4d4d8', lineHeight: '1.45' }}>
-                {CONTACT_CONFIG.ADDRESS_LINES.map((line, idx) => (
-                  <div key={idx}>{line}</div>
-                ))}
+            {CONTACT_CONFIG.ADDRESS_LINES.map((address, idx) => (
+              <div key={idx} style={{ display: 'flex', gap: '0.6rem', alignItems: 'center' }}>
+                <MapPin size={18} style={{ color: '#E31B23', flexShrink: 0 }} />
+                <span style={{ color: '#d4d4d8', lineHeight: '1.45' }}>{address}</span>
               </div>
-            </div>
+            ))}
 
             <div style={{ display: 'flex', gap: '0.6rem', alignItems: 'center' }}>
               <Mail size={18} style={{ color: '#E31B23', flexShrink: 0 }} />
@@ -80,7 +78,7 @@ export default function Footer({ navigate }) {
         <div className="footer-links-column footer-make-in-india-col">
           <div className="footer-logo-link make-in-india-link">
             <img
-              src={makeInIndiaDark}
+              src={makeInIndiaFinal}
               alt="Make in India Logo"
               className="footer-brand-logo make-in-india-logo"
             />
@@ -91,7 +89,7 @@ export default function Footer({ navigate }) {
       {/* BOTTOM BAR */}
       <div className="footer-bottom-bar">
         <div className="bottom-container font-mono" style={{ justifyContent: 'center', textAlign: 'center', display: 'flex' }}>
-          <span className="footer-copyright-text">&copy; {new Date().getFullYear()} AE Simulators. ALL RIGHTS RESERVED.</span>
+          <span className="footer-copyright-text">&copy; AE Simulators</span>
         </div>
       </div>
     </footer>

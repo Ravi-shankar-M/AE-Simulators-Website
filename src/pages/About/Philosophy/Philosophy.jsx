@@ -25,7 +25,7 @@ export default function Philosophy() {
             <Sliders size={28} style={{ color: '#E31B23', marginBottom: '12px' }} />
             <h3 className="font-heading text-lg font-bold mb-2" style={{ fontSize: '1.15rem', fontWeight: 800 }}>Motion Engineering</h3>
             <p className="font-body text-gray-600 text-sm" style={{ color: '#555B63', fontSize: '0.9rem', lineHeight: '1.6' }}>
-              Designing 3-DOF tripod and 6-DOF Stewart electromechanical actuator platforms engineered for high load capacities, rapid linear acceleration, and sub-millimeter positional control.
+              Designing 3-DOF and 6-DOF electromechanical motion platforms engineered for high load capacities, rapid linear acceleration, and sub-millimeter positional control.
             </p>
           </div>
         </ScrollReveal>

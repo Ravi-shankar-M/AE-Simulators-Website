@@ -32,26 +32,63 @@
   display: block;
 }
 
-/* Dashboard Video Bottom Center Watermark — Merged Video Overlay */
+/* Dashboard Video Bottom Center Watermark & Overlay CTA */
 .dashboard-video-watermark {
   position: absolute;
-  bottom: 10px;
+  bottom: 40px;
   left: 50%;
   transform: translateX(-50%);
   z-index: 10;
-  pointer-events: none;
   display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
+  gap: 12px;
+  text-align: center;
+  pointer-events: auto;
+}
+
+.dashboard-welcome-tag {
+  color: #FFFFFF;
+  font-size: 0.95rem;
+  font-weight: 800;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.9);
 }
 
 .dashboard-video-watermark-logo {
-  height: 200px;
-  max-height: 300px;
+  height: 90px;
+  max-height: 120px;
   width: auto;
   object-fit: contain;
-  opacity: 0.75;
-  filter: drop-shadow(0 4px 16px rgba(0, 0, 0, 0.85));
+  opacity: 0.92;
+  filter: drop-shadow(0 6px 20px rgba(0, 0, 0, 0.9));
+}
+
+.dashboard-explore-products-btn {
+  background-color: #E31B23;
+  color: #FFFFFF !important;
+  border: 1px solid #E31B23;
+  padding: 12px 28px;
+  font-size: 0.85rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  border-radius: 4px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  text-decoration: none;
+  box-shadow: 0 4px 20px rgba(227, 27, 35, 0.45);
+  transition: all 0.25s ease;
+}
+
+.dashboard-explore-products-btn:hover {
+  background-color: #c8102e;
+  border-color: #c8102e;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 28px rgba(227, 27, 35, 0.65);
 }
 
 /* Parallax Hero */

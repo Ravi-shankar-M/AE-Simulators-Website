@@ -28,7 +28,7 @@ export default function InteractiveDOFSection({ motionState, setMotionState }) {
         <span className="section-num font-mono text-ae-red">INTERACTIVE KINEMATICS</span>
         <h2 className="section-title">6-DOF MOTION PLATFORM</h2>
         <p className="section-desc">
-          Select a degree of freedom below to visualize how the Stewart platform translates vehicle dynamic forces.
+          Select a degree of freedom below to visualize how the 6-DOF hexapod platform translates vehicle dynamic forces.
         </p>
         <div className="section-title-line" />
       </div>
