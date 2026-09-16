@@ -33,15 +33,15 @@ export const CONTACT_CONFIG = {
     'Silk Board, Bangalore.',
     'Navi Mumbai, Maharashtra.',
     'Coimbatore, Tamilnadu.',
-    'Dallas, USA',
-    'Bukit, Singapore'
+    'Dallas, USA.',
+    'Bukit, Singapore.'
   ],
   ADDRESS_LINES: [
     'Silk Board, Bangalore.',
     'Navi Mumbai, Maharashtra.',
     'Coimbatore, Tamilnadu.',
-    'Dallas, USA',
-    'Bukit, Singapore'
+    'Dallas, USA.',
+    'Bukit, Singapore.'
   ],
   FULL_ADDRESS: 'Silk Board, Bangalore. Navi Mumbai, Maharashtra. Coimbatore, Tamilnadu. Dallas, USA. Bukit, Singapore.',
 
