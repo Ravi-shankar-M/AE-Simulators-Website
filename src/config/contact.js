@@ -32,14 +32,18 @@ export const CONTACT_CONFIG = {
   REGISTERED_ADDRESSES: [
     'Silk Board, Bangalore.',
     'Navi Mumbai, Maharashtra.',
-    'Coimbatore, Tamilnadu.'
+    'Coimbatore, Tamilnadu.',
+    'Dallas, USA',
+    'Bukit, Singapore'
   ],
   ADDRESS_LINES: [
     'Silk Board, Bangalore.',
     'Navi Mumbai, Maharashtra.',
-    'Coimbatore, Tamilnadu.'
+    'Coimbatore, Tamilnadu.',
+    'Dallas, USA',
+    'Bukit, Singapore'
   ],
-  FULL_ADDRESS: 'Silk Board, Bangalore. Navi Mumbai, Maharashtra. Coimbatore, Tamilnadu.',
+  FULL_ADDRESS: 'Silk Board, Bangalore. Navi Mumbai, Maharashtra. Coimbatore, Tamilnadu. Dallas, USA. Bukit, Singapore.',
 
   /**
    * Maximum allowed resume upload size in bytes.
