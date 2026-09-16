@@ -8,7 +8,7 @@ import { ShieldCheck, ArrowRight, Activity } from 'lucide-react';
 import './GamingSimulators.css';
 
 import gamingStaticImg from './images/gaming_static_rig.jpg';
-import gaming3dofImg from './images/gaming_3dof_rig.jpg';
+import gaming3dofImg from './images/gaming_3dof_rig.png';
 import gaming6dofImg from './images/gaming_6dof_rig.jpg';
 
 export default function GamingSimulatorsPage({ navigate, activeSubtype = 'all' }) {
@@ -92,24 +92,7 @@ export default function GamingSimulatorsPage({ navigate, activeSubtype = 'all' }
                   Engineering-grade static sim racing cockpits built for high-end esports competition, home sim racing setups, and commercial entertainment centers. Constructed with heavy-duty aluminum extrusions to eliminate flex under intense steering wheel torque and heavy pedal braking.
                 </p>
 
-                <div className="simulator-feature-grid font-mono">
-                  <div className="simulator-feature-item">
-                    <ShieldCheck size={18} className="simulator-feature-icon" />
-                    <span className="simulator-feature-text">Heavy-duty aluminum frame chassis</span>
-                  </div>
-                  <div className="simulator-feature-item">
-                    <ShieldCheck size={18} className="simulator-feature-icon" />
-                    <span className="simulator-feature-text">Direct Drive wheel &amp; pedal mounting plates</span>
-                  </div>
-                  <div className="simulator-feature-item">
-                    <ShieldCheck size={18} className="simulator-feature-icon" />
-                    <span className="simulator-feature-text">Ergonomic racing bucket seat with sliders</span>
-                  </div>
-                  <div className="simulator-feature-item">
-                    <ShieldCheck size={18} className="simulator-feature-icon" />
-                    <span className="simulator-feature-text">Integrated single &amp; triple monitor mounts</span>
-                  </div>
-                </div>
+
 
                 <button
                   type="button"
@@ -139,24 +122,7 @@ export default function GamingSimulatorsPage({ navigate, activeSubtype = 'all' }
                   Dynamic 3-DOF motion platform bringing real-road chassis G-forces, suspension bumps, and apex cornering inertia straight into your racing cockpit. Powered by 3 high-speed smooth electric motors with instant response time.
                 </p>
 
-                <div className="simulator-feature-grid font-mono">
-                  <div className="simulator-feature-item">
-                    <ShieldCheck size={18} className="simulator-feature-icon" />
-                    <span className="simulator-feature-text">3 High-speed smooth electric motors</span>
-                  </div>
-                  <div className="simulator-feature-item">
-                    <ShieldCheck size={18} className="simulator-feature-icon" />
-                    <span className="simulator-feature-text">Smooth tilt, lean, and vertical motion response</span>
-                  </div>
-                  <div className="simulator-feature-item">
-                    <ShieldCheck size={18} className="simulator-feature-icon" />
-                    <span className="simulator-feature-text">Low-latency motion software integration</span>
-                  </div>
-                  <div className="simulator-feature-item">
-                    <ShieldCheck size={18} className="simulator-feature-icon" />
-                    <span className="simulator-feature-text">Plug &amp; Play USB motion controller box</span>
-                  </div>
-                </div>
+
 
                 <div style={{ display: 'flex', gap: '12px', flexWrap: 'wrap', marginTop: '1rem' }}>
                   <button
@@ -179,7 +145,7 @@ export default function GamingSimulatorsPage({ navigate, activeSubtype = 'all' }
 
               <div className={`simulator-image-card ${show3DofKinematics ? 'kinematics-active' : ''}`}>
                 {show3DofKinematics ? (
-                  <ThreeDofImageViewer height="auto" />
+                  <ThreeDofImageViewer height="100%" />
                 ) : (
                   <>
                     <ProtectedImage
@@ -206,7 +172,7 @@ export default function GamingSimulatorsPage({ navigate, activeSubtype = 'all' }
             <div className="simulator-section-grid">
               <div className={`simulator-image-card ${show6DofKinematics ? 'kinematics-active' : ''}`}>
                 {show6DofKinematics ? (
-                  <SixDofImageViewer height="auto" />
+                  <SixDofImageViewer height="100%" />
                 ) : (
                   <>
                     <ProtectedImage
@@ -223,24 +189,7 @@ export default function GamingSimulatorsPage({ navigate, activeSubtype = 'all' }
                   Full 6-DOF platform providing complete tilt, lean, turn, slide, and vertical motion feedback for maximum immersion in pro sim racing, esports centers, and high-payload cockpits.
                 </p>
 
-                <div className="simulator-feature-grid font-mono">
-                  <div className="simulator-feature-item">
-                    <ShieldCheck size={18} className="simulator-feature-icon" />
-                    <span className="simulator-feature-text">Full 6-axis motion movement engine</span>
-                  </div>
-                  <div className="simulator-feature-item">
-                    <ShieldCheck size={18} className="simulator-feature-icon" />
-                    <span className="simulator-feature-text">Real-time acceleration, braking, and cornering feel</span>
-                  </div>
-                  <div className="simulator-feature-item">
-                    <ShieldCheck size={18} className="simulator-feature-icon" />
-                    <span className="simulator-feature-text">High-power motors for heavy cockpit support</span>
-                  </div>
-                  <div className="simulator-feature-item">
-                    <ShieldCheck size={18} className="simulator-feature-icon" />
-                    <span className="simulator-feature-text">Pro telemetry suite &amp; custom motion profiles</span>
-                  </div>
-                </div>
+
 
                 <div style={{ display: 'flex', gap: '12px', flexWrap: 'wrap', marginTop: '1rem' }}>
                   <button

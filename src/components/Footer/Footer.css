@@ -15,8 +15,8 @@
   margin: 0 auto;
   padding: 0 32px 60px 32px;
   display: grid;
-  grid-template-columns: 1.4fr 1fr 1fr 1.4fr 1fr;
-  gap: 36px;
+  grid-template-columns: 1.3fr 0.8fr 0.9fr 1.1fr 1.2fr 0.9fr;
+  gap: 32px;
   align-items: start;
 }
 
@@ -129,6 +129,21 @@
 }
 
 .footer-contact-email:hover {
+  color: #E31B23 !important;
+  background: transparent !important;
+  transform: none !important;
+}
+
+.footer-contact-phone {
+  font-size: 0.85rem;
+  color: #d4d4d8 !important;
+  text-decoration: none !important;
+  padding: 0 !important;
+  background: transparent !important;
+  transition: color 0.2s ease !important;
+}
+
+.footer-contact-phone:hover {
   color: #E31B23 !important;
   background: transparent !important;
   transform: none !important;

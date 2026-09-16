@@ -210,7 +210,6 @@ export default function ContactForm() {
                   >
                     <option value="GAMING SIMULATORS">GAMING SIMULATORS</option>
                     <option value="TRAINING SIMULATORS">TRAINING SIMULATORS</option>
-                    <option value="OTHERS">OTHERS</option>
                   </select>
                 </div>
 

@@ -228,24 +228,7 @@ export default function TrainingSimulators({ navigate, activeSubtype = 'all' }) 
                   Institutional-grade static driving simulator cabins equipped with authentic vehicle controls, force-feedback steering, transmission shifters, multi-screen visual display systems, and real-road simulation software for fleet safety training, driving academies, and R&amp;D evaluation.
                 </p>
 
-                <div className="simulator-feature-grid font-mono">
-                  <div className="simulator-feature-item">
-                    <ShieldCheck size={18} className="simulator-feature-icon" />
-                    <span className="simulator-feature-text">Authentic vehicle dashboard &amp; steering force-feedback</span>
-                  </div>
-                  <div className="simulator-feature-item">
-                    <ShieldCheck size={18} className="simulator-feature-icon" />
-                    <span className="simulator-feature-text">Multi-screen panoramic curved display setup</span>
-                  </div>
-                  <div className="simulator-feature-item">
-                    <ShieldCheck size={18} className="simulator-feature-icon" />
-                    <span className="simulator-feature-text">Multi-agent AI traffic &amp; hazard scenario software</span>
-                  </div>
-                  <div className="simulator-feature-item">
-                    <ShieldCheck size={18} className="simulator-feature-icon" />
-                    <span className="simulator-feature-text">Real-time telemetry monitoring &amp; automated scorecards</span>
-                  </div>
-                </div>
+
 
                 <button
                   type="button"
@@ -275,24 +258,7 @@ export default function TrainingSimulators({ navigate, activeSubtype = 'all' }) 
                   Compact 3-DOF motion platform providing precise pitch, roll, and heave forces ideal for driver training, qualification, hazard response, and tactical maneuver simulation under dynamic road conditions.
                 </p>
 
-                <div className="simulator-feature-grid font-mono">
-                  <div className="simulator-feature-item">
-                    <ShieldCheck size={18} className="simulator-feature-icon" />
-                    <span className="simulator-feature-text">3 High-precision smooth motion motors</span>
-                  </div>
-                  <div className="simulator-feature-item">
-                    <ShieldCheck size={18} className="simulator-feature-icon" />
-                    <span className="simulator-feature-text">Ultra-fast motion response system</span>
-                  </div>
-                  <div className="simulator-feature-item">
-                    <ShieldCheck size={18} className="simulator-feature-icon" />
-                    <span className="simulator-feature-text">Smooth tilt, roll, and elevation movements</span>
-                  </div>
-                  <div className="simulator-feature-item">
-                    <ShieldCheck size={18} className="simulator-feature-icon" />
-                    <span className="simulator-feature-text">Integrated driver scoring &amp; feedback engine</span>
-                  </div>
-                </div>
+
 
                 <div style={{ display: 'flex', gap: '12px', flexWrap: 'wrap', marginTop: '1rem' }}>
                   <button
@@ -315,7 +281,7 @@ export default function TrainingSimulators({ navigate, activeSubtype = 'all' }) 
 
               <div className={`simulator-image-card ${show3DofKinematics ? 'kinematics-active' : ''}`}>
                 {show3DofKinematics ? (
-                  <ThreeDofImageViewer height="auto" />
+                  <ThreeDofImageViewer height="100%" />
                 ) : (
                   <>
                     <ProtectedImage
@@ -342,7 +308,7 @@ export default function TrainingSimulators({ navigate, activeSubtype = 'all' }) 
             <div className="simulator-section-grid">
               <div className={`simulator-image-card ${show6DofKinematics ? 'kinematics-active' : ''}`}>
                 {show6DofKinematics ? (
-                  <SixDofImageViewer height="auto" />
+                  <SixDofImageViewer height="100%" />
                 ) : (
                   <>
                     <ProtectedImage
@@ -359,24 +325,7 @@ export default function TrainingSimulators({ navigate, activeSubtype = 'all' }) 
                   Full 6-DOF motion platform providing complete multi-directional tilt, turn, acceleration, and elevation motion for extreme realism in defense driver training, automotive OEM research, and driver evaluation.
                 </p>
 
-                <div className="simulator-feature-grid font-mono">
-                  <div className="simulator-feature-item">
-                    <ShieldCheck size={18} className="simulator-feature-icon" />
-                    <span className="simulator-feature-text">Full 6-axis real-world movement engine</span>
-                  </div>
-                  <div className="simulator-feature-item">
-                    <ShieldCheck size={18} className="simulator-feature-icon" />
-                    <span className="simulator-feature-text">Synchronized base frame &amp; multi-axis motion</span>
-                  </div>
-                  <div className="simulator-feature-item">
-                    <ShieldCheck size={18} className="simulator-feature-icon" />
-                    <span className="simulator-feature-text">Driver research &amp; vehicle dynamics evaluation</span>
-                  </div>
-                  <div className="simulator-feature-item">
-                    <ShieldCheck size={18} className="simulator-feature-icon" />
-                    <span className="simulator-feature-text">Multi-axis vibration and bump feedback system</span>
-                  </div>
-                </div>
+
 
                 <div style={{ display: 'flex', gap: '12px', flexWrap: 'wrap', marginTop: '1rem' }}>
                   <button

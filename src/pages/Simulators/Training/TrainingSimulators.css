@@ -298,11 +298,6 @@
   box-shadow: 0 16px 40px rgba(0, 0, 0, 0.08);
 }
 
-.simulator-image-card.kinematics-active {
-  aspect-ratio: auto !important;
-  height: auto !important;
-  min-height: 480px;
-}
 
 .simulator-feature-grid {
   display: grid;

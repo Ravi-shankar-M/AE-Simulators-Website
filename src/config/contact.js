@@ -27,6 +27,8 @@ export const CONTACT_CONFIG = {
    */
   LOCATION: 'India',
 
+  MOBILE_NUMBER: '9945552222',
+
   REGISTERED_ADDRESSES: [
     'Silk Board, Bangalore.',
     'Navi Mumbai, Maharashtra.',

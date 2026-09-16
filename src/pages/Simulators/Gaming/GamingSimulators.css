@@ -208,11 +208,6 @@
   margin-bottom: 28px;
 }
 
-.simulator-image-card.kinematics-active {
-  aspect-ratio: auto !important;
-  height: auto !important;
-  min-height: 480px;
-}
 
 .simulator-feature-grid {
   display: grid;

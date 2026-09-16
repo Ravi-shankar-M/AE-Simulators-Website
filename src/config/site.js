@@ -8,8 +8,8 @@ export const SITE_CONFIG = {
   tagline: 'Professional Driving Simulator Solutions & Motion Platforms',
   description: 'AE-SIMULATORS delivers professional driving simulator hardware, 6-DOF & 3-DOF motion platforms, and real-road simulation software for driver training, evaluation, and automotive R&D.',
   
-  // Production Domain (Can be overridden via VITE_SITE_URL if configured)
-  productionDomain: 'https://ae-simulators.com',
+  // Production Domain
+  productionDomain: 'https://ravi-shankar-m.github.io/AE-Simulators-Website',
   
   defaultOgImage: '/logo/ae-automation-engineers.png',
   

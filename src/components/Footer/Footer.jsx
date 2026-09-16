@@ -1,6 +1,6 @@
 import React from 'react';
 import { CONTACT_CONFIG } from '../../config/contact';
-import { MapPin, Mail } from 'lucide-react';
+import { MapPin, Mail, Phone } from 'lucide-react';
 
 import './Footer.css';
 import aesimLogoTransparent from './images/aesim-logo-transparent.png';
@@ -39,11 +39,11 @@ export default function Footer({ navigate }) {
         {/* SIMULATORS COLUMN */}
         <div className="footer-links-column">
           <span className="column-title font-mono">SIMULATORS</span>
-          <a href="/solutions" onClick={(e) => handleNavClick('/solutions', e)}>
-            3-DOF Motion Platform
+          <a href="/products/gaming" onClick={(e) => handleNavClick('/products/gaming', e)}>
+            Gaming Simulators
           </a>
-          <a href="/solutions" onClick={(e) => handleNavClick('/solutions', e)}>
-            6-DOF Motion Platform
+          <a href="/products/training" onClick={(e) => handleNavClick('/products/training', e)}>
+            Training Simulators
           </a>
         </div>
 
@@ -57,6 +57,19 @@ export default function Footer({ navigate }) {
                 <span style={{ color: '#d4d4d8', lineHeight: '1.45' }}>{address}</span>
               </div>
             ))}
+          </div>
+        </div>
+
+        {/* GET IN TOUCH COLUMN */}
+        <div className="footer-links-column">
+          <span className="column-title font-mono">GET IN TOUCH</span>
+          <div style={{ fontSize: '0.85rem', margin: '0.4rem 0', display: 'flex', flexDirection: 'column', gap: '0.75rem' }} className="font-mono">
+            <div style={{ display: 'flex', gap: '0.6rem', alignItems: 'center' }}>
+              <Phone size={18} style={{ color: '#E31B23', flexShrink: 0 }} />
+              <a href={`tel:${CONTACT_CONFIG.MOBILE_NUMBER || '9945552222'}`} className="footer-contact-phone">
+                {CONTACT_CONFIG.MOBILE_NUMBER || '9945552222'}
+              </a>
+            </div>
 
             <div style={{ display: 'flex', gap: '0.6rem', alignItems: 'center' }}>
               <Mail size={18} style={{ color: '#E31B23', flexShrink: 0 }} />

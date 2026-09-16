@@ -539,6 +539,20 @@
     font-size: 0.95rem;
     color: #555B63;
     text-decoration: none;
+    display: block;
+    margin-bottom: 8px;
+  }
+
+  .mobile-sublink:last-child {
+    margin-bottom: 0;
+  }
+
+  .mobile-nested-links {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    padding-left: 12px;
+    margin-top: 8px;
   }
 }
 
