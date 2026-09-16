@@ -337,9 +337,25 @@ export default function ThreeDofImageViewer({ height = '450px' }) {
         </svg>
 
         {/* STATUS OVERLAY */}
-        <div className="threedof-status-overlay font-mono">
-          <span className={`threedof-dot ${preset === 'NEUTRAL' ? '' : 'active'}`} />
-          <span className="threedof-preset-name">{preset}</span>
+        <div className="threedof-status-overlay font-mono" style={{ display: 'flex', flexDirection: 'column' }}>
+          <div style={{ display: 'flex', alignItems: 'center', gap: '8px', marginBottom: '8px' }}>
+            <span className={`threedof-dot ${preset === 'NEUTRAL' ? '' : 'active'}`} />
+            <span className="threedof-preset-name">{preset}</span>
+          </div>
+          <div className="kinematics-values" style={{ display: 'flex', gap: '16px', fontSize: '0.75rem', color: '#a1a1aa' }}>
+            <div style={{ display: 'flex', flexDirection: 'column' }}>
+              <span>HEAVE</span>
+              <span style={{ color: '#E31B23', fontWeight: 700 }}>{sliders.heave.toFixed(1)} px</span>
+            </div>
+            <div style={{ display: 'flex', flexDirection: 'column' }}>
+              <span>ROLL</span>
+              <span style={{ color: '#E31B23', fontWeight: 700 }}>{sliders.roll.toFixed(1)}°</span>
+            </div>
+            <div style={{ display: 'flex', flexDirection: 'column' }}>
+              <span>PITCH</span>
+              <span style={{ color: '#E31B23', fontWeight: 700 }}>{sliders.pitch.toFixed(1)}°</span>
+            </div>
+          </div>
         </div>
       </div>
 

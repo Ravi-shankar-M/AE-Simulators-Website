@@ -441,17 +441,28 @@ export default function SixDofImageViewer({ height = '480px' }) {
         </svg>
 
         {/* STATUS OVERLAY & DEBUG TOGGLE */}
-        <div className="sixdof-status-overlay font-mono">
-          <button
-            type="button"
-            className={`sixdof-debug-toggle ${debugMode ? 'active' : ''}`}
-            onClick={() => setDebugMode(!debugMode)}
-            title="Toggle Kinematics Debug Overlay"
-          >
-            <Bug size={12} />
-          </button>
-          <span className={`sixdof-dot ${preset === 'NEUTRAL' ? '' : 'active'}`} />
-          <span className="sixdof-preset-name">{preset}</span>
+        <div className="sixdof-status-overlay font-mono" style={{ display: 'flex', flexDirection: 'column' }}>
+          <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '8px' }}>
+            <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
+              <span className={`sixdof-dot ${preset === 'NEUTRAL' ? '' : 'active'}`} />
+              <span className="sixdof-preset-name">{preset}</span>
+            </div>
+            <button
+              className={`sixdof-debug-toggle ${debugMode ? 'active' : ''}`}
+              onClick={() => setDebugMode(!debugMode)}
+              title="Toggle Debug View"
+            >
+              <Bug size={12} />
+            </button>
+          </div>
+          <div className="kinematics-values" style={{ display: 'flex', gap: '12px', fontSize: '0.65rem', color: '#a1a1aa' }}>
+            <div style={{ display: 'flex', flexDirection: 'column' }}><span>HEAVE</span><span style={{ color: '#E31B23', fontWeight: 700 }}>{sliders.heave.toFixed(1)}</span></div>
+            <div style={{ display: 'flex', flexDirection: 'column' }}><span>PITCH</span><span style={{ color: '#E31B23', fontWeight: 700 }}>{sliders.pitch.toFixed(1)}°</span></div>
+            <div style={{ display: 'flex', flexDirection: 'column' }}><span>ROLL</span><span style={{ color: '#E31B23', fontWeight: 700 }}>{sliders.roll.toFixed(1)}°</span></div>
+            <div style={{ display: 'flex', flexDirection: 'column' }}><span>SURGE</span><span style={{ color: '#E31B23', fontWeight: 700 }}>{sliders.surge.toFixed(1)}</span></div>
+            <div style={{ display: 'flex', flexDirection: 'column' }}><span>SWAY</span><span style={{ color: '#E31B23', fontWeight: 700 }}>{sliders.sway.toFixed(1)}</span></div>
+            <div style={{ display: 'flex', flexDirection: 'column' }}><span>YAW</span><span style={{ color: '#E31B23', fontWeight: 700 }}>{sliders.yaw.toFixed(1)}°</span></div>
+          </div>
         </div>
       </div>
 
