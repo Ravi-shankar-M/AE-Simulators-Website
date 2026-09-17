@@ -2,7 +2,7 @@ import React from 'react';
 import ScrollReveal from '../../../components/common/ScrollReveal';
 
 import './WorldMap.css';
-import worldmapImg from './images/worldmap.webp';
+import worldmapImg from './images/world-map-final.png';
 
 export default function WorldMap() {
   return (
