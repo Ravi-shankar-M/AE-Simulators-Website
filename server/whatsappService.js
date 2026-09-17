@@ -6,7 +6,7 @@
  */
 
 export async function processWhatsAppMessage({ message, name, location, requirement }) {
-  const businessPhone = process.env.WHATSAPP_BUSINESS_PHONE || '919345764379';
+  const businessPhone = process.env.WHATSAPP_BUSINESS_PHONE || '919945552222';
   const cleanPhone = businessPhone.replace(/[^\d]/g, '');
 
   // Extract ONLY the exact user entered message without any prefixes, titles, metadata, or labels

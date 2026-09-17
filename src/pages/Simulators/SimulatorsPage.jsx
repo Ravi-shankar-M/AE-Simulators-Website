@@ -15,9 +15,6 @@ export default function SimulatorsPage({ navigate }) {
             <h1 className="simulators-landing-title font-heading">
               AE-SIMULATORS <span className="text-ae-red">PRODUCT LINEUP</span>
             </h1>
-            <p className="simulators-landing-desc">
-              High-performance motion platforms, 360° interactive cockpits, and turnkey driver training systems.
-            </p>
           </div>
         </ScrollReveal>
 

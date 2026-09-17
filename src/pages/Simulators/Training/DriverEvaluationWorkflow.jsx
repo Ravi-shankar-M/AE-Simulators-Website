@@ -3,11 +3,11 @@ import { Car, Database, Activity, Award, FileText } from 'lucide-react';
 import './DriverEvaluationWorkflow.css';
 
 const STEPS = [
-  { num: '01', title: 'DRIVE', subtitle: 'Driver Execution & Hazard Interaction', icon: Car, desc: 'Driver operates the physical simulator rig through defined road scenarios, traffic signals, turning maneuvers, and emergency hazard events.' },
-  { num: '02', title: 'RECORD', subtitle: 'High-Frequency Sensor Data Acquisition', icon: Database, desc: 'Synchronous logging of vehicle telemetry including speed vectors, pedal displacement, steering lock angles, lane deviation, and brake force.' },
-  { num: '03', title: 'ANALYSE', subtitle: 'Automated Event & Violation Detection', icon: Activity, desc: 'Evaluation algorithm continuously cross-references driver inputs against road compliance rules, speed limits, amber light dilemmas, and clearance distances.' },
-  { num: '04', title: 'SCORE', subtitle: 'Intelligent Driver Performance Matrix', icon: Award, desc: 'Scores overall driving behavior on a 0–100 rating based on safety adherence, input smoothness, lane discipline, and emergency reaction times.' },
-  { num: '05', title: 'REPORT', subtitle: 'Comprehensive PDF Session Archiving', icon: FileText, desc: 'Generates structured evaluation reports complete with graph plots, traffic infraction logs, instructor notes, and session replay benchmarks.' }
+  { title: 'DRIVE', subtitle: 'Driver Execution & Hazard Interaction', icon: Car, desc: 'Driver operates the physical simulator rig through defined road scenarios, traffic signals, turning maneuvers, and emergency hazard events.' },
+  { title: 'RECORD', subtitle: 'High-Frequency Sensor Data Acquisition', icon: Database, desc: 'Synchronous logging of vehicle telemetry including speed vectors, pedal displacement, steering lock angles, lane deviation, and brake force.' },
+  { title: 'ANALYSE', subtitle: 'Automated Event & Violation Detection', icon: Activity, desc: 'Evaluation algorithm continuously cross-references driver inputs against road compliance rules, speed limits, amber light dilemmas, and clearance distances.' },
+  { title: 'SCORE', subtitle: 'Intelligent Driver Performance Matrix', icon: Award, desc: 'Scores overall driving behavior on a 0–100 rating based on safety adherence, input smoothness, lane discipline, and emergency reaction times.' },
+  { title: 'REPORT', subtitle: 'Comprehensive PDF Session Archiving', icon: FileText, desc: 'Generates structured evaluation reports complete with graph plots, traffic infraction logs, instructor notes, and session replay benchmarks.' }
 ];
 
 export default function DriverEvaluationWorkflow() {
@@ -145,10 +145,10 @@ export default function DriverEvaluationWorkflow() {
   return (
     <div className="evaluation-workflow-wrapper" ref={containerRef}>
       <div className="op-modules-header" style={{ marginBottom: '24px', padding: 0 }}>
-        <span className="section-num font-mono text-ae-red">EVALUATION ENGINE WORKFLOW</span>
+        <span className="section-num font-mono text-ae-red">EVALUATION ENGINE</span>
         <h2 className="section-title font-heading">DRIVER EVALUATION &amp; PERFORMANCE ENGINE</h2>
         <p className="section-desc font-body">
-          Structured 5-step evaluation process tracking vehicle telemetry, driver inputs, and session analytics.
+          Structured evaluation process tracking vehicle telemetry, driver inputs, and session analytics.
         </p>
       </div>
 
@@ -177,7 +177,6 @@ export default function DriverEvaluationWorkflow() {
                       <StepIcon size={16} />
                     </div>
                     <div className="p-node-info">
-                      <span className="p-node-num font-mono">{step.num}</span>
                       <span className="p-node-title font-heading">{step.title}</span>
                     </div>
                   </div>
@@ -190,7 +189,7 @@ export default function DriverEvaluationWorkflow() {
         {/* BOTTOM: ACTIVE STAGE CONTENT & VISUALIZATION */}
         <div className="pipeline-content-area">
           <div className="pipeline-text-block">
-            <span className="detail-step-tag font-mono text-ae-red">STEP {STEPS[activeStep].num} — {STEPS[activeStep].title}</span>
+            <span className="detail-step-tag font-mono text-ae-red">{STEPS[activeStep].title}</span>
             <h3 className="detail-sub font-heading">{STEPS[activeStep].subtitle}</h3>
             <p className="detail-desc font-body">{STEPS[activeStep].desc}</p>
           </div>

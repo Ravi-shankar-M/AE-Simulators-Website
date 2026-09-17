@@ -13,14 +13,14 @@ export const CONTACT_CONFIG = {
    * WhatsApp business number in international format (no spaces, no dashes).
    * Example: '+919876543210'
    */
-  WHATSAPP_NUMBER: '+919345764379',
+  WHATSAPP_NUMBER: '9945552222',
 
   /**
    * Official company enquiry / contact email addresses.
    */
   OFFICIAL_EMAIL: 'aesimulators@outlook.com',
-  SUPPORT_EMAIL: 'support@aesimulators.com',
-  ENQUIRY_EMAIL: 'enquiry@aesimulators.com',
+  SUPPORT_EMAIL: 'aesimulators@outlook.com',
+  ENQUIRY_EMAIL: 'aesimulators@outlook.com',
 
   /**
    * Company headquarters / engineering location.

@@ -154,36 +154,26 @@ export default function TrainingSimulators({ navigate, activeSubtype = 'all' }) 
               <p className="hero-supporting-text">
                 Advanced driving simulator solutions combining <strong>industrial motion platforms</strong>, <strong>real-road physics engines</strong>, and <strong>intelligent driver evaluation</strong> for automotive R&amp;D, professional training, and vehicle testing.
               </p>
-
-              <div className="training-hero-cards-grid-clean">
-                <div className="training-hero-card-clean">
-                  <div className="card-clean-icon">
-                    <Cpu size={18} color="#E31B23" />
-                  </div>
-                  <span className="card-clean-title">Motion Platform Systems</span>
+              
+              <div style={{ display: 'grid', gridTemplateColumns: 'repeat(2, 1fr)', gap: '1rem 2rem', marginTop: '1.5rem', width: 'fit-content' }}>
+                <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
+                  <span style={{ color: '#E31B23', fontSize: '1.2rem' }}>•</span>
+                  <span style={{ color: '#000000', fontWeight: 600, fontSize: '0.95rem', letterSpacing: '0.5px', textTransform: 'uppercase' }}>Motion Platform</span>
                 </div>
-
-                <div className="training-hero-card-clean">
-                  <div className="card-clean-icon">
-                    <Gauge size={18} color="#E31B23" />
-                  </div>
-                  <span className="card-clean-title">Real-Road Dynamics</span>
+                <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
+                  <span style={{ color: '#E31B23', fontSize: '1.2rem' }}>•</span>
+                  <span style={{ color: '#000000', fontWeight: 600, fontSize: '0.95rem', letterSpacing: '0.5px', textTransform: 'uppercase' }}>Real Road Dynamics</span>
                 </div>
-
-                <div className="training-hero-card-clean">
-                  <div className="card-clean-icon">
-                    <ShieldCheck size={18} color="#E31B23" />
-                  </div>
-                  <span className="card-clean-title">Driver Evaluation</span>
+                <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
+                  <span style={{ color: '#E31B23', fontSize: '1.2rem' }}>•</span>
+                  <span style={{ color: '#000000', fontWeight: 600, fontSize: '0.95rem', letterSpacing: '0.5px', textTransform: 'uppercase' }}>Driver Evaluation</span>
                 </div>
-
-                <div className="training-hero-card-clean">
-                  <div className="card-clean-icon">
-                    <Layers size={18} color="#E31B23" />
-                  </div>
-                  <span className="card-clean-title">Professional Training</span>
+                <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
+                  <span style={{ color: '#E31B23', fontSize: '1.2rem' }}>•</span>
+                  <span style={{ color: '#000000', fontWeight: 600, fontSize: '0.95rem', letterSpacing: '0.5px', textTransform: 'uppercase' }}>Professional Training</span>
                 </div>
               </div>
+
             </div>
           </div>
         </section>

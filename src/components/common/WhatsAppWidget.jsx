@@ -2,7 +2,7 @@ import React from 'react';
 import { CONTACT_CONFIG } from '../../config/contact';
 import './WhatsAppWidget.css';
 
-const WHATSAPP_NUMBER = (CONTACT_CONFIG.WHATSAPP_NUMBER || '+919345764379').replace(/[^0-9]/g, '');
+const WHATSAPP_NUMBER = (CONTACT_CONFIG.WHATSAPP_NUMBER || '9945552222').replace(/[^0-9]/g, '');
 
 const EXACT_PREFILLED_MESSAGE = "Hi AE SIMULATORS ! I came across your driving simulators solutions and would love to know more about what you offer and how they could fit our needs";
 
