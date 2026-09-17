@@ -4,7 +4,7 @@ import { ASSETS } from '../../../data/assets';
 import { ArrowRight } from 'lucide-react';
 
 import './Hero.css';
-import dashboardLoopVideo from './videos/loop-dashboard-final_delivery.mp4';
+import dashboardLoopVideo from './videos/Final_DB_Loop.mp4';
 
 export default function Hero({ navigate, onReplayIntro, introFinished = true }) {
   const videoRef = useRef(null);
