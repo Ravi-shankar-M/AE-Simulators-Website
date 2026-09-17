@@ -173,6 +173,7 @@ export default function TrainingSimulators({ navigate, activeSubtype = 'all' }) 
                   <span className="hero-feature-text">Professional Training</span>
                 </div>
               </div>
+            </div>
           </div>
         </section>
       </div>
