@@ -155,26 +155,24 @@ export default function TrainingSimulators({ navigate, activeSubtype = 'all' }) 
                 Advanced driving simulator solutions combining <strong>industrial motion platforms</strong>, <strong>real-road physics engines</strong>, and <strong>intelligent driver evaluation</strong> for automotive R&amp;D, professional training, and vehicle testing.
               </p>
               
-              <div style={{ display: 'grid', gridTemplateColumns: 'repeat(2, 1fr)', gap: '1rem 2rem', marginTop: '1.5rem', width: 'fit-content' }}>
-                <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
-                  <span style={{ color: '#E31B23', fontSize: '1.2rem' }}>•</span>
-                  <span style={{ color: '#000000', fontWeight: 600, fontSize: '0.95rem', letterSpacing: '0.5px', textTransform: 'uppercase' }}>Motion Platform</span>
+              <div className="hero-features-grid">
+                <div className="hero-feature-item">
+                  <span className="hero-feature-bullet">+</span>
+                  <span className="hero-feature-text">Motion Platform</span>
                 </div>
-                <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
-                  <span style={{ color: '#E31B23', fontSize: '1.2rem' }}>•</span>
-                  <span style={{ color: '#000000', fontWeight: 600, fontSize: '0.95rem', letterSpacing: '0.5px', textTransform: 'uppercase' }}>Real Road Dynamics</span>
+                <div className="hero-feature-item">
+                  <span className="hero-feature-bullet">+</span>
+                  <span className="hero-feature-text">Real Road Dynamics</span>
                 </div>
-                <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
-                  <span style={{ color: '#E31B23', fontSize: '1.2rem' }}>•</span>
-                  <span style={{ color: '#000000', fontWeight: 600, fontSize: '0.95rem', letterSpacing: '0.5px', textTransform: 'uppercase' }}>Driver Evaluation</span>
+                <div className="hero-feature-item">
+                  <span className="hero-feature-bullet">+</span>
+                  <span className="hero-feature-text">Driver Evaluation</span>
                 </div>
-                <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
-                  <span style={{ color: '#E31B23', fontSize: '1.2rem' }}>•</span>
-                  <span style={{ color: '#000000', fontWeight: 600, fontSize: '0.95rem', letterSpacing: '0.5px', textTransform: 'uppercase' }}>Professional Training</span>
+                <div className="hero-feature-item">
+                  <span className="hero-feature-bullet">+</span>
+                  <span className="hero-feature-text">Professional Training</span>
                 </div>
               </div>
-
-            </div>
           </div>
         </section>
       </div>
@@ -258,18 +256,19 @@ export default function TrainingSimulators({ navigate, activeSubtype = 'all' }) 
                   >
                     ENQUIRE FOR 3-DOF TRAINING <ArrowRight size={16} style={{ marginLeft: '8px' }} />
                   </button>
-                  <button
-                    type="button"
-                    className="motion-test-btn"
-                    onClick={() => setShow3DofKinematics((prev) => !prev)}
-                  >
-                    <Activity size={16} style={{ marginRight: '8px' }} />
-                    {show3DofKinematics ? 'SHOW PRODUCT IMAGE' : 'MOTION TEST'}
-                  </button>
                 </div>
               </div>
 
-              <div className={`simulator-image-card ${show3DofKinematics ? 'kinematics-active' : ''}`}>
+              <div className={`simulator-image-card ${show3DofKinematics ? 'kinematics-active' : ''}`} style={{ position: 'relative' }}>
+                <button
+                  type="button"
+                  className="motion-test-btn"
+                  style={{ position: 'absolute', top: '15px', right: '15px', zIndex: 30, boxShadow: '0 4px 12px rgba(0,0,0,0.4)' }}
+                  onClick={() => setShow3DofKinematics((prev) => !prev)}
+                >
+                  <Activity size={16} style={{ marginRight: '8px' }} />
+                  {show3DofKinematics ? 'SHOW PRODUCT IMAGE' : 'MOTION TEST'}
+                </button>
                 {show3DofKinematics ? (
                   <ThreeDofImageViewer height="100%" />
                 ) : (
@@ -296,7 +295,16 @@ export default function TrainingSimulators({ navigate, activeSubtype = 'all' }) 
             </p>
 
             <div className="simulator-section-grid">
-              <div className={`simulator-image-card ${show6DofKinematics ? 'kinematics-active' : ''}`}>
+              <div className={`simulator-image-card ${show6DofKinematics ? 'kinematics-active' : ''}`} style={{ position: 'relative' }}>
+                <button
+                  type="button"
+                  className="motion-test-btn"
+                  style={{ position: 'absolute', top: '15px', right: '15px', zIndex: 30, boxShadow: '0 4px 12px rgba(0,0,0,0.4)' }}
+                  onClick={() => setShow6DofKinematics((prev) => !prev)}
+                >
+                  <Activity size={16} style={{ marginRight: '8px' }} />
+                  {show6DofKinematics ? 'SHOW PRODUCT IMAGE' : 'MOTION TEST'}
+                </button>
                 {show6DofKinematics ? (
                   <SixDofImageViewer height="100%" />
                 ) : (
@@ -324,14 +332,6 @@ export default function TrainingSimulators({ navigate, activeSubtype = 'all' }) 
                     onClick={(e) => handleNavigate('/contact', e)}
                   >
                     ENQUIRE FOR 6-DOF TRAINING <ArrowRight size={16} style={{ marginLeft: '8px' }} />
-                  </button>
-                  <button
-                    type="button"
-                    className="motion-test-btn"
-                    onClick={() => setShow6DofKinematics((prev) => !prev)}
-                  >
-                    <Activity size={16} style={{ marginRight: '8px' }} />
-                    {show6DofKinematics ? 'SHOW PRODUCT IMAGE' : 'MOTION TEST'}
                   </button>
                 </div>
               </div>

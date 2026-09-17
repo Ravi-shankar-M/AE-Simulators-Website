@@ -16,8 +16,8 @@ export default function Philosophy() {
             ENGINEERING &amp; SIMULATION PRECISION
           </h2>
           <div className="section-title-line" style={{ margin: '0 auto' }} />
-          <p className="section-desc font-body" style={{ maxWidth: '780px', margin: '1rem auto 0', fontSize: '1.05rem', lineHeight: '1.65' }}>
-            At <strong>AE Simulators</strong>, we bridge physical mechanical engineering with deterministic virtual simulation environments.
+          <p className="section-desc font-body" style={{ maxWidth: '820px', margin: '1rem auto 0', fontSize: '1.05rem', lineHeight: '1.65' }}>
+            Operating under our parent company <strong>AE AUTOMATION ENGINEERS</strong>, <strong>AE Simulators</strong> bridges physical mechanical engineering with deterministic virtual simulation environments to create professional-grade training systems.
           </p>
         </div>
       </ScrollReveal>

@@ -19,8 +19,8 @@ export const CONTACT_CONFIG = {
    * Official company enquiry / contact email addresses.
    */
   OFFICIAL_EMAIL: 'aesimulators@outlook.com',
-  SUPPORT_EMAIL: 'aesimulators@outlook.com',
-  ENQUIRY_EMAIL: 'aesimulators@outlook.com',
+  SUPPORT_EMAIL: 'support@aesimulators.com',
+  ENQUIRY_EMAIL: 'enquiry@aesimulator.com',
 
   /**
    * Company headquarters / engineering location.

@@ -67,28 +67,27 @@
 }
 
 .dashboard-explore-products-btn {
-  background-color: #E31B23;
+  background-color: var(--ae-red);
   color: #FFFFFF !important;
-  border: 1px solid #E31B23;
+  border: 2px solid var(--ae-red);
   padding: 12px 28px;
+  font-family: var(--font-mono);
   font-size: 0.85rem;
   font-weight: 700;
   letter-spacing: 0.08em;
-  border-radius: 4px;
+  border-radius: 0;
   display: inline-flex;
   align-items: center;
   justify-content: center;
   cursor: pointer;
   text-decoration: none;
-  box-shadow: 0 4px 20px rgba(227, 27, 35, 0.45);
-  transition: all 0.25s ease;
+  transition: all 0.15s cubic-bezier(0.25, 1, 0.5, 1);
 }
 
 .dashboard-explore-products-btn:hover {
-  background-color: #c8102e;
-  border-color: #c8102e;
-  transform: translateY(-2px);
-  box-shadow: 0 8px 28px rgba(227, 27, 35, 0.65);
+  background-color: transparent;
+  color: var(--ae-red) !important;
+  transform: none;
 }
 
 /* Parallax Hero */

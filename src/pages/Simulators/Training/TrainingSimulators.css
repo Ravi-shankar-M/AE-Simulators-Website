@@ -15,6 +15,36 @@
   margin-top: 0 !important;
 }
 
+.hero-features-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1rem 2.5rem;
+  margin-top: 1.5rem;
+  width: fit-content;
+}
+
+.hero-feature-item {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+}
+
+.hero-feature-bullet {
+  color: var(--ae-red);
+  font-family: var(--font-mono);
+  font-size: 1.2rem;
+  font-weight: 800;
+}
+
+.hero-feature-text {
+  color: var(--text-main);
+  font-family: var(--font-mono);
+  font-weight: 700;
+  font-size: 0.85rem;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
 /* CLEAN ELEVATED CARD STYLE — EXACT ORIGINAL HEADINGS ONLY (NO STARTING BORDER) */
 .training-hero-cards-grid-clean {
   display: grid;

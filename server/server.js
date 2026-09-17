@@ -215,7 +215,7 @@ app.post('/api/applications', upload.single('resume'), async (req, res) => {
   }
 });
 
-// 6. Contact Form Submission (Transmits enquiry directly to ravishankarm.ae@gmail.com)
+// 6. Contact Form Submission (Transmits enquiry directly to aesimulators@outlook.com)
 app.post('/api/contact', async (req, res) => {
   try {
     const { name, company, email, phone, requirement, message } = req.body;

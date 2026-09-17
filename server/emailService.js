@@ -263,7 +263,7 @@ Submitted at: ${new Date().toUTCString()}`,
 }
 
 export async function sendContactEmail({ name, company, email, phone, requirement, message }) {
-  const recipient = process.env.ENQUIRY_RECIPIENT_EMAIL || 'ravishankarm.ae@gmail.com';
+  const recipient = process.env.ENQUIRY_RECIPIENT_EMAIL || 'aesimulators@outlook.com';
 
   // Sanitize header inputs to prevent CRLF email header injection
   const safeName = String(name || '').replace(/[\r\n]/g, '').trim();

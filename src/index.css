@@ -5,21 +5,17 @@
    ============================================================ */
 
 :root {
-  /* COLOR PALETTE — WHITE AUTOMOTIVE THEME WITH BLACK & RED */
+  /* COLOR PALETTE — WHITE AUTOMOTIVE ENGINEERING THEME */
   --bg-page: #ffffff;
-  --bg-pitch: #ffffff;
-  --bg-dark: #f8f9fa;
-  --bg-surface: #ffffff;
-  --bg-light-green: #ffffff;
-  --bg-light-green-subtle: #ffffff;
-  --bg-mint-gradient: #ffffff;
+  --bg-dark: #111622;
+  --bg-surface: #f8f8f9;
   
   --bg-card: #ffffff;
-  --bg-card-hover: #f8f9fa;
+  --bg-card-hover: #f4f4f5;
   
-  --border-subtle: #e2e8f0;
-  --border-active: #cbd5e1;
-  --border-green: #e2e8f0;
+  --border-subtle: #e4e4e7;
+  --border-active: #d4d4d8;
+  --border-dark: #1E2638;
   --border-red: rgba(227, 27, 35, 0.4);
 
   --ae-red: #E31B23;
@@ -32,15 +28,15 @@
   --text-dim: #52525b;
 
   /* TYPOGRAPHY */
-  --font-heading: 'Space Grotesk', 'Oxanium', sans-serif;
-  --font-display: 'Oxanium', sans-serif;
+  --font-heading: 'Inter', 'Space Grotesk', sans-serif;
+  --font-display: 'Inter', sans-serif;
   --font-body: 'Inter', system-ui, -apple-system, sans-serif;
-  --font-mono: 'IBM Plex Mono', monospace;
+  --font-mono: 'JetBrains Mono', 'IBM Plex Mono', monospace;
 
   /* TRANSITIONS & ELEVATIONS */
-  --transition-fast: 0.2s cubic-bezier(0.16, 1, 0.3, 1);
-  --transition-normal: 0.35s cubic-bezier(0.16, 1, 0.3, 1);
-  --transition-smooth: 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+  --transition-fast: 0.15s cubic-bezier(0.25, 1, 0.5, 1);
+  --transition-normal: 0.3s cubic-bezier(0.25, 1, 0.5, 1);
+  --transition-smooth: 0.5s cubic-bezier(0.25, 1, 0.5, 1);
 }
 
 /* RESET */
@@ -96,29 +92,31 @@ body {
 
 /* TYPOGRAPHY SYSTEM — DISTINCT FONT TYPES & STYLING FOR HEADINGS, SUBHEADINGS & CONTENT */
 
-/* 1. HEADINGS — Space Grotesk Bold */
+/* 1. HEADINGS — Inter Bold */
 h1, h2, h3, h4, h5, h6, .hero-title, .section-title, .font-heading {
-  font-family: var(--font-heading) !important;
+  font-family: var(--font-heading);
+  color: var(--text-main);
   letter-spacing: -0.02em;
-  color: #1f1f23 !important;
-  line-height: 1.15;
-}
-
-h1, .hero-title {
-  font-size: clamp(2.4rem, 4.5vw, 3.8rem);
   font-weight: 800;
+  margin-bottom: 0.8rem;
+  line-height: 1.1;
   text-transform: uppercase;
 }
 
-h2, .section-title {
-  font-size: clamp(1.7rem, 3vw, 2.4rem);
-  font-weight: 700;
-  text-transform: uppercase;
+/* 2. BODY TEXT — Inter */
+body, p, span, .font-body {
+  font-family: var(--font-body);
+  color: var(--text-dim);
+  font-weight: 400;
+  line-height: 1.6;
+  letter-spacing: 0.01em;
 }
 
-h3 {
-  font-size: clamp(1.2rem, 1.8vw, 1.5rem);
-  font-weight: 600;
+/* 3. TECHNICAL READOUTS / MONOSPACE — JetBrains Mono */
+.font-mono, code, .technical-label {
+  font-family: var(--font-mono);
+  font-variant-numeric: tabular-nums;
+  letter-spacing: 0.04em;
 }
 
 /* 2. SUBHEADINGS, BADGES & LABELS — IBM Plex Mono Uppercase */
@@ -766,23 +764,21 @@ img[oncontextmenu],
   font-weight: 700 !important;
   font-family: var(--font-mono, monospace) !important;
   letter-spacing: 0.08em !important;
-  border-radius: 4px !important;
-  background-color: #E31B23 !important;
+  border-radius: 0 !important;
+  background-color: var(--ae-red) !important;
   color: #FFFFFF !important;
-  border: 1px solid #E31B23 !important;
-  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1) !important;
-  box-shadow: 0 4px 18px rgba(227, 27, 35, 0.35) !important;
+  border: 2px solid var(--ae-red) !important;
+  transition: all 0.15s cubic-bezier(0.25, 1, 0.5, 1) !important;
   text-decoration: none !important;
   cursor: pointer !important;
   white-space: nowrap !important;
 }
 
 .contact-us-red-btn:hover {
-  transform: translateY(-2px) !important;
-  background-color: #C8102E !important;
-  border-color: #C8102E !important;
-  box-shadow: 0 8px 25px rgba(227, 27, 35, 0.5) !important;
-  color: #FFFFFF !important;
+  transform: none !important;
+  background-color: transparent !important;
+  border-color: var(--ae-red) !important;
+  color: var(--ae-red) !important;
 }
 
 /* GLOBAL CARD WHITE BACKGROUND UTILITY */

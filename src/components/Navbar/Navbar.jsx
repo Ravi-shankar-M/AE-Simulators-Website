@@ -84,7 +84,7 @@ export default function Header({ currentPath = '/', navigate }) {
   const isDashboard = currentPath === '/';
 
   return (
-    <header className={`ae-header-wrapper ${isDashboard ? (isOverVideo ? 'is-over-video' : 'solid-white') : 'solid-red'} ${scrolled ? 'scrolled' : ''}`}>
+    <header className={`ae-header-wrapper ${isDashboard ? (isOverVideo ? 'is-over-video' : 'solid-white') : 'solid-dark'} ${scrolled ? 'scrolled' : ''}`}>
       <div className="ae-main-navbar">
         <div className="header-container">
           <div className="brand-wrapper">

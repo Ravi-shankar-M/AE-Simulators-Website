@@ -64,25 +64,24 @@ export default function MotionPlatformKinematics() {
               <span className={`kin-state-dot ${active3DOFState === 'NEUTRAL' ? '' : 'active'}`} />
               <span className="kin-state-id">{active3DOFState}</span>
             </div>
-          </div>
-
-          {/* MOTION BUTTONS ONLY — NO TEXT DESCRIPTIONS */}
-          <div className="kin-controls font-mono">
-            {STATES_3DOF.map((st) => {
-              const IconComp = st.icon;
-              const isSelected = active3DOFState === st.id;
-              return (
-                <button
-                  key={st.id}
-                  type="button"
-                  className={`kin-control-btn ${isSelected ? 'selected' : ''}`}
-                  onClick={() => setActive3DOFState(st.id)}
-                >
-                  <IconComp size={14} className="kin-btn-icon" />
-                  <span>{st.label}</span>
-                </button>
-              );
-            })}
+            {/* MOTION BUTTONS ONLY — NO TEXT DESCRIPTIONS */}
+            <div className="kin-controls font-mono">
+              {STATES_3DOF.map((st) => {
+                const IconComp = st.icon;
+                const isSelected = active3DOFState === st.id;
+                return (
+                  <button
+                    key={st.id}
+                    type="button"
+                    className={`kin-control-btn ${isSelected ? 'selected' : ''}`}
+                    onClick={() => setActive3DOFState(st.id)}
+                  >
+                    <IconComp size={14} className="kin-btn-icon" />
+                    <span>{st.label}</span>
+                  </button>
+                );
+              })}
+            </div>
           </div>
         </div>
 

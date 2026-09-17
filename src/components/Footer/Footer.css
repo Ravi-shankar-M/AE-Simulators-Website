@@ -4,9 +4,9 @@
 
 .ae-footer {
   width: 100%;
-  background-color: #17191C;
+  background-color: var(--bg-dark);
   color: #ffffff;
-  border-top: 1px solid #27272a;
+  border-top: 1px solid var(--border-dark);
   padding-top: 80px;
 }
 
@@ -88,19 +88,19 @@
 .footer-links-column a {
   font-family: var(--font-body);
   font-size: 0.88rem;
-  color: #d4d4d8;
+  color: #94A3B8;
   text-decoration: none;
   padding: 3px 6px;
-  border-radius: 3px;
+  border-left: 2px solid transparent;
   display: inline-block;
-  transition: all 0.2s ease;
+  transition: all 0.15s cubic-bezier(0.25, 1, 0.5, 1);
 }
 
 .footer-links-column a:hover {
-  background-color: #E31B23 !important;
+  background-color: transparent !important;
+  border-color: #E31B23;
   color: #ffffff !important;
-  font-weight: 700;
-  transform: translateX(4px);
+  transform: translateX(2px);
 }
 
 .footer-email-link {

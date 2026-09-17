@@ -132,18 +132,19 @@ export default function GamingSimulatorsPage({ navigate, activeSubtype = 'all' }
                   >
                     ENQUIRE FOR 3-DOF RIG <ArrowRight size={16} style={{ marginLeft: '8px' }} />
                   </button>
-                  <button
-                    type="button"
-                    className="motion-test-btn"
-                    onClick={() => setShow3DofKinematics((prev) => !prev)}
-                  >
-                    <Activity size={16} style={{ marginRight: '8px' }} />
-                    {show3DofKinematics ? 'SHOW PRODUCT IMAGE' : 'MOTION TEST'}
-                  </button>
                 </div>
               </div>
 
-              <div className={`simulator-image-card ${show3DofKinematics ? 'kinematics-active' : ''}`}>
+              <div className={`simulator-image-card ${show3DofKinematics ? 'kinematics-active' : ''}`} style={{ position: 'relative' }}>
+                <button
+                  type="button"
+                  className="motion-test-btn"
+                  style={{ position: 'absolute', top: '15px', right: '15px', zIndex: 30, boxShadow: '0 4px 12px rgba(0,0,0,0.4)' }}
+                  onClick={() => setShow3DofKinematics((prev) => !prev)}
+                >
+                  <Activity size={16} style={{ marginRight: '8px' }} />
+                  {show3DofKinematics ? 'SHOW PRODUCT IMAGE' : 'MOTION TEST'}
+                </button>
                 {show3DofKinematics ? (
                   <ThreeDofImageViewer height="100%" />
                 ) : (
@@ -170,7 +171,16 @@ export default function GamingSimulatorsPage({ navigate, activeSubtype = 'all' }
             </p>
 
             <div className="simulator-section-grid">
-              <div className={`simulator-image-card ${show6DofKinematics ? 'kinematics-active' : ''}`}>
+              <div className={`simulator-image-card ${show6DofKinematics ? 'kinematics-active' : ''}`} style={{ position: 'relative' }}>
+                <button
+                  type="button"
+                  className="motion-test-btn"
+                  style={{ position: 'absolute', top: '15px', right: '15px', zIndex: 30, boxShadow: '0 4px 12px rgba(0,0,0,0.4)' }}
+                  onClick={() => setShow6DofKinematics((prev) => !prev)}
+                >
+                  <Activity size={16} style={{ marginRight: '8px' }} />
+                  {show6DofKinematics ? 'SHOW PRODUCT IMAGE' : 'MOTION TEST'}
+                </button>
                 {show6DofKinematics ? (
                   <SixDofImageViewer height="100%" />
                 ) : (
@@ -197,15 +207,7 @@ export default function GamingSimulatorsPage({ navigate, activeSubtype = 'all' }
                     className="contact-us-red-btn"
                     onClick={(e) => handleNavigate('/contact', e)}
                   >
-                    ENQUIRE FOR 6-DOF RIG <ArrowRight size={16} style={{ marginLeft: '8px' }} />
-                  </button>
-                  <button
-                    type="button"
-                    className="motion-test-btn"
-                    onClick={() => setShow6DofKinematics((prev) => !prev)}
-                  >
-                    <Activity size={16} style={{ marginRight: '8px' }} />
-                    {show6DofKinematics ? 'SHOW PRODUCT IMAGE' : 'MOTION TEST'}
+                    ENQUIRE FOR 6-DOF SYSTEM <ArrowRight size={16} style={{ marginLeft: '8px' }} />
                   </button>
                 </div>
               </div>
