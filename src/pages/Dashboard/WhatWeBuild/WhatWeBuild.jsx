@@ -4,11 +4,28 @@ import ScrollReveal from '../../../components/common/ScrollReveal';
 import './WhatWeBuild.css';
 
 import img3dof from './images/3dof-dashboard.webp';
+import img3dofTablet from './images/3dof-dashboard-tablet.webp';
+import img3dofMobile from './images/3dof-dashboard-mobile.webp';
+
 import img6dof from './images/6doffer-dashboard.webp';
+import img6dofTablet from './images/6doffer-dashboard-tablet.webp';
+import img6dofMobile from './images/6doffer-dashboard-mobile.webp';
+
 import imgSim from './images/simulation-dashboard.webp';
+import imgSimTablet from './images/simulation-dashboard-tablet.webp';
+import imgSimMobile from './images/simulation-dashboard-mobile.webp';
+
 import imgAnalytics from './images/analytics-dashboard.webp';
+import imgAnalyticsTablet from './images/analytics-dashboard-tablet.webp';
+import imgAnalyticsMobile from './images/analytics-dashboard-mobile.webp';
+
 import imgData from './images/dataacquisition-dashboard.webp';
+import imgDataTablet from './images/dataacquisition-dashboard-tablet.webp';
+import imgDataMobile from './images/dataacquisition-dashboard-mobile.webp';
+
 import imgProduct from './images/product-dahboard.webp';
+import imgProductTablet from './images/product-dahboard-tablet.webp';
+import imgProductMobile from './images/product-dahboard-mobile.webp';
 
 const WHAT_WE_BUILD_ROWS = [
   {
@@ -21,6 +38,8 @@ const WHAT_WE_BUILD_ROWS = [
       'Ideal for immersive driving and testing.',
     ],
     image: img3dof,
+    imageTablet: img3dofTablet,
+    imageMobile: img3dofMobile,
     alt: '3-DOF Motion Platform Dashboard',
     link: '/3dof-motion-platform',
   },
@@ -34,6 +53,8 @@ const WHAT_WE_BUILD_ROWS = [
       'Built for high-fidelity vehicle simulation.',
     ],
     image: img6dof,
+    imageTablet: img6dofTablet,
+    imageMobile: img6dofMobile,
     alt: '6-DOF Motion Platform Dashboard',
     link: '/6dof-motion-platform',
   },
@@ -47,6 +68,8 @@ const WHAT_WE_BUILD_ROWS = [
       'Built for advanced driving simulation.',
     ],
     image: imgSim,
+    imageTablet: imgSimTablet,
+    imageMobile: imgSimMobile,
     alt: 'Simulation Software Platform Dashboard',
     link: '/software-platform',
   },
@@ -60,8 +83,10 @@ const WHAT_WE_BUILD_ROWS = [
       'Generates clear, actionable performance reports.',
     ],
     image: imgAnalytics,
+    imageTablet: imgAnalyticsTablet,
+    imageMobile: imgAnalyticsMobile,
     alt: 'Analytics & Evaluation Dashboard',
-    link: '/products',
+    link: '/simulators',
   },
   {
     num: '05',
@@ -73,8 +98,10 @@ const WHAT_WE_BUILD_ROWS = [
       'Built for precise, reliable performance.',
     ],
     image: imgProduct,
+    imageTablet: imgProductTablet,
+    imageMobile: imgProductMobile,
     alt: 'Custom Products Dashboard',
-    link: '/products',
+    link: '/simulators',
   },
 ];
 
@@ -129,12 +156,16 @@ export default function WhatWeBuild({ navigate }) {
                           className="what-build-img-box"
                           onClick={(e) => handleNavigate(row.link, e)}
                         >
-                          <img
-                            src={row.image}
-                            alt={row.alt}
-                            className="what-build-img"
-                            loading="lazy"
-                          />
+                          <picture>
+                            <source media="(max-width: 767px)" srcSet={row.imageMobile} />
+                            <source media="(max-width: 1024px)" srcSet={row.imageTablet} />
+                            <img
+                              src={row.image}
+                              alt={row.alt}
+                              className="what-build-img"
+                              loading="lazy"
+                            />
+                          </picture>
                         </button>
                       </div>
                     </ScrollReveal>
@@ -196,12 +227,16 @@ export default function WhatWeBuild({ navigate }) {
                           className="what-build-img-box"
                           onClick={(e) => handleNavigate(row.link, e)}
                         >
-                          <img
-                            src={row.image}
-                            alt={row.alt}
-                            className="what-build-img"
-                            loading="lazy"
-                          />
+                          <picture>
+                            <source media="(max-width: 767px)" srcSet={row.imageMobile} />
+                            <source media="(max-width: 1024px)" srcSet={row.imageTablet} />
+                            <img
+                              src={row.image}
+                              alt={row.alt}
+                              className="what-build-img"
+                              loading="lazy"
+                            />
+                          </picture>
                         </button>
                       </div>
                     </ScrollReveal>

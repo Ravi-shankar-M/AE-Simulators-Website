@@ -4,6 +4,8 @@ import { AlertTriangle, Navigation, RotateCcw, TrafficCone, ShieldCheck, Moon, C
 
 import './Technology.css';
 import realisticDrivingImg from './images/realistic_driving.webp';
+import realisticDrivingImgTablet from './images/realistic_driving-tablet.webp';
+import realisticDrivingImgMobile from './images/realistic_driving-mobile.webp';
 
 const SCENARIOS = [
   {
@@ -93,6 +95,8 @@ export default function Technology() {
             <div className="software-img-wrapper">
               <ProtectedImage
                 src={realisticDrivingImg}
+                srcTablet={realisticDrivingImgTablet}
+                srcMobile={realisticDrivingImgMobile}
                 alt="AE Simulator Software Environment"
                 className="software-preview-img"
               />

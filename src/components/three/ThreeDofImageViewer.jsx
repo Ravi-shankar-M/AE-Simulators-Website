@@ -31,7 +31,7 @@ const PLATFORM_JOINTS_0 = {
 
 const PLATFORM_CENTER_0 = { x: 440, y: 100 };
 
-export default function ThreeDofImageViewer({ height = '450px' }) {
+export default function ThreeDofImageViewer({ height = '450px', demoMode = false }) {
   const [preset, setPreset] = useState('NEUTRAL');
   const [sliders, setSliders] = useState({ heave: 0, roll: 0, pitch: 0 });
 
@@ -214,6 +214,28 @@ export default function ThreeDofImageViewer({ height = '450px' }) {
     };
   }, [updateDOM]);
 
+  // Auto-play demo mode
+  useEffect(() => {
+    if (!demoMode) return;
+    const presetKeys = Object.keys(PRESETS).filter(k => k !== 'NEUTRAL');
+    let index = 0;
+    
+    // Start with a slight delay
+    const initialTimer = setTimeout(() => {
+      applyPreset(presetKeys[index]);
+    }, 500);
+
+    const intervalId = setInterval(() => {
+      index = (index + 1) % presetKeys.length;
+      applyPreset(presetKeys[index]);
+    }, 2000); // cycle every 2 seconds
+
+    return () => {
+      clearTimeout(initialTimer);
+      clearInterval(intervalId);
+    };
+  }, [demoMode]);
+
   return (
     <div className="threedof-container" style={{ height }}>
       {/* ── STAGE VIEWPORT ── */}
@@ -340,90 +362,92 @@ export default function ThreeDofImageViewer({ height = '450px' }) {
       </div>
 
       {/* ── MOTION CONTROLS STRIP & SLIDERS ── */}
-      <div className="threedof-controls-panel font-mono">
-        {/* PRESET BUTTONS */}
-        <div className="threedof-preset-buttons">
-          <button
-            type="button"
-            className={`threedof-btn ${preset === 'NEUTRAL' ? 'active' : ''}`}
-            onClick={() => applyPreset('NEUTRAL')}
-          >
-            <RefreshCw size={13} /> NEUTRAL
-          </button>
-          <button
-            type="button"
-            className={`threedof-btn ${preset.startsWith('HEAVE') ? 'active' : ''}`}
-            onClick={() => applyPreset(sliders.heave < 0 ? 'HEAVE_DOWN' : 'HEAVE_UP')}
-          >
-            <ArrowUpDown size={13} /> HEAVE
-          </button>
-          <button
-            type="button"
-            className={`threedof-btn ${preset.startsWith('ROLL') ? 'active' : ''}`}
-            onClick={() => applyPreset(sliders.roll > 0 ? 'ROLL_LEFT' : 'ROLL_RIGHT')}
-          >
-            <RotateCw size={13} /> ROLL
-          </button>
-          <button
-            type="button"
-            className={`threedof-btn ${preset.startsWith('PITCH') ? 'active' : ''}`}
-            onClick={() => applyPreset(sliders.pitch > 0 ? 'PITCH_UP' : 'PITCH_DOWN')}
-          >
-            <MoveVertical size={13} /> PITCH
-          </button>
+      {!demoMode && (
+        <div className="threedof-controls-panel font-mono">
+          {/* PRESET BUTTONS */}
+          <div className="threedof-preset-buttons">
+            <button
+              type="button"
+              className={`threedof-btn ${preset === 'NEUTRAL' ? 'active' : ''}`}
+              onClick={() => applyPreset('NEUTRAL')}
+            >
+              <RefreshCw size={13} /> NEUTRAL
+            </button>
+            <button
+              type="button"
+              className={`threedof-btn ${preset.startsWith('HEAVE') ? 'active' : ''}`}
+              onClick={() => applyPreset(sliders.heave < 0 ? 'HEAVE_DOWN' : 'HEAVE_UP')}
+            >
+              <ArrowUpDown size={13} /> HEAVE
+            </button>
+            <button
+              type="button"
+              className={`threedof-btn ${preset.startsWith('ROLL') ? 'active' : ''}`}
+              onClick={() => applyPreset(sliders.roll > 0 ? 'ROLL_LEFT' : 'ROLL_RIGHT')}
+            >
+              <RotateCw size={13} /> ROLL
+            </button>
+            <button
+              type="button"
+              className={`threedof-btn ${preset.startsWith('PITCH') ? 'active' : ''}`}
+              onClick={() => applyPreset(sliders.pitch > 0 ? 'PITCH_UP' : 'PITCH_DOWN')}
+            >
+              <MoveVertical size={13} /> PITCH
+            </button>
+          </div>
+
+          {/* INTERACTIVE SLIDERS FOR FINE KINEMATICS CONTROL */}
+          <div className="threedof-sliders-grid">
+            <div className="threedof-slider-group">
+              <div className="slider-label-row">
+                <span>HEAVE</span>
+                <span className="slider-val">{sliders.heave.toFixed(0)} px</span>
+              </div>
+              <input
+                type="range"
+                min="-30"
+                max="30"
+                step="1"
+                value={sliders.heave}
+                onChange={(e) => handleSliderChange('heave', e.target.value)}
+                className="threedof-slider"
+              />
+            </div>
+
+            <div className="threedof-slider-group">
+              <div className="slider-label-row">
+                <span>ROLL</span>
+                <span className="slider-val">{sliders.roll.toFixed(0)}°</span>
+              </div>
+              <input
+                type="range"
+                min="-12"
+                max="12"
+                step="1"
+                value={sliders.roll}
+                onChange={(e) => handleSliderChange('roll', e.target.value)}
+                className="threedof-slider"
+              />
+            </div>
+
+            <div className="threedof-slider-group">
+              <div className="slider-label-row">
+                <span>PITCH</span>
+                <span className="slider-val">{sliders.pitch.toFixed(0)}°</span>
+              </div>
+              <input
+                type="range"
+                min="-12"
+                max="12"
+                step="1"
+                value={sliders.pitch}
+                onChange={(e) => handleSliderChange('pitch', e.target.value)}
+                className="threedof-slider"
+              />
+            </div>
+          </div>
         </div>
-
-        {/* INTERACTIVE SLIDERS FOR FINE KINEMATICS CONTROL */}
-        <div className="threedof-sliders-grid">
-          <div className="threedof-slider-group">
-            <div className="slider-label-row">
-              <span>HEAVE</span>
-              <span className="slider-val">{sliders.heave.toFixed(0)} px</span>
-            </div>
-            <input
-              type="range"
-              min="-30"
-              max="30"
-              step="1"
-              value={sliders.heave}
-              onChange={(e) => handleSliderChange('heave', e.target.value)}
-              className="threedof-slider"
-            />
-          </div>
-
-          <div className="threedof-slider-group">
-            <div className="slider-label-row">
-              <span>ROLL</span>
-              <span className="slider-val">{sliders.roll.toFixed(0)}°</span>
-            </div>
-            <input
-              type="range"
-              min="-12"
-              max="12"
-              step="1"
-              value={sliders.roll}
-              onChange={(e) => handleSliderChange('roll', e.target.value)}
-              className="threedof-slider"
-            />
-          </div>
-
-          <div className="threedof-slider-group">
-            <div className="slider-label-row">
-              <span>PITCH</span>
-              <span className="slider-val">{sliders.pitch.toFixed(0)}°</span>
-            </div>
-            <input
-              type="range"
-              min="-12"
-              max="12"
-              step="1"
-              value={sliders.pitch}
-              onChange={(e) => handleSliderChange('pitch', e.target.value)}
-              className="threedof-slider"
-            />
-          </div>
-        </div>
-      </div>
+      )}
     </div>
   );
 }

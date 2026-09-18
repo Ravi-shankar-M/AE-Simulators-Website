@@ -46,11 +46,11 @@ function AppContent() {
   const [transitioning, setTransitioning] = useState(false);
 
   useEffect(() => {
-    if (currentPath.startsWith('/products/gaming')) {
+    if (currentPath.startsWith('/simulators/gaming')) {
       document.title = 'Gaming Simulators | AE-Simulators Sim Racing Rigs';
-    } else if (currentPath.startsWith('/products/training')) {
+    } else if (currentPath.startsWith('/simulators/training')) {
       document.title = 'Training Simulators | AE-Simulators Driver Training Platforms';
-    } else if (currentPath.startsWith('/products')) {
+    } else if (currentPath.startsWith('/simulators')) {
       document.title = 'Products | AE-Simulators Motion Platforms & Rigs';
     } else {
       switch (currentPath) {
@@ -175,34 +175,34 @@ function AppContent() {
   );
 
   const renderPage = () => {
-    if (currentPath === '/products') {
+    if (currentPath === '/simulators') {
+      return <SimulatorsPage navigate={navigate} />;
+    }
+    if (currentPath === '/simulators/gaming') {
       return <Simulators navigate={navigate} defaultCategory="gaming" defaultSubtype="all" />;
     }
-    if (currentPath === '/products/gaming') {
-      return <Simulators navigate={navigate} defaultCategory="gaming" defaultSubtype="all" />;
-    }
-    if (currentPath === '/products/gaming/static') {
+    if (currentPath === '/simulators/gaming/static') {
       return <Simulators navigate={navigate} defaultCategory="gaming" defaultSubtype="static" />;
     }
-    if (currentPath === '/products/gaming/3dof') {
+    if (currentPath === '/simulators/gaming/3dof') {
       return <Simulators navigate={navigate} defaultCategory="gaming" defaultSubtype="3dof" />;
     }
-    if (currentPath === '/products/gaming/6dof') {
+    if (currentPath === '/simulators/gaming/6dof') {
       return <Simulators navigate={navigate} defaultCategory="gaming" defaultSubtype="6dof" />;
     }
-    if (currentPath === '/products/training') {
+    if (currentPath === '/simulators/training') {
       return <Simulators navigate={navigate} defaultCategory="training" defaultSubtype="all" />;
     }
-    if (currentPath === '/products/training/static') {
+    if (currentPath === '/simulators/training/static') {
       return <Simulators navigate={navigate} defaultCategory="training" defaultSubtype="static" />;
     }
-    if (currentPath === '/products/training/3dof') {
+    if (currentPath === '/simulators/training/3dof') {
       return <Simulators navigate={navigate} defaultCategory="training" defaultSubtype="3dof" />;
     }
-    if (currentPath === '/products/training/6dof') {
+    if (currentPath === '/simulators/training/6dof') {
       return <Simulators navigate={navigate} defaultCategory="training" defaultSubtype="6dof" />;
     }
-    if (currentPath === '/products/training/customized-dof') {
+    if (currentPath === '/simulators/training/customized-dof') {
       return <Simulators navigate={navigate} defaultCategory="training" defaultSubtype="all" />;
     }
 

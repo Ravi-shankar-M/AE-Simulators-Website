@@ -1,10 +1,37 @@
 import React, { useEffect, useRef, useState } from 'react';
 import './BrandIntro.css';
 import introVideo from '../../../pages/Dashboard/Hero/videos/AE_SIMULATORS_intro_web_delivery.mp4';
+import introVideoTablet from '../../../pages/Dashboard/Hero/videos/AE_SIMULATORS_intro_web_delivery-tablet.mp4';
+import introVideoMobile from '../../../pages/Dashboard/Hero/videos/AE_SIMULATORS_intro_web_delivery-mobile.mp4';
 import introAudio from '../../../pages/Dashboard/Hero/videos/AE_SIMULATORS_intro_audio.mp3';
 
 export default function BrandIntro({ onFinished, onStartReveal }) {
   const [fadingOut, setFadingOut] = useState(false);
+  const [videoSrc, setVideoSrc] = useState(null);
+
+  useEffect(() => {
+    const checkViewport = () => {
+      const width = window.innerWidth;
+      if (width <= 767) return introVideoMobile;
+      if (width <= 1024) return introVideoTablet;
+      return introVideo;
+    };
+    
+    setVideoSrc(checkViewport());
+    
+    const handleResize = () => {
+      const newSrc = checkViewport();
+      setVideoSrc(prev => {
+        if (prev !== newSrc) {
+           return newSrc;
+        }
+        return prev;
+      });
+    };
+    
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
 
   const videoRef = useRef(null);
   const audioRef = useRef(null);
@@ -132,7 +159,7 @@ export default function BrandIntro({ onFinished, onStartReveal }) {
         ref={videoRef}
         id="ae-intro-video"
         className="intro-video-element"
-        src={introVideo}
+        src={videoSrc || introVideo}
         autoPlay
         muted
         playsInline

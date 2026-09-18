@@ -1,4 +1,4 @@
-import React, { useState, useEffect, Suspense } from 'react';
+import React, { useState, useEffect, Suspense, useRef } from 'react';
 import { Canvas } from '@react-three/fiber';
 import { OrbitControls, useGLTF, Center, Bounds, Html, useProgress } from '@react-three/drei';
 import * as THREE from 'three';
@@ -112,12 +112,35 @@ class CanvasErrorBoundary extends React.Component {
   }
 }
 
+// Custom lightweight IntersectionObserver Hook
+function useInView(options = {}) {
+  const [isIntersecting, setIsIntersecting] = useState(false);
+  const ref = useRef(null);
+
+  useEffect(() => {
+    if (!ref.current) return;
+    
+    const observer = new IntersectionObserver(([entry]) => {
+      setIsIntersecting(entry.isIntersecting);
+    }, options);
+    
+    observer.observe(ref.current);
+    return () => observer.disconnect();
+  }, [options]);
+
+  return [ref, isIntersecting];
+}
+
 export default function Gaming360Viewer({ height = '560px' }) {
   const [useFallback, setUseFallback] = useState(false);
   const [isDragging, setIsDragging] = useState(false);
+  
+  // Track viewport visibility to pause WebGL render loop when scrolled away
+  const [containerRef, inView] = useInView({ threshold: 0.01 });
 
   return (
     <div
+      ref={containerRef}
       style={{
         width: '100%',
         height,
@@ -133,6 +156,7 @@ export default function Gaming360Viewer({ height = '560px' }) {
       ) : (
         <CanvasErrorBoundary fallback={<img src={FALLBACK_IMG} alt="Gaming Cockpit" style={{ width: '100%', height: '100%', objectFit: 'contain' }} />}>
           <Canvas
+            frameloop={inView ? 'always' : 'demand'}
             camera={{ position: [0, 1.2, 4.2], fov: 45 }}
             style={{ background: 'transparent', width: '100%', height: '100%' }}
             gl={{ antialias: true, alpha: true }}
@@ -158,7 +182,7 @@ export default function Gaming360Viewer({ height = '560px' }) {
 
             <OrbitControls
               makeDefault
-              autoRotate={true}
+              autoRotate={inView && !isDragging}
               autoRotateSpeed={1.0}
               enableZoom={true}
               enablePan={false}

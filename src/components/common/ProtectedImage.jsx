@@ -25,7 +25,7 @@ import React from 'react';
  * @param {string}  [id]      - Optional element ID
  * @param {...*}    rest      - Any other valid <img> props are forwarded
  */
-export default function ProtectedImage({ src, alt, className, style, id, ...rest }) {
+export default function ProtectedImage({ src, srcTablet, srcMobile, alt, className, style, id, ...rest }) {
   const handleContextMenu = (e) => {
     e.preventDefault();
     return false;
@@ -36,7 +36,7 @@ export default function ProtectedImage({ src, alt, className, style, id, ...rest
     return false;
   };
 
-  return (
+  const imgElement = (
     <img
       src={src}
       alt={alt}
@@ -56,4 +56,16 @@ export default function ProtectedImage({ src, alt, className, style, id, ...rest
       {...rest}
     />
   );
+
+  if (srcTablet || srcMobile) {
+    return (
+      <picture>
+        {srcMobile && <source media="(max-width: 767px)" srcSet={srcMobile} />}
+        {srcTablet && <source media="(max-width: 1024px)" srcSet={srcTablet} />}
+        {imgElement}
+      </picture>
+    );
+  }
+
+  return imgElement;
 }

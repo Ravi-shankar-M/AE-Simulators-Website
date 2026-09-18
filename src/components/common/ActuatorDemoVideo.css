@@ -1,0 +1,14 @@
+.actuator-demo-container {
+  width: 100%;
+  position: relative;
+  overflow: hidden;
+  border-radius: 8px;
+  background-color: #0f172a;
+}
+
+.actuator-demo-video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}

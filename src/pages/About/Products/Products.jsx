@@ -4,7 +4,11 @@ import { ArrowRight } from 'lucide-react';
 import './Products.css';
 
 import gamingSimImg from './images/gaming simulator.png';
+import gamingSimImgTablet from './images/gaming simulator-tablet.png';
+import gamingSimImgMobile from './images/gaming simulator-mobile.png';
 import trainingSimImg from './images/training simulator.png';
+import trainingSimImgTablet from './images/training simulator-tablet.png';
+import trainingSimImgMobile from './images/training simulator-mobile.png';
 
 export default function Products({ navigate }) {
   const productsList = [
@@ -14,7 +18,9 @@ export default function Products({ navigate }) {
       subtitle: 'HIGH-PERFORMANCE MOTION PLATFORMS & SIM RIGS',
       desc: 'Engineered for motorsport enthusiasts, sim racers, and commercial entertainment centers.',
       image: gamingSimImg,
-      link: '/products/gaming',
+      imageTablet: gamingSimImgTablet,
+      imageMobile: gamingSimImgMobile,
+      link: '/simulators/gaming',
     },
     {
       id: 'training',
@@ -22,7 +28,9 @@ export default function Products({ navigate }) {
       subtitle: 'INSTITUTIONAL & DEFENSE DRIVER TRAINING PLATFORMS',
       desc: 'Institutional-grade driving simulators designed for research institutions, defense training facilities, automotive OEMs, and professional driving academies.',
       image: trainingSimImg,
-      link: '/products/training',
+      imageTablet: trainingSimImgTablet,
+      imageMobile: trainingSimImgMobile,
+      link: '/simulators/training',
     },
   ];
 
@@ -52,6 +60,8 @@ export default function Products({ navigate }) {
               <div className="about-product-bg-image">
                 <ProtectedImage
                   src={product.image}
+                  srcTablet={product.imageTablet}
+                  srcMobile={product.imageMobile}
                   alt={product.title}
                   className="about-product-img-bg"
                 />

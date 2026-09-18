@@ -1,9 +1,8 @@
 import React from 'react';
 import { CONTACT_CONFIG } from '../../config/contact';
 import { MapPin, Mail, Phone } from 'lucide-react';
-
+import { ASSETS } from '../../data/assets';
 import './Footer.css';
-import aesimLogoTransparent from './images/aesim-logo-transparent.png';
 import makeInIndiaFinal from './images/make-in-india-final.png';
 
 export default function Footer({ navigate }) {
@@ -20,7 +19,7 @@ export default function Footer({ navigate }) {
         <div className="footer-brand-block">
           <a href="/" onClick={(e) => handleNavClick('/', e)} className="footer-logo-link aesim-logo-link">
             <img
-              src={aesimLogoTransparent}
+              src={ASSETS.logo.official}
               alt="AE Simulators Official Logo"
               className="footer-brand-logo"
             />
@@ -32,17 +31,17 @@ export default function Footer({ navigate }) {
           <span className="column-title font-mono">NAVIGATION</span>
           <a href="/" onClick={(e) => handleNavClick('/', e)}>Dashboard</a>
           <a href="/about" onClick={(e) => handleNavClick('/about', e)}>About Us</a>
-          <a href="/products" onClick={(e) => handleNavClick('/products', e)}>Simulators</a>
+          <a href="/simulators" onClick={(e) => handleNavClick('/simulators', e)}>Simulators</a>
           <a href="/contact" onClick={(e) => handleNavClick('/contact', e)}>Contact Us</a>
         </div>
 
         {/* SIMULATORS COLUMN */}
         <div className="footer-links-column">
           <span className="column-title font-mono">SIMULATORS</span>
-          <a href="/products/gaming" onClick={(e) => handleNavClick('/products/gaming', e)}>
+          <a href="/simulators/gaming" onClick={(e) => handleNavClick('/simulators/gaming', e)}>
             Gaming Simulators
           </a>
-          <a href="/products/training" onClick={(e) => handleNavClick('/products/training', e)}>
+          <a href="/simulators/training" onClick={(e) => handleNavClick('/simulators/training', e)}>
             Training Simulators
           </a>
         </div>
@@ -54,7 +53,7 @@ export default function Footer({ navigate }) {
             {CONTACT_CONFIG.ADDRESS_LINES.map((address, idx) => (
               <div key={idx} style={{ display: 'flex', gap: '0.6rem', alignItems: 'center' }}>
                 <MapPin size={18} style={{ color: '#E31B23', flexShrink: 0 }} />
-                <span style={{ color: '#d4d4d8', lineHeight: '1.45' }}>{address}</span>
+                <span style={{ color: '#d4d4d8', lineHeight: '1.45', whiteSpace: 'nowrap' }}>{address}</span>
               </div>
             ))}
           </div>
@@ -66,23 +65,23 @@ export default function Footer({ navigate }) {
           <div style={{ fontSize: '0.85rem', margin: '0.4rem 0', display: 'flex', flexDirection: 'column', gap: '0.75rem' }} className="font-mono">
             <div style={{ display: 'flex', gap: '0.6rem', alignItems: 'center' }}>
               <Phone size={18} style={{ color: '#E31B23', flexShrink: 0 }} />
-              <a href={`tel:${CONTACT_CONFIG.MOBILE_NUMBER || '9945552222'}`} className="footer-contact-phone">
+              <span className="footer-contact-phone" style={{ color: '#d4d4d8', lineHeight: '1.45' }}>
                 {CONTACT_CONFIG.MOBILE_NUMBER || '9945552222'}
-              </a>
+              </span>
             </div>
 
             <div style={{ display: 'flex', gap: '0.6rem', alignItems: 'center' }}>
               <Mail size={18} style={{ color: '#E31B23', flexShrink: 0 }} />
-              <a href={`mailto:${CONTACT_CONFIG.SUPPORT_EMAIL}`} className="footer-contact-email">
+              <span className="footer-contact-email" style={{ color: '#d4d4d8', lineHeight: '1.45' }}>
                 {CONTACT_CONFIG.SUPPORT_EMAIL}
-              </a>
+              </span>
             </div>
 
             <div style={{ display: 'flex', gap: '0.6rem', alignItems: 'center' }}>
               <Mail size={18} style={{ color: '#E31B23', flexShrink: 0 }} />
-              <a href={`mailto:${CONTACT_CONFIG.ENQUIRY_EMAIL}`} className="footer-contact-email">
+              <span className="footer-contact-email" style={{ color: '#d4d4d8', lineHeight: '1.45' }}>
                 {CONTACT_CONFIG.ENQUIRY_EMAIL}
-              </a>
+              </span>
             </div>
           </div>
         </div>

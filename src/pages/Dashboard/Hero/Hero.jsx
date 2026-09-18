@@ -4,11 +4,58 @@ import { ASSETS } from '../../../data/assets';
 import { ArrowRight } from 'lucide-react';
 
 import './Hero.css';
-import dashboardLoopVideo from './videos/Final_DB_Loop.mp4';
+import dashboardLoopVideo from './videos/final_loop.mp4';
+import dashboardLoopVideoTablet from './videos/final_loop-tablet.mp4';
+import dashboardLoopVideoMobile from './videos/final_loop-mobile.mp4';
 
 export default function Hero({ navigate, onReplayIntro, introFinished = true }) {
   const videoRef = useRef(null);
   const [videoLoaded, setVideoLoaded] = useState(false);
+  const [videoSrc, setVideoSrc] = useState(null);
+  const [typedText, setTypedText] = useState('');
+  const fullText = "WELCOME TO AE SIMULATORS";
+
+  useEffect(() => {
+    if (introFinished) {
+      let currentText = '';
+      let i = 0;
+      setTypedText('');
+      const typingInterval = setInterval(() => {
+        if (i < fullText.length) {
+          currentText += fullText.charAt(i);
+          setTypedText(currentText);
+          i++;
+        } else {
+          clearInterval(typingInterval);
+        }
+      }, 100);
+      return () => clearInterval(typingInterval);
+    }
+  }, [introFinished]);
+
+  useEffect(() => {
+    const checkViewport = () => {
+      const width = window.innerWidth;
+      if (width <= 767) return dashboardLoopVideoMobile;
+      if (width <= 1024) return dashboardLoopVideoTablet;
+      return dashboardLoopVideo;
+    };
+    
+    setVideoSrc(checkViewport());
+    
+    const handleResize = () => {
+      const newSrc = checkViewport();
+      setVideoSrc(prev => {
+        if (prev !== newSrc) {
+           return newSrc;
+        }
+        return prev;
+      });
+    };
+    
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
 
   useEffect(() => {
     const video = videoRef.current;
@@ -40,6 +87,15 @@ export default function Hero({ navigate, onReplayIntro, introFinished = true }) 
       }
     }
   }, [introFinished]);
+
+  useEffect(() => {
+    if (videoRef.current && videoSrc) {
+      videoRef.current.load();
+      if (introFinished) {
+        videoRef.current.play().catch(() => {});
+      }
+    }
+  }, [videoSrc, introFinished]);
 
   const handleVideoLoadedData = (e) => {
     setVideoLoaded(true);
@@ -75,16 +131,13 @@ export default function Hero({ navigate, onReplayIntro, introFinished = true }) 
             onWaiting={() => {}}
             onStalled={() => {}}
           >
-            <source src={dashboardLoopVideo} type="video/mp4" />
+            {videoSrc && <source src={videoSrc} type="video/mp4" />}
             Your browser does not support HTML5 video.
           </video>
           <div className="dashboard-video-watermark">
-            <span className="dashboard-welcome-tag font-mono">WELCOME TO</span>
-            <ProtectedImage
-              src={ASSETS.logo.official}
-              alt="AE Simulators Official Logo"
-              className="dashboard-video-watermark-logo"
-            />
+            <h1 className="dashboard-welcome-typing-text font-mono">
+              {typedText}<span className="typing-cursor">|</span>
+            </h1>
             <button
               type="button"
               className="dashboard-explore-products-btn font-mono"

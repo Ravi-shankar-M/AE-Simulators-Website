@@ -3,6 +3,8 @@ import ScrollReveal from '../../../components/common/ScrollReveal';
 
 import './WorldMap.css';
 import worldmapImg from './images/world-map-final.png';
+import worldmapImgTablet from './images/world-map-final-tablet.png';
+import worldmapImgMobile from './images/world-map-final-mobile.png';
 
 export default function WorldMap() {
   return (
@@ -16,12 +18,16 @@ export default function WorldMap() {
           <div className="section-title-line" style={{ margin: '0 auto' }} />
         </div>
         <div className="about-worldmap-wrapper">
-          <img
-            src={worldmapImg}
-            alt="AE Simulators Worldwide Footprint Map"
-            className="about-worldmap-image"
-            loading="lazy"
-          />
+          <picture>
+            <source media="(max-width: 767px)" srcSet={worldmapImgMobile} />
+            <source media="(max-width: 1024px)" srcSet={worldmapImgTablet} />
+            <img
+              src={worldmapImg}
+              alt="AE Simulators Worldwide Footprint Map"
+              className="about-worldmap-image"
+              loading="lazy"
+            />
+          </picture>
         </div>
       </ScrollReveal>
     </section>

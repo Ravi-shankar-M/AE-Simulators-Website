@@ -6,7 +6,11 @@ import ProtectedImage from '../../components/common/ProtectedImage';
 import './MotionPlatform.css';
 
 import actuatorDetailImg from './images/ae-motion-actuator-detail.webp';
+import actuatorDetailImgTablet from './images/ae-motion-actuator-detail-tablet.webp';
+import actuatorDetailImgMobile from './images/ae-motion-actuator-detail-mobile.webp';
 import simulatorCockpitImg from './images/ae-simulator-cockpit.webp';
+import simulatorCockpitImgTablet from './images/ae-simulator-cockpit-tablet.webp';
+import simulatorCockpitImgMobile from './images/ae-simulator-cockpit-mobile.webp';
 
 export default function MotionPlatformPage({ navigate, type = '6DOF' }) {
   const is3Dof = type === '3DOF';
@@ -107,6 +111,8 @@ export default function MotionPlatformPage({ navigate, type = '6DOF' }) {
             <div className="editorial-image-side">
               <ProtectedImage
                 src={actuatorDetailImg}
+                srcTablet={actuatorDetailImgTablet}
+                srcMobile={actuatorDetailImgMobile}
                 alt="AE Motion Actuator Detail"
                 className="editorial-img"
               />
@@ -120,6 +126,8 @@ export default function MotionPlatformPage({ navigate, type = '6DOF' }) {
             <div className="editorial-image-side">
               <ProtectedImage
                 src={simulatorCockpitImg}
+                srcTablet={simulatorCockpitImgTablet}
+                srcMobile={simulatorCockpitImgMobile}
                 alt="AE Simulator Cockpit Rig"
                 className="editorial-img"
               />

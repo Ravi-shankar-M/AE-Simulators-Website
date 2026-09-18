@@ -80,7 +80,7 @@ export default function Header({ currentPath = '/', navigate }) {
     }
   };
 
-  const isProductsActive = currentPath.startsWith('/products') || currentPath === '/solutions';
+  const isProductsActive = currentPath.startsWith('/simulators') || currentPath === '/solutions';
   const isDashboard = currentPath === '/';
 
   return (
@@ -151,9 +151,9 @@ export default function Header({ currentPath = '/', navigate }) {
                     tabIndex={0}
                   >
                     <a
-                      href="/products/gaming"
+                      href="/simulators/gaming"
                       className="flyout-item-link"
-                      onClick={(e) => handleNavClick('/products/gaming', e)}
+                      onClick={(e) => handleNavClick('/simulators/gaming', e)}
                     >
                       <span>GAMING SIMULATORS</span>
                       <ChevronRight size={14} className="flyout-arrow-right" />
@@ -162,25 +162,25 @@ export default function Header({ currentPath = '/', navigate }) {
                     {activeSubMenu === 'gaming' && (
                       <div className="sub-flyout-menu right-flyout font-body" role="menu" aria-label="Gaming Simulators Submenu">
                         <a
-                          href="/products/gaming/static"
-                          className={`sub-flyout-item ${currentPath === '/products/gaming/static' ? 'active' : ''}`}
-                          onClick={(e) => handleNavClick('/products/gaming/static', e)}
+                          href="/simulators/gaming/static"
+                          className={`sub-flyout-item ${currentPath === '/simulators/gaming/static' ? 'active' : ''}`}
+                          onClick={(e) => handleNavClick('/simulators/gaming/static', e)}
                           role="menuitem"
                         >
                           - Static Simulators
                         </a>
                         <a
-                          href="/products/gaming/3dof"
-                          className={`sub-flyout-item ${currentPath === '/products/gaming/3dof' ? 'active' : ''}`}
-                          onClick={(e) => handleNavClick('/products/gaming/3dof', e)}
+                          href="/simulators/gaming/3dof"
+                          className={`sub-flyout-item ${currentPath === '/simulators/gaming/3dof' ? 'active' : ''}`}
+                          onClick={(e) => handleNavClick('/simulators/gaming/3dof', e)}
                           role="menuitem"
                         >
                           - 3-DOF Simulators
                         </a>
                         <a
-                          href="/products/gaming/6dof"
-                          className={`sub-flyout-item ${currentPath === '/products/gaming/6dof' ? 'active' : ''}`}
-                          onClick={(e) => handleNavClick('/products/gaming/6dof', e)}
+                          href="/simulators/gaming/6dof"
+                          className={`sub-flyout-item ${currentPath === '/simulators/gaming/6dof' ? 'active' : ''}`}
+                          onClick={(e) => handleNavClick('/simulators/gaming/6dof', e)}
                           role="menuitem"
                         >
                           - 6-DOF Simulators
@@ -197,9 +197,9 @@ export default function Header({ currentPath = '/', navigate }) {
                     tabIndex={0}
                   >
                     <a
-                      href="/products/training"
+                      href="/simulators/training"
                       className="flyout-item-link"
-                      onClick={(e) => handleNavClick('/products/training', e)}
+                      onClick={(e) => handleNavClick('/simulators/training', e)}
                     >
                       <span>TRAINING SIMULATORS</span>
                       <ChevronRight size={14} className="flyout-arrow-right" />
@@ -208,25 +208,25 @@ export default function Header({ currentPath = '/', navigate }) {
                     {activeSubMenu === 'training' && (
                       <div className="sub-flyout-menu right-flyout font-body" role="menu" aria-label="Training Simulators Submenu">
                         <a
-                          href="/products/training/static"
-                          className={`sub-flyout-item ${currentPath === '/products/training/static' ? 'active' : ''}`}
-                          onClick={(e) => handleNavClick('/products/training/static', e)}
+                          href="/simulators/training/static"
+                          className={`sub-flyout-item ${currentPath === '/simulators/training/static' ? 'active' : ''}`}
+                          onClick={(e) => handleNavClick('/simulators/training/static', e)}
                           role="menuitem"
                         >
                           - Static Simulators
                         </a>
                         <a
-                          href="/products/training/3dof"
-                          className={`sub-flyout-item ${currentPath === '/products/training/3dof' ? 'active' : ''}`}
-                          onClick={(e) => handleNavClick('/products/training/3dof', e)}
+                          href="/simulators/training/3dof"
+                          className={`sub-flyout-item ${currentPath === '/simulators/training/3dof' ? 'active' : ''}`}
+                          onClick={(e) => handleNavClick('/simulators/training/3dof', e)}
                           role="menuitem"
                         >
                           - 3-DOF Simulators
                         </a>
                         <a
-                          href="/products/training/6dof"
-                          className={`sub-flyout-item ${currentPath === '/products/training/6dof' ? 'active' : ''}`}
-                          onClick={(e) => handleNavClick('/products/training/6dof', e)}
+                          href="/simulators/training/6dof"
+                          className={`sub-flyout-item ${currentPath === '/simulators/training/6dof' ? 'active' : ''}`}
+                          onClick={(e) => handleNavClick('/simulators/training/6dof', e)}
                           role="menuitem"
                         >
                           - 6-DOF Simulators
@@ -339,13 +339,13 @@ export default function Header({ currentPath = '/', navigate }) {
 
                       {mobileGamingOpen && (
                         <div className="mobile-nested-links pl-3 mt-1 flex flex-col gap-2">
-                          <a href="/products/gaming/static" className="mobile-sublink" onClick={(e) => handleNavClick('/products/gaming/static', e)}>
+                          <a href="/simulators/gaming/static" className="mobile-sublink" onClick={(e) => handleNavClick('/simulators/gaming/static', e)}>
                             Static Simulators
                           </a>
-                          <a href="/products/gaming/3dof" className="mobile-sublink" onClick={(e) => handleNavClick('/products/gaming/3dof', e)}>
+                          <a href="/simulators/gaming/3dof" className="mobile-sublink" onClick={(e) => handleNavClick('/simulators/gaming/3dof', e)}>
                             3-DOF Simulators
                           </a>
-                          <a href="/products/gaming/6dof" className="mobile-sublink" onClick={(e) => handleNavClick('/products/gaming/6dof', e)}>
+                          <a href="/simulators/gaming/6dof" className="mobile-sublink" onClick={(e) => handleNavClick('/simulators/gaming/6dof', e)}>
                             6-DOF Simulators
                           </a>
                         </div>
@@ -363,13 +363,13 @@ export default function Header({ currentPath = '/', navigate }) {
 
                       {mobileTrainingOpen && (
                         <div className="mobile-nested-links pl-3 mt-1 flex flex-col gap-2">
-                          <a href="/products/training/static" className="mobile-sublink" onClick={(e) => handleNavClick('/products/training/static', e)}>
+                          <a href="/simulators/training/static" className="mobile-sublink" onClick={(e) => handleNavClick('/simulators/training/static', e)}>
                             Static Simulators
                           </a>
-                          <a href="/products/training/3dof" className="mobile-sublink" onClick={(e) => handleNavClick('/products/training/3dof', e)}>
+                          <a href="/simulators/training/3dof" className="mobile-sublink" onClick={(e) => handleNavClick('/simulators/training/3dof', e)}>
                             3-DOF Simulators
                           </a>
-                          <a href="/products/training/6dof" className="mobile-sublink" onClick={(e) => handleNavClick('/products/training/6dof', e)}>
+                          <a href="/simulators/training/6dof" className="mobile-sublink" onClick={(e) => handleNavClick('/simulators/training/6dof', e)}>
                             6-DOF Simulators
                           </a>
                         </div>

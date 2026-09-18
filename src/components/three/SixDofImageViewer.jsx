@@ -74,7 +74,7 @@ const computeJointWorld = (key, curr) => {
   };
 };
 
-export default function SixDofImageViewer({ height = '480px' }) {
+export default function SixDofImageViewer({ height = '450px', demoMode = false }) {
   const [preset, setPreset] = useState('NEUTRAL');
   const [sliders, setSliders] = useState({
     heave: 0,
@@ -302,6 +302,28 @@ export default function SixDofImageViewer({ height = '480px' }) {
     };
   }, [updateDOM]);
 
+  // Auto-play demo mode
+  useEffect(() => {
+    if (!demoMode) return;
+    const presetKeys = Object.keys(PRESETS).filter(k => k !== 'NEUTRAL');
+    let index = 0;
+    
+    // Start with a slight delay
+    const initialTimer = setTimeout(() => {
+      applyPreset(presetKeys[index]);
+    }, 500);
+
+    const intervalId = setInterval(() => {
+      index = (index + 1) % presetKeys.length;
+      applyPreset(presetKeys[index]);
+    }, 2000); // cycle every 2 seconds
+
+    return () => {
+      clearTimeout(initialTimer);
+      clearInterval(intervalId);
+    };
+  }, [demoMode]);
+
   return (
     <div className="sixdof-container" style={{ height }}>
       <div className="sixdof-stage">
@@ -439,159 +461,6 @@ export default function SixDofImageViewer({ height = '480px' }) {
             </g>
           )}
         </svg>
-      </div>
-
-      {/* MOTION CONTROLS */}
-      <div className="sixdof-controls-panel font-mono">
-        <div className="sixdof-preset-buttons">
-          <button
-            type="button"
-            className={`sixdof-btn ${preset === 'NEUTRAL' ? 'active' : ''}`}
-            onClick={() => applyPreset('NEUTRAL')}
-          >
-            <RefreshCw size={12} /> NEUTRAL
-          </button>
-          <button
-            type="button"
-            className={`sixdof-btn ${preset.startsWith('HEAVE') ? 'active' : ''}`}
-            onClick={() => applyPreset(sliders.heave < 0 ? 'HEAVE_DOWN' : 'HEAVE_UP')}
-          >
-            <ArrowUpDown size={12} /> HEAVE
-          </button>
-          <button
-            type="button"
-            className={`sixdof-btn ${preset.startsWith('PITCH') ? 'active' : ''}`}
-            onClick={() => applyPreset(sliders.pitch > 0 ? 'PITCH_UP' : 'PITCH_DOWN')}
-          >
-            <Move size={12} /> PITCH
-          </button>
-          <button
-            type="button"
-            className={`sixdof-btn ${preset.startsWith('ROLL') ? 'active' : ''}`}
-            onClick={() => applyPreset(sliders.roll > 0 ? 'ROLL_LEFT' : 'ROLL_RIGHT')}
-          >
-            <RotateCw size={12} /> ROLL
-          </button>
-          <button
-            type="button"
-            className={`sixdof-btn ${preset.startsWith('SURGE') ? 'active' : ''}`}
-            onClick={() => applyPreset(sliders.surge > 0 ? 'SURGE_BWD' : 'SURGE_FWD')}
-          >
-            <MoveVertical size={12} /> SURGE
-          </button>
-          <button
-            type="button"
-            className={`sixdof-btn ${preset.startsWith('SWAY') ? 'active' : ''}`}
-            onClick={() => applyPreset(sliders.sway < 0 ? 'SWAY_RIGHT' : 'SWAY_LEFT')}
-          >
-            <MoveHorizontal size={12} /> SWAY
-          </button>
-          <button
-            type="button"
-            className={`sixdof-btn ${preset.startsWith('YAW') ? 'active' : ''}`}
-            onClick={() => applyPreset(sliders.yaw > 0 ? 'YAW_LEFT' : 'YAW_RIGHT')}
-          >
-            <Compass size={12} /> YAW
-          </button>
-        </div>
-
-        <div className="sixdof-sliders-grid">
-          <div className="sixdof-slider-group">
-            <div className="slider-label-row">
-              <span>HEAVE</span>
-              <span className="slider-val">{sliders.heave.toFixed(0)} px</span>
-            </div>
-            <input
-              type="range"
-              min="-30"
-              max="30"
-              step="1"
-              value={sliders.heave}
-              onChange={(e) => handleSliderChange('heave', e.target.value)}
-              className="sixdof-slider"
-            />
-          </div>
-
-          <div className="sixdof-slider-group">
-            <div className="slider-label-row">
-              <span>PITCH</span>
-              <span className="slider-val">{sliders.pitch.toFixed(0)}°</span>
-            </div>
-            <input
-              type="range"
-              min="-15"
-              max="15"
-              step="1"
-              value={sliders.pitch}
-              onChange={(e) => handleSliderChange('pitch', e.target.value)}
-              className="sixdof-slider"
-            />
-          </div>
-
-          <div className="sixdof-slider-group">
-            <div className="slider-label-row">
-              <span>ROLL</span>
-              <span className="slider-val">{sliders.roll.toFixed(0)}°</span>
-            </div>
-            <input
-              type="range"
-              min="-15"
-              max="15"
-              step="1"
-              value={sliders.roll}
-              onChange={(e) => handleSliderChange('roll', e.target.value)}
-              className="sixdof-slider"
-            />
-          </div>
-
-          <div className="sixdof-slider-group">
-            <div className="slider-label-row">
-              <span>SURGE</span>
-              <span className="slider-val">{sliders.surge.toFixed(0)} px</span>
-            </div>
-            <input
-              type="range"
-              min="-20"
-              max="20"
-              step="1"
-              value={sliders.surge}
-              onChange={(e) => handleSliderChange('surge', e.target.value)}
-              className="sixdof-slider"
-            />
-          </div>
-
-          <div className="sixdof-slider-group">
-            <div className="slider-label-row">
-              <span>SWAY</span>
-              <span className="slider-val">{sliders.sway.toFixed(0)} px</span>
-            </div>
-            <input
-              type="range"
-              min="-25"
-              max="25"
-              step="1"
-              value={sliders.sway}
-              onChange={(e) => handleSliderChange('sway', e.target.value)}
-              className="sixdof-slider"
-            />
-          </div>
-
-          <div className="sixdof-slider-group">
-            <div className="slider-label-row">
-              <span>YAW</span>
-              <span className="slider-val">{sliders.yaw.toFixed(0)}°</span>
-            </div>
-            <input
-              type="range"
-              min="-15"
-              max="15"
-              step="1"
-              value={sliders.yaw}
-              onChange={(e) => handleSliderChange('yaw', e.target.value)}
-              className="sixdof-slider"
-            />
-          </div>
-        </div>
       </div>
     </div>
   );

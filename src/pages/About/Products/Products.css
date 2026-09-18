@@ -122,7 +122,7 @@
   justify-content: center;
   gap: 10px;
   background: #E31B23;
-  color: #ffffff;
+  color: #ffffff !important;
   border: none;
   padding: 14px 28px;
   border-radius: 8px;
@@ -131,13 +131,22 @@
   font-weight: 700;
   letter-spacing: 0.05em;
   cursor: pointer;
-  transition: background-color 0.25s ease, transform 0.25s ease, box-shadow 0.25s ease;
+  transition: background-color 0.25s ease, transform 0.15s ease, box-shadow 0.25s ease;
 }
 
 .about-product-overlay-content .about-product-btn:hover {
   background: #c1121f;
   transform: translateY(-2px);
   box-shadow: 0 8px 20px rgba(227, 27, 35, 0.45);
+}
+
+.about-product-overlay-content .about-product-btn span {
+  color: #ffffff !important;
+}
+
+.about-product-overlay-content .about-product-btn:active {
+  transform: translateY(2px) scale(0.96);
+  box-shadow: 0 4px 10px rgba(227, 27, 35, 0.3);
 }
 
 .about-product-overlay-content .about-product-btn .btn-icon {

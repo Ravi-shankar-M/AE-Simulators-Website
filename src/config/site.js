@@ -43,19 +43,19 @@ export const SEO_REGISTRY = {
     keywords: 'AE-SIMULATORS about, simulator manufacturer, 6-DOF hexapod, motion platform engineering, driving simulator manufacturer India',
     h1: 'ENGINEERED FOR REAL-WORLD TRAINING & SIMULATION',
   },
-  '/products': {
+  '/simulators': {
     title: 'Simulator Products & Motion Platforms | AE-SIMULATORS',
     description: 'Explore AE-SIMULATORS product catalog including 6-DOF motion platforms, 3-DOF motion platforms, professional sim racing rigs, and driver training platforms.',
     keywords: 'simulator products, 6-DOF motion platform, 3-DOF motion platform, sim racing rigs, driver training platforms, force-feedback controls',
     h1: 'PROFESSIONAL SIMULATOR PRODUCTS & MOTION RIGS',
   },
-  '/products/gaming': {
+  '/simulators/gaming': {
     title: 'Gaming Simulators & Sim Racing Rigs | AE-SIMULATORS',
     description: 'High-performance sim racing cockpits and dynamic 3-DOF / 6-DOF motion gaming platforms built for ultimate motorsport realism.',
     keywords: 'sim racing rigs, gaming simulators, 6-DOF gaming platform, force-feedback racing cockpit',
     h1: 'MOTORSPORT SIM RACING & GAMING RIGS',
   },
-  '/products/training': {
+  '/simulators/training': {
     title: 'Driver Training & Evaluation Simulators | AE-SIMULATORS',
     description: 'Turnkey driver training simulators equipped with real-time collision detection, driver scoring, hazard logging, and telemetry reports.',
     keywords: 'driver training simulator, driver evaluation, driver scoring, telemetry report, vehicle testing simulator',

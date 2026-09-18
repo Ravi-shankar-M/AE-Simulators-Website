@@ -4,16 +4,21 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import ScrollReveal from '../../../components/common/ScrollReveal';
 import ProtectedImage from '../../../components/common/ProtectedImage';
 import DriverEvaluationWorkflow from './DriverEvaluationWorkflow';
-import ThreeDofImageViewer from '../../../components/three/ThreeDofImageViewer';
-import SixDofImageViewer from '../../../components/three/SixDofImageViewer';
+import ActuatorDemoVideo from '../../../components/common/ActuatorDemoVideo';
 import { ShieldCheck, ArrowRight, Cpu, Gauge, Layers, Activity } from 'lucide-react';
 import aeSimHeroImage from '../../Dashboard/Hero/images/ae-sim-hero-image.webp';
 import '../../Dashboard/Hero/Hero.css';
 import './TrainingSimulators.css';
 
 import trainingStaticImg from './images/training_static_rig.jpg';
+import trainingStaticImgTablet from './images/training_static_rig-tablet.jpg';
+import trainingStaticImgMobile from './images/training_static_rig-mobile.jpg';
 import training3dofImg from './images/training_3dof_rig.jpg';
+import training3dofImgTablet from './images/training_3dof_rig-tablet.jpg';
+import training3dofImgMobile from './images/training_3dof_rig-mobile.jpg';
 import training6dofImg from './images/training_6dof_rig.jpg';
+import training6dofImgTablet from './images/training_6dof_rig-tablet.jpg';
+import training6dofImgMobile from './images/training_6dof_rig-mobile.jpg';
 
 if (typeof window !== 'undefined') {
   gsap.registerPlugin(ScrollTrigger);
@@ -26,8 +31,8 @@ export default function TrainingSimulators({ navigate, activeSubtype = 'all' }) 
   const fgLayerRef = useRef(null);
   const textLayerRef = useRef(null);
 
-  const [show3DofKinematics, setShow3DofKinematics] = useState(false);
-  const [show6DofKinematics, setShow6DofKinematics] = useState(false);
+  const [show3DofDemo, setShow3DofDemo] = useState(false);
+  const [show6DofDemo, setShow6DofDemo] = useState(false);
 
   useEffect(() => {
     const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
@@ -207,6 +212,8 @@ export default function TrainingSimulators({ navigate, activeSubtype = 'all' }) 
               <div className="simulator-image-card">
                 <ProtectedImage
                   src={trainingStaticImg}
+                  srcTablet={trainingStaticImgTablet}
+                  srcMobile={trainingStaticImgMobile}
                   alt="Static Driver Training Simulator Platform"
                 />
                 <div className="simulator-image-overlay" />
@@ -260,22 +267,24 @@ export default function TrainingSimulators({ navigate, activeSubtype = 'all' }) 
                 </div>
               </div>
 
-              <div className={`simulator-image-card ${show3DofKinematics ? 'kinematics-active' : ''}`} style={{ position: 'relative' }}>
+              <div className={`simulator-image-card ${show3DofDemo ? 'demo-active' : ''}`} style={{ position: 'relative' }}>
                 <button
                   type="button"
                   className="motion-test-btn"
                   style={{ position: 'absolute', top: '15px', right: '15px', zIndex: 30, boxShadow: '0 4px 12px rgba(0,0,0,0.4)' }}
-                  onClick={() => setShow3DofKinematics((prev) => !prev)}
+                  onClick={() => setShow3DofDemo((prev) => !prev)}
                 >
                   <Activity size={16} style={{ marginRight: '8px' }} />
-                  {show3DofKinematics ? 'SHOW PRODUCT IMAGE' : 'MOTION TEST'}
+                  {show3DofDemo ? 'SHOW PRODUCT IMAGE' : 'ACTUATOR DEMO'}
                 </button>
-                {show3DofKinematics ? (
-                  <ThreeDofImageViewer height="100%" />
+                {show3DofDemo ? (
+                  <ActuatorDemoVideo type="3DOF" height="100%" />
                 ) : (
                   <>
                     <ProtectedImage
                       src={training3dofImg}
+                      srcTablet={training3dofImgTablet}
+                      srcMobile={training3dofImgMobile}
                       alt="3-DOF Motion Training Driving Simulator"
                     />
                     <div className="simulator-image-overlay" />
@@ -296,22 +305,24 @@ export default function TrainingSimulators({ navigate, activeSubtype = 'all' }) 
             </p>
 
             <div className="simulator-section-grid">
-              <div className={`simulator-image-card ${show6DofKinematics ? 'kinematics-active' : ''}`} style={{ position: 'relative' }}>
+              <div className={`simulator-image-card ${show6DofDemo ? 'demo-active' : ''}`} style={{ position: 'relative' }}>
                 <button
                   type="button"
                   className="motion-test-btn"
                   style={{ position: 'absolute', top: '15px', right: '15px', zIndex: 30, boxShadow: '0 4px 12px rgba(0,0,0,0.4)' }}
-                  onClick={() => setShow6DofKinematics((prev) => !prev)}
+                  onClick={() => setShow6DofDemo((prev) => !prev)}
                 >
                   <Activity size={16} style={{ marginRight: '8px' }} />
-                  {show6DofKinematics ? 'SHOW PRODUCT IMAGE' : 'MOTION TEST'}
+                  {show6DofDemo ? 'SHOW PRODUCT IMAGE' : 'ACTUATOR DEMO'}
                 </button>
-                {show6DofKinematics ? (
-                  <SixDofImageViewer height="100%" />
+                {show6DofDemo ? (
+                  <ActuatorDemoVideo type="6DOF" height="100%" />
                 ) : (
                   <>
                     <ProtectedImage
                       src={training6dofImg}
+                      srcTablet={training6dofImgTablet}
+                      srcMobile={training6dofImgMobile}
                       alt="6-DOF Driver Training Simulator Platform"
                     />
                     <div className="simulator-image-overlay" />

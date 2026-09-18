@@ -23,7 +23,7 @@
 }
 
 .simulators-landing-title {
-  font-size: 3.2rem;
+  font-size: 2.4rem;
   font-weight: 900;
   color: #17191C;
   letter-spacing: -0.02em;
@@ -38,11 +38,8 @@
 }
 
 .simulators-360-block {
-  background: #FFFFFF;
-  border: 1px solid #E2E2E2;
-  border-radius: 16px;
-  padding: 36px 36px 48px 36px;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.04);
+  /* Removed card styling to place directly on the website background */
+  width: 100%;
 }
 
 @media (max-width: 768px) {
@@ -55,10 +52,10 @@
   }
 
   .simulators-landing-title {
-    font-size: 2.2rem;
+    font-size: 1.8rem;
   }
 
   .simulators-360-block {
-    padding: 20px 14px 28px 14px;
+    /* Padding removed */
   }
 }
