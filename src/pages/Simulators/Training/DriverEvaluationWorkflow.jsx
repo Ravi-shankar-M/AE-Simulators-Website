@@ -5,7 +5,6 @@ import './DriverEvaluationWorkflow.css';
 const STEPS = [
   { title: 'DRIVE', subtitle: 'Driver Execution & Hazard Interaction', icon: Car, desc: 'Driver operates the physical simulator rig through defined road scenarios, traffic signals, turning maneuvers, and emergency hazard events.' },
   { title: 'RECORD', subtitle: 'High-Frequency Sensor Data Acquisition', icon: Database, desc: 'Synchronous logging of vehicle telemetry including speed vectors, pedal displacement, steering lock angles, lane deviation, and brake force.' },
-  { title: 'ANALYSE', subtitle: 'Automated Event & Violation Detection', icon: Activity, desc: 'Evaluation algorithm continuously cross-references driver inputs against road compliance rules, speed limits, amber light dilemmas, and clearance distances.' },
   { title: 'SCORE', subtitle: 'Intelligent Driver Performance Matrix', icon: Award, desc: 'Scores overall driving behavior on a 0–100 rating based on safety adherence, input smoothness, lane discipline, and emergency reaction times.' },
   { title: 'REPORT', subtitle: 'Comprehensive PDF Session Archiving', icon: FileText, desc: 'Generates structured evaluation reports complete with graph plots, traffic infraction logs, instructor notes, and session replay benchmarks.' }
 ];
@@ -63,10 +62,6 @@ export default function DriverEvaluationWorkflow() {
   const renderRecordVisual = () => (
     <div className="telemetry-visual record-stage">
       <div className="r-row">
-        <span className="r-label">RPM</span>
-        <div className="r-track"><div className="r-fill anim-fill" style={{ width: '80%', animationDelay: '0s' }}></div></div>
-      </div>
-      <div className="r-row">
         <span className="r-label">SPEED</span>
         <div className="r-track"><div className="r-fill anim-fill" style={{ width: '60%', animationDelay: '0.1s' }}></div></div>
       </div>
@@ -77,22 +72,6 @@ export default function DriverEvaluationWorkflow() {
       <div className="r-row">
         <span className="r-label">STEERING</span>
         <div className="r-track"><div className="r-fill anim-fill" style={{ width: '45%', animationDelay: '0.3s' }}></div></div>
-      </div>
-    </div>
-  );
-
-  const renderAnalyseVisual = () => (
-    <div className="telemetry-visual analyse-stage">
-      <div className="graph-container">
-        <svg viewBox="0 0 400 100" className="analyse-graph" preserveAspectRatio="none">
-          <path className="graph-grid" d="M 0,25 L 400,25 M 0,50 L 400,50 M 0,75 L 400,75" fill="none" stroke="rgba(0,0,0,0.05)" strokeWidth="1" />
-          <path className="graph-path" d="M 0,80 Q 50,80 75,40 T 150,20 T 220,60 T 300,10 T 400,50" fill="none" stroke="#E31B23" strokeWidth="2.5" />
-        </svg>
-        <div className="scanning-line"></div>
-      </div>
-      <div className="analysis-tags">
-        <span className="a-tag blink">PATTERN DETECTED</span>
-        <span className="a-tag">LATENCY: 12ms</span>
       </div>
     </div>
   );
@@ -135,9 +114,8 @@ export default function DriverEvaluationWorkflow() {
     switch (idx) {
       case 0: return renderDriveVisual();
       case 1: return renderRecordVisual();
-      case 2: return renderAnalyseVisual();
-      case 3: return renderScoreVisual();
-      case 4: return renderReportVisual();
+      case 2: return renderScoreVisual();
+      case 3: return renderReportVisual();
       default: return null;
     }
   };
