@@ -9,4 +9,4 @@ Disallow: /.git/
 Disallow: /.env
 Disallow: /private-masters/
 
-Sitemap: https://ravi-shankar-m.github.io/AE-Simulators-Website/sitemap.xml
+Sitemap: https://aesimulators.com/sitemap.xml
