@@ -12,7 +12,8 @@ export default function BrandIntro({ onFinished, onStartReveal }) {
   useEffect(() => {
     const checkViewport = () => {
       const width = window.innerWidth;
-      if (width <= 767) return introVideoMobile;
+      // Use the landscape desktop video for mobile as requested
+      if (width <= 767) return introVideo;
       if (width <= 1024) return introVideoTablet;
       return introVideo;
     };

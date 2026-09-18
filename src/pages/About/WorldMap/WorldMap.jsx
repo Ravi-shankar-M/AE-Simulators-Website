@@ -19,7 +19,7 @@ export default function WorldMap() {
         </div>
         <div className="about-worldmap-wrapper">
           <picture>
-            <source media="(max-width: 767px)" srcSet={worldmapImgMobile} />
+            <source media="(max-width: 767px)" srcSet={worldmapImg} />
             <source media="(max-width: 1024px)" srcSet={worldmapImgTablet} />
             <img
               src={worldmapImg}
