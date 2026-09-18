@@ -1,9 +1,8 @@
-import React, { useState, useEffect } from 'react';
+import React, { useEffect } from 'react';
 import ScrollReveal from '../../../components/common/ScrollReveal';
 import ProtectedImage from '../../../components/common/ProtectedImage';
-import ActuatorDemoVideo from '../../../components/common/ActuatorDemoVideo';
 import ActuatorScrollExperience from '../ActuatorSequence/ActuatorSequence';
-import { ShieldCheck, ArrowRight, Activity } from 'lucide-react';
+import { ShieldCheck, ArrowRight } from 'lucide-react';
 import './GamingSimulators.css';
 
 import gamingStaticImg from './images/gaming_static_rig.jpg';
@@ -17,11 +16,11 @@ import gaming6dofImgTablet from './images/gaming_6dof_rig-tablet.jpg';
 import gaming6dofImgMobile from './images/gaming_6dof_rig-mobile.jpg';
 
 export default function GamingSimulatorsPage({ navigate, activeSubtype = 'all' }) {
-  const [show3DofDemo, setShow3DofDemo] = useState(false);
-  const [show6DofDemo, setShow6DofDemo] = useState(false);
-
   const handleNavigate = (path, e) => {
-    if (e) e.preventDefault();
+    if (e) {
+      e.preventDefault();
+      e.stopPropagation();
+    }
     if (navigate) navigate(path);
   };
 
@@ -99,8 +98,6 @@ export default function GamingSimulatorsPage({ navigate, activeSubtype = 'all' }
                   Engineering-grade static sim racing cockpits built for high-end esports competition, home sim racing setups, and commercial entertainment centers. Constructed with heavy-duty aluminum extrusions to eliminate flex under intense steering wheel torque and heavy pedal braking.
                 </p>
 
-
-
                 <button
                   type="button"
                   className="contact-us-red-btn"
@@ -129,8 +126,6 @@ export default function GamingSimulatorsPage({ navigate, activeSubtype = 'all' }
                   Dynamic 3-DOF motion platform bringing real-road chassis G-forces, suspension bumps, and apex cornering inertia straight into your racing cockpit. Powered by 3 high-speed smooth electric motors with instant response time.
                 </p>
 
-
-
                 <div style={{ display: 'flex', gap: '12px', flexWrap: 'wrap', marginTop: '1rem' }}>
                   <button
                     type="button"
@@ -142,29 +137,14 @@ export default function GamingSimulatorsPage({ navigate, activeSubtype = 'all' }
                 </div>
               </div>
 
-              <div className={`simulator-image-card ${show3DofDemo ? 'demo-active' : ''}`} style={{ position: 'relative' }}>
-                <button
-                  type="button"
-                  className="motion-test-btn"
-                  style={{ position: 'absolute', top: '15px', right: '15px', zIndex: 30, boxShadow: '0 4px 12px rgba(0,0,0,0.4)' }}
-                  onClick={() => setShow3DofDemo((prev) => !prev)}
-                >
-                  <Activity size={16} style={{ marginRight: '8px' }} />
-                  {show3DofDemo ? 'SHOW PRODUCT IMAGE' : 'ACTUATOR DEMO'}
-                </button>
-                {show3DofDemo ? (
-                  <ActuatorDemoVideo type="3DOF" height="100%" />
-                ) : (
-                  <>
-                    <ProtectedImage
-                      src={gaming3dofImg}
-                      srcTablet={gaming3dofImgTablet}
-                      srcMobile={gaming3dofImgMobile}
-                      alt="3-DOF Motion Gaming Simulator Rig"
-                    />
-                    <div className="simulator-image-overlay" />
-                  </>
-                )}
+              <div className="simulator-image-card" style={{ position: 'relative' }}>
+                <ProtectedImage
+                  src={gaming3dofImg}
+                  srcTablet={gaming3dofImgTablet}
+                  srcMobile={gaming3dofImgMobile}
+                  alt="3-DOF Motion Gaming Simulator Rig"
+                />
+                <div className="simulator-image-overlay" />
               </div>
             </div>
           </section>
@@ -180,29 +160,14 @@ export default function GamingSimulatorsPage({ navigate, activeSubtype = 'all' }
             </p>
 
             <div className="simulator-section-grid">
-              <div className={`simulator-image-card ${show6DofDemo ? 'demo-active' : ''}`} style={{ position: 'relative' }}>
-                <button
-                  type="button"
-                  className="motion-test-btn"
-                  style={{ position: 'absolute', top: '15px', right: '15px', zIndex: 30, boxShadow: '0 4px 12px rgba(0,0,0,0.4)' }}
-                  onClick={() => setShow6DofDemo((prev) => !prev)}
-                >
-                  <Activity size={16} style={{ marginRight: '8px' }} />
-                  {show6DofDemo ? 'SHOW PRODUCT IMAGE' : 'ACTUATOR DEMO'}
-                </button>
-                {show6DofDemo ? (
-                  <ActuatorDemoVideo type="6DOF" height="100%" />
-                ) : (
-                  <>
-                    <ProtectedImage
-                      src={gaming6dofImg}
-                      srcTablet={gaming6dofImgTablet}
-                      srcMobile={gaming6dofImgMobile}
-                      alt="6-DOF Motion Simulator"
-                    />
-                    <div className="simulator-image-overlay" />
-                  </>
-                )}
+              <div className="simulator-image-card" style={{ position: 'relative' }}>
+                <ProtectedImage
+                  src={gaming6dofImg}
+                  srcTablet={gaming6dofImgTablet}
+                  srcMobile={gaming6dofImgMobile}
+                  alt="6-DOF Motion Simulator"
+                />
+                <div className="simulator-image-overlay" />
               </div>
 
               <div className="simulator-info-content">
